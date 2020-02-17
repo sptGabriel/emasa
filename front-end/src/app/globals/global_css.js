@@ -7,6 +7,10 @@ export default function GlobalStyle(props) {
   return (
     <Global
       styles={css`
+        * {
+          padding: 0;
+          margin: 0;
+        }
         *,
         *::before,
         *::after {
@@ -61,19 +65,14 @@ export default function GlobalStyle(props) {
           margin: 0;
         }
 
-        html {
-          font-size: 1px; /*for using REM units*/
-        }
         body {
           background: ${theme.colors.background};
           color: ${theme.colors.text};
+          transition-duration: 0.4s;
+          transition-property: background-color, color;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
             'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
             sans-serif;
-          font-size: 16rem;
-          font-weight: 400;
-          line-height: 1.3;
-          color: #222;
         }
       `}
     />

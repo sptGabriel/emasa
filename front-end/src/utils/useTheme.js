@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { darkTheme, lightTheme } from '../themes/index';
 
 export default function useTheme(defaultTheme = lightTheme) {
