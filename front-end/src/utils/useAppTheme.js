@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { darkTheme, lightTheme } from '../themes/index';
 
-export default function useTheme(defaultTheme = lightTheme) {
+export default function useAppTheme(defaultTheme = lightTheme) {
   const [theme, _setTheme] = useState(getInitialTheme);
 
   function getInitialTheme() {
@@ -18,7 +18,7 @@ export default function useTheme(defaultTheme = lightTheme) {
   }, [theme]);
 
   return {
-    ...theme,
+    theme,
     setTheme: ({ setTheme, ...theme }) => {
       if (theme.type === 'dark') {
         return _setTheme(darkTheme);

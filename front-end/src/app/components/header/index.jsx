@@ -1,60 +1,70 @@
 import React, { useState } from 'react';
-import { Container, Content, HeaderTop, Nav } from './styles';
+import {
+  Container,
+  Content,
+  HeaderTop,
+  Nav,
+  WrapperTop,
+  ContainerTop,
+  ContainerNav,
+} from './styles';
 import { useTheme } from 'emotion-theming';
 
-const Top = props => {
+const ItemsTop = props => {
   return (
-    <HeaderTop justify={'space-between'} align={'center'} flexdirection={'row'}>
+    <WrapperTop
+      justify={'space-between'}
+      align={'center'}
+      flexdirection={'row'}
+    >
       <div>a</div>
-      <div>b</div>
       <div>a</div>
-    </HeaderTop>
+      <div>a</div>
+    </WrapperTop>
+  );
+};
+
+const TopHeader = props => {
+  return (
+    <ContainerTop>
+      <Content>
+        <HeaderTop>
+          <ItemsTop />
+        </HeaderTop>
+      </Content>
+    </ContainerTop>
   );
 };
 
 const NavBar = props => {
   return (
-    <Nav>
-      <ul>
-        <li>
-          <a>home</a>
-        </li>
-        <li>
-          <a>test</a>
-        </li>
-        <li>
-          <a>test</a>
-        </li>
-      </ul>
-    </Nav>
+    <ContainerNav>
+      <Content>
+        <Nav>
+          <ul>
+            <li>
+              <a href="#home">home</a>
+            </li>
+            <li>
+              <a href="#homex">test</a>
+            </li>
+            <li>
+              <a href="#homexv">test</a>
+            </li>
+          </ul>
+        </Nav>
+      </Content>
+    </ContainerNav>
   );
 };
 
 const Header = () => {
   const Theme = useTheme();
-  const [text, setText] = useState('');
-  const handleClick = () => {
-    setText('');
-  };
+
   return (
     <Container theme={Theme}>
-      <Content theme={Theme} flexdirection={'column'}>
-        {/* <textarea
-          onKeyPress={e => {
-            if (e.key === 'Enter') {
-              e.preventDefault();
-            }
-            if (e.key === 'Enter') {
-              handleClick();
-            }
-          }}
-          value={text}
-          onChange={e => setText(e.target.value)}
-          placeholder="Digite aqui sua mensagem"
-        /> */}
-        <Top theme={Theme} />
-        <NavBar theme={Theme} />
-      </Content>
+      <TopHeader theme={Theme} />
+      <NavBar theme={Theme} />
     </Container>
   );
 };

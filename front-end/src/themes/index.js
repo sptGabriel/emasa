@@ -12,6 +12,10 @@ export const lightTheme = {
     background: '#f5f5f5',
     text: '#333',
   },
+  gradientHeader: {
+    primary: '#2176FF',
+    secondary: '#33A1FD',
+  },
 };
 
 export const darkTheme = {
@@ -22,5 +26,9 @@ export const darkTheme = {
 
     background: '#333',
     text: '#fff',
+  },
+  gradientHeader: {
+    primary: '#2176FF',
+    secondary: '#33A1FD',
   },
 };

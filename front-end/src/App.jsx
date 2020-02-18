@@ -1,14 +1,16 @@
 /** @jsx jsx */
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { jsx, css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import GlobalStyle from './app/globals/global_css';
-import useTheme from './utils/useTheme';
-import Header from './app/components/header';
+import useAppTheme from './utils/useAppTheme';
+import Header from 'app/components/header/index';
 
 export default function App() {
-  const theme = useTheme();
-  console.log(theme, 'a');
+  const { theme, setTheme } = useAppTheme();
+
+  useEffect(() => {});
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
@@ -22,7 +24,7 @@ export default function App() {
             border-radius: 10px;
           `}
           onClick={() =>
-            theme.setTheme(
+            setTheme(
               theme.type === 'dark' ? { type: 'light' } : { type: 'dark' },
             )
           }
