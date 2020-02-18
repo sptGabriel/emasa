@@ -9,7 +9,7 @@ export const lightTheme = {
     primary: '#3772FF',
     secondary: '#DF2935',
 
-    background: '#f5f5f5',
+    background: '#FFF',
     text: '#333',
   },
   gradientHeader: {

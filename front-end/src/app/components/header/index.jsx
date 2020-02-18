@@ -7,8 +7,21 @@ import {
   WrapperTop,
   ContainerTop,
   ContainerNav,
+  LogoContent,
+  SearchContainer,
+  IconContainer,
+  Center,
+  Accessibility,
+  AccessibilityTwo,
 } from './styles';
 import { useTheme } from 'emotion-theming';
+import LogoImg from 'assets/images/logo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faSearch,
+  faAdjust,
+  faTextHeight,
+} from '@fortawesome/free-solid-svg-icons';
 
 const ItemsTop = props => {
   return (
@@ -17,9 +30,50 @@ const ItemsTop = props => {
       align={'center'}
       flexdirection={'row'}
     >
-      <div>a</div>
-      <div>a</div>
-      <div>a</div>
+      <img src={LogoImg} />
+      <SearchContainer>
+        <div>
+          <FontAwesomeIcon
+            className="searchIcon"
+            icon={faSearch}
+            size="2x"
+            fixedWidth
+            color="white"
+          />
+        </div>
+        <input></input>
+      </SearchContainer>
+      {/* <Accessibility>
+        <h3>Acessibilidade:</h3>
+        <FontAwesomeIcon
+          icon={faTextHeight}
+          size="1x"
+          fixedWidth
+          color="#14BDEB"
+        />
+        <FontAwesomeIcon
+          className="adjust"
+          icon={faAdjust}
+          size="1x"
+          fixedWidth
+          color="#14BDEB"
+        />
+      </Accessibility> */}
+      <AccessibilityTwo>
+        <FontAwesomeIcon
+          className="adjust"
+          icon={faAdjust}
+          size="1x"
+          fixedWidth
+          color="white"
+        />
+        <FontAwesomeIcon
+          icon={faTextHeight}
+          size="1x"
+          fixedWidth
+          color="white"
+        />
+      </AccessibilityTwo>
     </WrapperTop>
   );
 };
@@ -43,13 +97,13 @@ const NavBar = props => {
         <Nav>
           <ul>
             <li>
-              <a href="#home">home</a>
+              <a href="#home"></a>
             </li>
             <li>
-              <a href="#homex">test</a>
+              <a href="#homex"></a>
             </li>
             <li>
-              <a href="#homexv">test</a>
+              <a href="#homexv"></a>
             </li>
           </ul>
         </Nav>

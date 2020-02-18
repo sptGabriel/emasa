@@ -3,7 +3,6 @@ import { css } from '@emotion/core';
 export const flex = props => css`
   display: flex;
   flex-direction: ${props.flexdirection};
-  width: 100%;
 `;
 
 export const flexCenter = props => css`

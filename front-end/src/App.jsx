@@ -16,21 +16,6 @@ export default function App() {
       <GlobalStyle />
       <div className="App">
         <Header />
-        <button
-          css={css`
-            background: red;
-            width: 100px;
-            height: 50px;
-            border-radius: 10px;
-          `}
-          onClick={() =>
-            setTheme(
-              theme.type === 'dark' ? { type: 'light' } : { type: 'dark' },
-            )
-          }
-        >
-          a
-        </button>
       </div>
     </ThemeProvider>
   );
