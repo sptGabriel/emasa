@@ -4,6 +4,22 @@ import { shade } from 'polished';
 // box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 7px 0 rgba(0, 0, 0, 0.1),
 // 0 3px 1px -1px rgba(0, 0, 0, 0.2); 2a2d34
 
+const sizeCheck = (font, multiply) => {
+  console.log(multiply !== 0);
+  switch (multiply) {
+    case 1:
+      return `font-size: ${font * multiply}px;`;
+    case 2:
+      return `font-size: ${font + multiply}px;`;
+    case 3:
+      return `font-size: ${font + multiply}px;`;
+    case 4:
+      return `font-size: ${font + multiply}px;`;
+    default:
+      return `font-size: ${font}`;
+  }
+};
+
 export const Container = styled.div`
   width: 100%;
 `;
@@ -32,8 +48,8 @@ export const Nav = styled.nav`
     text-align: center;
     cursor: pointer;
     text-transform: uppercase;
-    font-size: 16px;
-    color: ${props => props.theme.colors.primary};
+    ${({ fontSize }) => sizeCheck(15, fontSize)};
+    color: ${props => props.theme.colors.nav};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: initial;
@@ -45,7 +61,7 @@ export const IconContainer = styled.div``;
 export const SearchContainer = styled.div`
   display: inline-flex;
   align-items: center;
-  width: 350px;
+  width: 33.3333%;
   border-radius: 25px;
   overflow: hidden;
   height: 50px;
@@ -87,20 +103,59 @@ export const SearchContainer = styled.div`
     }
   }
 `;
-
-export const Accessibility = styled.div`
-  ${flex}
-  width:200px;
+export const ImgWrap = styled.div`
+  width: 33.3333%;
+  display: flex;
   align-items: center;
-  & > h3 {
-    margin-right: 6px;
+  & > img {
+    width: 80px;
   }
-  & > svg {
-    cursor: pointer;
-    font-size: 1em;
+`;
+export const Accessibility = styled.nav`
+  width: 33.3333%;
+  height: 100%;
+  & > ul {
+    ${flexAlignCenter}
+    width:100%;
+    flex-wrap: wrap;
+    height: auto;
+    justify-content: center;
   }
-  & > svg:nth-child(2) {
-    margin-right: 5px;
+  & > ul > li {
+    position: relative;
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    line-height: 24px;
+    color: #fff;
+    user-select: none;
+  }
+  & > ul > li:nth-child(2) {
+    cursor: not-allowed;
+    pointer-events: none;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+    opacity: 0.5;
+    padding: 0 9px;
+  }
+  & > ul > li:nth-child(3) {
+    font-size: 18px;
+    font-weight: 700;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 0 9px;
+  }
+  & > ul > li > a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    line-height: 24px;
+  }
+  & > ul > li > a > p {
+    position: relative;
+    display: inline-block;
+    pointer-events: none;
+    padding: 0 9px;
   }
 `;
 
@@ -138,6 +193,13 @@ export const HeaderTop = styled.div`
   ${mxw80}
   padding-bottom: 10px;
   padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 0;
+  & > img {
+    width: 90px;
+  }
 `;
 
 export const ContainerTop = styled.div`

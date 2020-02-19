@@ -7,7 +7,8 @@ export const lightTheme = {
   type: 'light',
   navbar: {
     background: {
-      topbar: '#01baef',
+      topbar: '#004FFF',
+      savColor: '#01baef',
       navmain: '#8ac926',
       search: 'rgba(0, 0, 0, 0.1)',
     },
@@ -15,6 +16,7 @@ export const lightTheme = {
   colors: {
     primary: '#fff',
     secondary: '#2a2d34',
+    nav: '#2a2d34',
 
     background: '#FFF',
     text: '#333',
@@ -37,7 +39,7 @@ export const darkTheme = {
   colors: {
     primary: 'white',
     secondary: '#DF2935',
-
+    nav: '#fff',
     background: '#111',
     text: '#fff',
   },
