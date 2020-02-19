@@ -1,13 +1,11 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { flexCenter, mxw80, flex, flexAlignCenter } from '../../globals/flex';
-
+import { shade } from 'polished';
 // box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 7px 0 rgba(0, 0, 0, 0.1),
-// 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+// 0 3px 1px -1px rgba(0, 0, 0, 0.2); 2a2d34
 
 export const Container = styled.div`
   width: 100%;
-  height: 130px;
-  margin-bottom: 30px;
 `;
 
 export const Content = styled.div`
@@ -16,13 +14,30 @@ export const Content = styled.div`
 `;
 
 export const Nav = styled.nav`
-  height: 100%;
+  height: auto;
   ${flexAlignCenter}
   & > ul {
     ${flexAlignCenter}
+    width:100%;
+    flex-wrap: wrap;
+    height: auto;
+    justify-content: center;
   }
   & > ul > li {
-    margin-right: 20px;
+    padding: 1em 0.5em 1.05em;
+  }
+  & > ul > li > a {
+    margin: 0 2px;
+    padding: 0 8px;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: ${props => props.theme.colors.primary};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: initial;
+    font-family: Roboto, Arial, sans-serif;
   }
 `;
 
@@ -35,17 +50,18 @@ export const SearchContainer = styled.div`
   overflow: hidden;
   height: 50px;
   border: 0;
-  background: rgba(0, 0, 0, 0.1) !important;
+  background: ${props => props.theme.navbar.background.search};
   box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.07);
   transition: all 0.4s;
   margin-right: 20px;
-  & > div:nth-child(1) {
+  ${IconContainer} {
     ${flexAlignCenter}
     width: 50px;
     padding: 0.5rem 1.3rem;
     height: 100%;
     & > svg {
       font-size: 1.3em;
+      color: ${props => props.theme.colors.primary};
     }
   }
   & > input {
@@ -53,8 +69,22 @@ export const SearchContainer = styled.div`
     width: calc(100% - 50px);
     height: 100%;
     border: 0;
-    padding: 0.5rem 0.5rem 0.5rem 0;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     outline: none;
+    color: ${props => props.theme.colors.primary};
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: initial;
+    font-family: Roboto, Arial, sans-serif;
+    ::placeholder {
+      font-size: 16px;
+      color: ${props => props.theme.colors.primary};
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      box-sizing: initial;
+      font-family: Roboto, Arial, sans-serif;
+    }
   }
 `;
 
@@ -83,10 +113,11 @@ export const AccessibilityTwo = styled.div`
   height: 50px;
   justify-content: center;
   & > h3 {
-    color: white;
+    color: ${props => props.theme.colors.primary};
     margin-right: 5px;
   }
   & > svg {
+    color: ${props => props.theme.colors.primary};
     cursor: pointer;
   }
   & > svg:nth-child(2) {
@@ -112,15 +143,16 @@ export const HeaderTop = styled.div`
 export const ContainerTop = styled.div`
   position: relative;
   width: 100%;
-  background: #004fff;
+  background: ${props => props.theme.navbar.background.topbar};
   box-shadow: 0 0 5px rgba(18, 23, 39, 0.2);
 `;
 
 export const ContainerNav = styled.div`
   width: 100%;
-  height: 50px;
-  background: #fcab10;
-  color: white;
+  background: ${props => props.theme.navbar.background.navmain};
+  height: auto;
+  flex-wrap: wrap;
+  box-shadow: 0 0 5px rgba(18, 23, 39, 0.4);
 `;
 
 export const LogoContent = styled.div`

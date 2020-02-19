@@ -24,6 +24,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const ItemsTop = props => {
+  const { setTheme } = props.props;
+  const { theme } = props.props;
   return (
     <WrapperTop
       justify={'space-between'}
@@ -31,8 +33,8 @@ const ItemsTop = props => {
       flexdirection={'row'}
     >
       <img src={LogoImg} />
-      <SearchContainer>
-        <div>
+      <SearchContainer theme={props.theme}>
+        <IconContainer>
           <FontAwesomeIcon
             className="searchIcon"
             icon={faSearch}
@@ -40,8 +42,8 @@ const ItemsTop = props => {
             fixedWidth
             color="white"
           />
-        </div>
-        <input></input>
+        </IconContainer>
+        <input placeholder="Pesquisar"></input>
       </SearchContainer>
       {/* <Accessibility>
         <h3>Acessibilidade:</h3>
@@ -59,13 +61,18 @@ const ItemsTop = props => {
           color="#14BDEB"
         />
       </Accessibility> */}
-      <AccessibilityTwo>
+      <AccessibilityTwo theme={props.theme}>
         <FontAwesomeIcon
           className="adjust"
           icon={faAdjust}
           size="1x"
           fixedWidth
           color="white"
+          onClick={() => {
+            setTheme(
+              theme.type === 'dark' ? { type: 'light' } : { type: 'dark' },
+            );
+          }}
         />
         <FontAwesomeIcon
           icon={faTextHeight}
@@ -80,10 +87,10 @@ const ItemsTop = props => {
 
 const TopHeader = props => {
   return (
-    <ContainerTop>
+    <ContainerTop theme={props.theme}>
       <Content>
         <HeaderTop>
-          <ItemsTop />
+          <ItemsTop props={props} />
         </HeaderTop>
       </Content>
     </ContainerTop>
@@ -91,19 +98,29 @@ const TopHeader = props => {
 };
 
 const NavBar = props => {
+  console.log(props.theme);
   return (
-    <ContainerNav>
+    <ContainerNav theme={props.theme}>
       <Content>
-        <Nav>
+        <Nav theme={props.theme}>
           <ul>
             <li>
-              <a href="#home"></a>
+              <a href="#home">Emasa</a>
             </li>
             <li>
-              <a href="#homex"></a>
+              <a href="#homex">Anuário</a>
             </li>
             <li>
-              <a href="#homexv"></a>
+              <a href="#homexv">Informativo</a>
+            </li>
+            <li>
+              <a href="#homexv">Transparência</a>
+            </li>
+            <li>
+              <a href="#homexv">Licitação</a>
+            </li>
+            <li>
+              <a href="#homexv">Contato</a>
             </li>
           </ul>
         </Nav>
@@ -112,12 +129,11 @@ const NavBar = props => {
   );
 };
 
-const Header = () => {
+const Header = props => {
   const Theme = useTheme();
-
   return (
     <Container theme={Theme}>
-      <TopHeader theme={Theme} />
+      <TopHeader theme={Theme} setTheme={props.setTheme} />
       <NavBar theme={Theme} />
     </Container>
   );

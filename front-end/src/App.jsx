@@ -15,7 +15,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <div className="App">
-        <Header />
+        <Header setTheme={setTheme} />
       </div>
     </ThemeProvider>
   );

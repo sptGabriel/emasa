@@ -6,7 +6,11 @@ export default function useAppTheme(defaultTheme = lightTheme) {
 
   function getInitialTheme() {
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark' || savedTheme === 'light') {
+
+    if (
+      JSON.parse(savedTheme) === 'dark' ||
+      JSON.parse(savedTheme) === 'light'
+    ) {
       return JSON.parse(savedTheme) === 'dark' ? darkTheme : defaultTheme;
     } else {
       return defaultTheme;
