@@ -27,6 +27,7 @@ import {
 const NavAcessibility = props => {
   const { theme, setTheme } = props;
   const { multiplyFont, setFont } = props;
+  console.log(props);
   return (
     <Accessibility {...props}>
       <ul>
@@ -101,10 +102,10 @@ const ItemsTop = props => {
 const TopHeader = props => {
   const Theme = useTheme();
   return (
-    <ContainerTop theme={props.theme}>
+    <ContainerTop theme={Theme}>
       <HeaderTop>
         <ItemsTop {...props} />
-        <NavAcessibility {...props} />
+        <NavAcessibility {...props} theme={Theme} />
       </HeaderTop>
     </ContainerTop>
   );
