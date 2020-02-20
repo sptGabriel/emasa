@@ -1,6 +1,6 @@
 import styled from '@emotion/styled/macro';
-import { flexCenter, mxw80, flex, flexAlignCenter } from '../../globals/flex';
-import { shade } from 'polished';
+import { mxw80, flex, flexAlignCenter } from '../../../globals/flex';
+
 // box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 7px 0 rgba(0, 0, 0, 0.1),
 // 0 3px 1px -1px rgba(0, 0, 0, 0.2); 2a2d34
 
@@ -18,10 +18,6 @@ const sizeCheck = (font, multiply) => {
       return `font-size: ${font}`;
   }
 };
-
-export const Container = styled.div`
-  width: 100%;
-`;
 
 export const Content = styled.div`
   ${mxw80}
@@ -108,6 +104,7 @@ export const ImgWrap = styled.div`
   align-items: center;
   & > img {
     width: 80px;
+    margin-right: 10px;
   }
 `;
 export const Accessibility = styled.nav`
@@ -129,7 +126,8 @@ export const Accessibility = styled.nav`
     color: #fff;
     user-select: none;
   }
-  & > ul > li:nth-child(2) {
+
+  & > ul > li:nth-of-type(2) {
     ${props => {
       if (props.multiplyFont === 1) {
         return `
@@ -149,7 +147,7 @@ export const Accessibility = styled.nav`
     font-weight: 700;
     padding: 0 9px;
   }
-  & > ul > li:nth-child(3) {
+  & > ul > li:nth-of-type(3) {
     ${props => {
       if (props.multiplyFont === 4) {
         return `
@@ -184,36 +182,6 @@ export const Accessibility = styled.nav`
   }
 `;
 
-export const AccessibilityTwo = styled.div`
-  display: inline-flex;
-  align-items: center;
-  width: 100px;
-  border-radius: 25px;
-  overflow: hidden;
-  height: 50px;
-  justify-content: center;
-  & > h3 {
-    color: ${props => props.theme.colors.primary};
-    margin-right: 5px;
-  }
-  & > svg {
-    color: ${props => props.theme.colors.primary};
-    cursor: pointer;
-  }
-  & > svg:nth-child(2) {
-    margin-left: 20px;
-  }
-`;
-
-export const WrapperTop = styled.div`
-  ${flexCenter}
-  width: 100%;
-  height: 65px;
-  & > img {
-    width: 90px;
-  }
-`;
-
 export const HeaderTop = styled.div`
   ${mxw80}
   padding-bottom: 10px;
@@ -222,9 +190,6 @@ export const HeaderTop = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1em 0;
-  & > img {
-    width: 90px;
-  }
 `;
 
 export const ContainerTop = styled.div`
@@ -242,7 +207,6 @@ export const ContainerNav = styled.div`
   box-shadow: 0 0 5px rgba(18, 23, 39, 0.4);
 `;
 
-export const LogoContent = styled.div`
-  max-height: 65px;
-  background: green;
+export const Container = styled.div`
+  width: 100%;
 `;

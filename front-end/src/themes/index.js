@@ -1,15 +1,10 @@
-export const breakpoints = {
-  xs: 320,
-  sm: 600,
-};
-
 export const lightTheme = {
   type: 'light',
   navbar: {
     background: {
       topbar: '#004FFF',
       savColor: '#01baef',
-      navmain: '#8ac926',
+      navmain: '#fff',
       search: 'rgba(0, 0, 0, 0.1)',
     },
   },

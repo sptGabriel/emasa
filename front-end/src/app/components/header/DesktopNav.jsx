@@ -1,11 +1,15 @@
 import React from 'react';
 import {
+  Container,
+  Content,
+  HeaderTop,
+  Nav,
   ContainerTop,
+  ContainerNav,
   SearchContainer,
   IconContainer,
   Accessibility,
   ImgWrap,
-  HeaderTop,
 } from './styles/Desktop';
 import { useTheme } from 'emotion-theming';
 import LogoImg from 'assets/images/logo.png';
@@ -61,8 +65,9 @@ const NavAcessibility = props => {
     </Accessibility>
   );
 };
-
 const ItemsTop = props => {
+  const { setTheme } = props;
+  const { theme } = props;
   return (
     <>
       <ImgWrap>
@@ -85,15 +90,62 @@ const ItemsTop = props => {
 };
 
 const TopHeader = props => {
-  const Theme = useTheme();
   return (
-    <ContainerTop theme={Theme}>
+    <ContainerTop theme={props.theme}>
       <HeaderTop>
         <ItemsTop {...props} />
-        <NavAcessibility {...props} theme={Theme} />
+        <NavAcessibility {...props} />
       </HeaderTop>
     </ContainerTop>
   );
 };
 
-export default TopHeader;
+const NavBar = props => {
+  return (
+    <ContainerNav theme={props.theme}>
+      <Content>
+        <Nav {...props}>
+          <ul>
+            <li>
+              <a href="#home">Emasa</a>
+            </li>
+            <li>
+              <a href="#homex">Anuário</a>
+            </li>
+            <li>
+              <a href="#homexv">Informativo</a>
+            </li>
+            <li>
+              <a href="#homexv">2 Via</a>
+            </li>
+            <li>
+              <a href="#homexv">Transparência</a>
+            </li>
+            <li>
+              <a href="#homexv">Licitação</a>
+            </li>
+            <li>
+              <a href="#homexv">Licitação</a>
+            </li>
+            <li>
+              <a href="#homexv">Licitação</a>
+            </li>
+          </ul>
+        </Nav>
+      </Content>
+    </ContainerNav>
+  );
+};
+
+const DesktopNav = props => {
+  const Theme = useTheme();
+
+  return (
+    <Container theme={Theme}>
+      <TopHeader {...props} theme={Theme} />
+      <NavBar {...props} theme={Theme} />
+    </Container>
+  );
+};
+
+export default DesktopNav;

@@ -1,28 +1,6 @@
-import React, { useState } from 'react';
-import {
-  Container,
-  Content,
-  HeaderTop,
-  Nav,
-  WrapperTop,
-  ContainerTop,
-  ContainerNav,
-  LogoContent,
-  SearchContainer,
-  IconContainer,
-  Center,
-  Accessibility,
-  AccessibilityTwo,
-  ImgWrap,
-} from './styles';
+import React from 'react';
+import { Content, Nav, ContainerNav } from './styles/Desktop';
 import { useTheme } from 'emotion-theming';
-import LogoImg from 'assets/images/logo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faSearch,
-  faAdjust,
-  faTextHeight,
-} from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = props => {
   const Theme = useTheme();
