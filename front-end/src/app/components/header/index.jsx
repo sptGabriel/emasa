@@ -23,11 +23,12 @@ import {
   faAdjust,
   faTextHeight,
 } from '@fortawesome/free-solid-svg-icons';
+
 const NavAcessibility = props => {
-  const { setTheme } = props.props;
-  const { theme } = props.props;
+  const { theme, setTheme } = props;
+  const { multiplyFont, setFont } = props;
   return (
-    <Accessibility>
+    <Accessibility {...props}>
       <ul>
         <li>
           <a>
@@ -35,10 +36,22 @@ const NavAcessibility = props => {
           </a>
         </li>
         <li>
-          <a>A-</a>
+          <a
+            onClick={() => {
+              setFont(multiplyFont - 1);
+            }}
+          >
+            A-
+          </a>
         </li>
         <li>
-          <a>A+</a>
+          <a
+            onClick={() => {
+              setFont(multiplyFont + 1);
+            }}
+          >
+            A+
+          </a>
         </li>
         <li>
           <a>
@@ -61,8 +74,8 @@ const NavAcessibility = props => {
   );
 };
 const ItemsTop = props => {
-  const { setTheme } = props.props;
-  const { theme } = props.props;
+  const { setTheme } = props;
+  const { theme } = props;
   return (
     <>
       <ImgWrap>
@@ -88,8 +101,8 @@ const TopHeader = props => {
   return (
     <ContainerTop theme={props.theme}>
       <HeaderTop>
-        <ItemsTop props={props} />
-        <NavAcessibility props={props} />
+        <ItemsTop {...props} />
+        <NavAcessibility {...props} />
       </HeaderTop>
     </ContainerTop>
   );
@@ -99,25 +112,37 @@ const NavBar = props => {
   return (
     <ContainerNav theme={props.theme}>
       <Content>
-        <Nav fontSize={props.fontsize} theme={props.theme}>
+        <Nav {...props}>
           <ul>
             <li>
-              <a href="#home">Emasa</a>
+              <a>
+                <p>Acessibilidade</p>
+              </a>
             </li>
             <li>
-              <a href="#homex">Anuário</a>
+              <a>
+                <p>Acessibilidade</p>
+              </a>
             </li>
             <li>
-              <a href="#homexv">Informativo</a>
+              <a>
+                <p>Acessibilidade</p>
+              </a>
             </li>
             <li>
-              <a href="#homexv">Transparência</a>
+              <a>
+                <p>Acessibilidade</p>
+              </a>
             </li>
             <li>
-              <a href="#homexv">Licitação</a>
+              <a>
+                <p>Acessibilidade</p>
+              </a>
             </li>
             <li>
-              <a href="#homexv">Contato</a>
+              <a>
+                <p>Acessibilidade</p>
+              </a>
             </li>
           </ul>
         </Nav>
@@ -128,10 +153,11 @@ const NavBar = props => {
 
 const Header = props => {
   const Theme = useTheme();
+
   return (
     <Container theme={Theme}>
-      <TopHeader theme={Theme} setTheme={props.setTheme} setSize={props.size} />
-      <NavBar theme={Theme} fontsize={props.multiplyFont} />
+      <TopHeader {...props} theme={Theme} />
+      <NavBar {...props} theme={Theme} />
     </Container>
   );
 };

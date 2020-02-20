@@ -5,16 +5,15 @@ import { shade } from 'polished';
 // 0 3px 1px -1px rgba(0, 0, 0, 0.2); 2a2d34
 
 const sizeCheck = (font, multiply) => {
-  console.log(multiply !== 0);
   switch (multiply) {
     case 1:
       return `font-size: ${font * multiply}px;`;
     case 2:
-      return `font-size: ${font + multiply}px;`;
+      return `font-size: ${font + multiply * 4}px;`;
     case 3:
-      return `font-size: ${font + multiply}px;`;
+      return `font-size: ${font + multiply * 4}px;`;
     case 4:
-      return `font-size: ${font + multiply}px;`;
+      return `font-size: ${font + multiply * 4}px;`;
     default:
       return `font-size: ${font}`;
   }
@@ -48,7 +47,7 @@ export const Nav = styled.nav`
     text-align: center;
     cursor: pointer;
     text-transform: uppercase;
-    ${({ fontSize }) => sizeCheck(15, fontSize)};
+    ${props => sizeCheck(15, props.multiplyFont)};
     color: ${props => props.theme.colors.nav};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -119,7 +118,7 @@ export const Accessibility = styled.nav`
     width:100%;
     flex-wrap: wrap;
     height: auto;
-    justify-content: center;
+    justify-content: flex-end;
   }
   & > ul > li {
     position: relative;
@@ -131,15 +130,41 @@ export const Accessibility = styled.nav`
     user-select: none;
   }
   & > ul > li:nth-child(2) {
-    cursor: not-allowed;
-    pointer-events: none;
+    ${props => {
+      if (props.multiplyFont === 1) {
+        return `
+        opacity: 0.5;
+        font-style: italic;
+      `;
+      } else {
+        return `
+        opacity: 1;
+        cursor:pointer;
+        pointer-events: auto;
+        font-style: normal;
+      `;
+      }
+    }}
     font-size: 18px;
     font-weight: 700;
-    font-style: italic;
-    opacity: 0.5;
     padding: 0 9px;
   }
   & > ul > li:nth-child(3) {
+    ${props => {
+      if (props.multiplyFont === 4) {
+        return `
+        opacity: 0.5;
+        font-style: italic;
+      `;
+      } else {
+        return `
+        opacity: 1;
+        cursor:pointer;
+        pointer-events: auto;
+        font-style: normal;
+      `;
+      }
+    }}
     font-size: 18px;
     font-weight: 700;
     font-size: 18px;

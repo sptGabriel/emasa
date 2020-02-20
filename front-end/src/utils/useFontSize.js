@@ -1,29 +1,15 @@
 import { useState, useEffect } from 'react';
 
-export default function useFontSize(defaultSize = { size: 1 }) {
-  const [fontSize, _setSize] = useState(getInitialSize);
-  function getInitialSize() {
-    const savedSize = localStorage.getItem('_size_acessibility_font');
-    const parsedSize = JSON.parse(savedSize);
-    const { size } = parsedSize;
-    if (size >= 1 && size <= 4) {
-      return size;
-    } else {
-      return defaultSize.size;
-    }
-  }
+const useFontSize = (defaultSize = 1) => {
+  const clamp = (n, lo = 1, hi = 4) => Math.min(hi, Math.max(n, lo));
+  const clean = n => (isNaN(n) ? defaultSize : clamp(+n));
+  const storageName = '_size_acessibility_font';
+  const fromStorage = clean(localStorage.getItem(storageName));
+  const [fontSize, setFontSize] = useState(fromStorage);
 
-  useEffect(() => {
-    localStorage.setItem(
-      '_size_acessibility_font',
-      JSON.stringify({ size: fontSize }),
-    );
-  }, [fontSize]);
+  useEffect(() => localStorage.setItem(storageName, fontSize), [fontSize]);
 
-  return {
-    fontSize,
-    setSize: ({ setSize, ...size }) => {
-      return _setSize(size);
-    },
-  };
-}
+  return [fontSize, size => setFontSize(clean(size))];
+};
+
+export default useFontSize;
