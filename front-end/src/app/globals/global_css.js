@@ -7,6 +7,7 @@ export default function GlobalStyle(props) {
   return (
     <Global
       styles={css`
+        @import url('https://fonts.googleapis.com/css?family=Comfortaa|Yanone+Kaffeesatz&display=swap');
         @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
         * {
           padding: 0;

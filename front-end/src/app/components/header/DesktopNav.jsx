@@ -11,8 +11,8 @@ import {
   Accessibility,
   ImgWrap,
 } from './styles/Desktop';
-import { useTheme } from 'emotion-theming';
-import LogoImg from 'assets/images/logo.png';
+import LogoImg from 'assets/images/logao.svg';
+import LogoImg2 from 'assets/images/emasa.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faAdjust } from '@fortawesome/free-solid-svg-icons';
 
@@ -52,7 +52,7 @@ const NavAcessibility = props => {
               icon={faAdjust}
               size="1x"
               fixedWidth
-              color="white"
+              color="black"
               onClick={() => {
                 setTheme(
                   theme.type === 'dark' ? { type: 'light' } : { type: 'dark' },
@@ -66,12 +66,13 @@ const NavAcessibility = props => {
   );
 };
 const ItemsTop = props => {
-  const { setTheme } = props;
-  const { theme } = props;
   return (
     <>
       <ImgWrap>
-        <img src={LogoImg} />
+        <a>
+          <img src={LogoImg} />
+          <h3>Emasa</h3>
+        </a>
       </ImgWrap>
       <SearchContainer theme={props.theme}>
         <IconContainer>
@@ -138,12 +139,10 @@ const NavBar = props => {
 };
 
 const DesktopNav = props => {
-  const Theme = useTheme();
-
   return (
-    <Container theme={Theme}>
-      <TopHeader {...props} theme={Theme} />
-      <NavBar {...props} theme={Theme} />
+    <Container>
+      <TopHeader {...props} />
+      <NavBar {...props} />
     </Container>
   );
 };

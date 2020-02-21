@@ -102,9 +102,19 @@ export const ImgWrap = styled.div`
   width: 33.3333%;
   display: flex;
   align-items: center;
-  & > img {
-    width: 80px;
-    margin-right: 10px;
+  & > a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #000;
+    font-family: 'Yanone Kaffeesatz';
+    font-weight: 400;
+    letter-spacing: 2px;
+
+    font-size: 2em;
+  }
+  & > a > img {
+    margin-right: 30px;
   }
 `;
 export const Accessibility = styled.nav`
@@ -123,7 +133,7 @@ export const Accessibility = styled.nav`
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
     line-height: 24px;
-    color: #fff;
+    color: #000;
     user-select: none;
   }
 

@@ -5,6 +5,7 @@ export const lightTheme = {
       topbar: '#004FFF',
       savColor: '#01baef',
       navmain: '#fff',
+      mo: '#004FFF',
       search: 'rgba(0, 0, 0, 0.1)',
     },
   },
