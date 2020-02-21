@@ -63,12 +63,11 @@ export const MidContainer = styled.div`
     align-items: center;
     border-radius: 10px;
     overflow: hidden;
-    height: 40px;
     border: 0;
     background: white;
     box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.04);
     transition: all 0.4s;
-    margin-right: 20px;
+    margin-right: 10px;
     & > input {
       background: transparent;
       width: calc(100% - 50px);
@@ -127,10 +126,38 @@ export const ImgWrap = styled.div`
     margin-right: 20px;
   }
 `;
-export const WrapperLogin = styled.div`
+export const SignWrap = styled.div`
+  background: green;
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  top: 58px;
+  :before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border-top: 15px solid #fff;
+    transform: rotate();
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+  }
+`;
+export const LoginColumn = styled.div`
+  position: relative;
   width: 40%;
   display: flex;
+  flex-direction: column;
+`;
+export const WrapperLogin = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   :hover {
   }
   svg {
@@ -239,6 +266,7 @@ export const HeaderTop = styled.div`
 export const ContainerTop = styled.div`
   position: relative;
   width: 100%;
+  max-height: 100px;
   background: ${props => props.theme.navbar.background.topbar};
 `;
 

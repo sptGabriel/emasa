@@ -12,6 +12,8 @@ import {
   ImgWrap,
   MidContainer,
   WrapperLogin,
+  LoginColumn,
+  SignWrap,
 } from './styles/Desktop';
 import LogoImg from 'assets/images/logo.png';
 import LogoImg2 from 'assets/images/emasa.png';
@@ -87,45 +89,37 @@ const ItemsTop = props => {
             />
           </IconContainer>
         </SearchContainer>
-        <WrapperLogin>
-          <a>
-            <FontAwesomeIcon
-              className="adjust"
-              icon={faUserCircle}
-              size="2x"
-              fixedWidth
-              color="white"
-            />
-          </a>
-          <div>
+        <LoginColumn>
+          <WrapperLogin>
             <a>
-              <h3>Olá !</h3>
-              <p>
-                Minha Conta
-                <span>
-                  <FontAwesomeIcon
-                    className="adjust"
-                    icon={faAngleDown}
-                    size="lg"
-                    fixedWidth
-                    color="white"
-                  />
-                </span>
-              </p>
+              <FontAwesomeIcon
+                className="adjust"
+                icon={faUserCircle}
+                size="2x"
+                fixedWidth
+                color="white"
+              />
             </a>
-          </div>
-          <div
-            style={{
-              position: 'absolute',
-              translateY: '20px',
-              background: '#000',
-              width: '220px',
-              height: '600px',
-            }}
-          >
-            a
-          </div>
-        </WrapperLogin>
+            <div>
+              <a>
+                <h3>Olá !</h3>
+                <p>
+                  Minha Conta
+                  <span>
+                    <FontAwesomeIcon
+                      className="adjust"
+                      icon={faAngleDown}
+                      size="lg"
+                      fixedWidth
+                      color="white"
+                    />
+                  </span>
+                </p>
+              </a>
+            </div>
+          </WrapperLogin>
+          <SignWrap>a</SignWrap>
+        </LoginColumn>
       </MidContainer>
     </>
   );
