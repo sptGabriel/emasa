@@ -10,11 +10,18 @@ import {
   IconContainer,
   Accessibility,
   ImgWrap,
+  MidContainer,
+  WrapperLogin,
 } from './styles/Desktop';
-import LogoImg from 'assets/images/logao.svg';
+import LogoImg from 'assets/images/logo.png';
 import LogoImg2 from 'assets/images/emasa.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faAdjust } from '@fortawesome/free-solid-svg-icons';
+import {
+  faSearch,
+  faAdjust,
+  faUserCircle,
+  faAngleDown,
+} from '@fortawesome/free-solid-svg-icons';
 
 const NavAcessibility = props => {
   const { theme, setTheme } = props;
@@ -22,11 +29,6 @@ const NavAcessibility = props => {
   return (
     <Accessibility {...props}>
       <ul>
-        <li>
-          <a>
-            <p>Acessibilidade</p>
-          </a>
-        </li>
         <li>
           <a
             onClick={() => {
@@ -50,9 +52,9 @@ const NavAcessibility = props => {
             <FontAwesomeIcon
               className="adjust"
               icon={faAdjust}
-              size="1x"
+              size="lg"
               fixedWidth
-              color="black"
+              color="white"
               onClick={() => {
                 setTheme(
                   theme.type === 'dark' ? { type: 'light' } : { type: 'dark' },
@@ -69,23 +71,62 @@ const ItemsTop = props => {
   return (
     <>
       <ImgWrap>
-        <a>
-          <img src={LogoImg} />
-          <h3>Emasa</h3>
-        </a>
+        <img src={LogoImg} />
+        <h3>EMASA</h3>
       </ImgWrap>
-      <SearchContainer theme={props.theme}>
-        <IconContainer>
-          <FontAwesomeIcon
-            className="searchIcon"
-            icon={faSearch}
-            size="2x"
-            fixedWidth
-            color="white"
-          />
-        </IconContainer>
-        <input placeholder="Pesquisar"></input>
-      </SearchContainer>
+      <MidContainer>
+        <SearchContainer theme={props.theme}>
+          <input placeholder="Pesquisar"></input>
+          <IconContainer>
+            <FontAwesomeIcon
+              className="searchIcon"
+              icon={faSearch}
+              size="lg"
+              fixedWidth
+              color="white"
+            />
+          </IconContainer>
+        </SearchContainer>
+        <WrapperLogin>
+          <a>
+            <FontAwesomeIcon
+              className="adjust"
+              icon={faUserCircle}
+              size="2x"
+              fixedWidth
+              color="white"
+            />
+          </a>
+          <div>
+            <a>
+              <h3>Olá !</h3>
+              <p>
+                Minha Conta
+                <span>
+                  <FontAwesomeIcon
+                    className="adjust"
+                    icon={faAngleDown}
+                    size="lg"
+                    fixedWidth
+                    color="white"
+                  />
+                </span>
+              </p>
+            </a>
+          </div>
+          <div
+            style={{
+              position: 'absolute',
+              translateY: '20px',
+              background: '#000',
+              width: '220px',
+              height: '600px',
+            }}
+          >
+            a
+          </div>
+        </WrapperLogin>
+      </MidContainer>
     </>
   );
 };

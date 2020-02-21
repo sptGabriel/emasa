@@ -53,48 +53,52 @@ export const Nav = styled.nav`
 `;
 
 export const IconContainer = styled.div``;
-export const SearchContainer = styled.div`
-  display: inline-flex;
-  align-items: center;
-  width: 33.3333%;
-  border-radius: 25px;
-  overflow: hidden;
-  height: 50px;
-  border: 0;
-  background: ${props => props.theme.navbar.background.search};
-  box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.07);
-  transition: all 0.4s;
-  margin-right: 20px;
-  ${IconContainer} {
-    ${flexAlignCenter}
-    width: 50px;
-    padding: 0.5rem 1.3rem;
-    height: 100%;
-    & > svg {
-      font-size: 1.3em;
-      color: ${props => props.theme.colors.primary};
-    }
-  }
-  & > input {
-    background: transparent;
-    width: calc(100% - 50px);
-    height: 100%;
+export const SearchContainer = styled.div``;
+export const MidContainer = styled.div`
+  width: 50%;
+  display: flex;
+  ${SearchContainer} {
+    width: 60%;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 40px;
     border: 0;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    outline: none;
-    color: ${props => props.theme.colors.primary};
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    box-sizing: initial;
-    font-family: Roboto, Arial, sans-serif;
-    ::placeholder {
-      font-size: 16px;
+    background: white;
+    box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.04);
+    transition: all 0.4s;
+    margin-right: 20px;
+    & > input {
+      background: transparent;
+      width: calc(100% - 50px);
+      height: 100%;
+      border: 0;
+      padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+      outline: none;
       color: ${props => props.theme.colors.primary};
+      font-size: 16px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       box-sizing: initial;
       font-family: Roboto, Arial, sans-serif;
+      ::placeholder {
+        font-size: 16px;
+        color: #004ea8;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        box-sizing: initial;
+        font-family: Roboto, Arial, sans-serif;
+      }
+    }
+  }
+  ${IconContainer} {
+    ${flexAlignCenter}
+    width: 20px;
+    height: 100%;
+    & > svg {
+      font-size: 1em;
+      color: #0086ff;
     }
   }
 `;
@@ -113,12 +117,42 @@ export const ImgWrap = styled.div`
 
     font-size: 2em;
   }
-  & > a > img {
-    margin-right: 30px;
+  h3 {
+    color: white;
+    font-size: 1.5em;
+    text-transform: uppercase;
+  }
+  & > img {
+    width: 80px;
+    margin-right: 20px;
+  }
+`;
+export const WrapperLogin = styled.div`
+  width: 40%;
+  display: flex;
+  align-items: center;
+  :hover {
+  }
+  svg {
+    margin-right: 10px;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+  h3 {
+    color: white;
+    font-family: Roboto;
+    margin-bottom: 5px;
+  }
+  p {
+    color: white;
+    font-family: Roboto;
+    font-size: 0.8em;
   }
 `;
 export const Accessibility = styled.nav`
-  width: 33.3333%;
+  width: 20%;
   height: 100%;
   & > ul {
     ${flexAlignCenter}
@@ -133,7 +167,7 @@ export const Accessibility = styled.nav`
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
     line-height: 24px;
-    color: #000;
+    color: #fff;
     user-select: none;
   }
 
@@ -206,7 +240,6 @@ export const ContainerTop = styled.div`
   position: relative;
   width: 100%;
   background: ${props => props.theme.navbar.background.topbar};
-  box-shadow: 0 0 5px rgba(18, 23, 39, 0.2);
 `;
 
 export const ContainerNav = styled.div`

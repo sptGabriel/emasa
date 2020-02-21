@@ -2,17 +2,17 @@ export const lightTheme = {
   type: 'light',
   navbar: {
     background: {
-      topbar: '#004FFF',
+      topbar: '#0086FF',
       savColor: '#01baef',
       navmain: '#fff',
       mo: '#004FFF',
-      search: 'rgba(0, 0, 0, 0.1)',
+      search: '#fff',
     },
   },
   colors: {
     primary: '#fff',
     secondary: '#2a2d34',
-    nav: '#2a2d34',
+    nav: '#004ea8',
 
     background: '#FFF',
     text: '#333',
