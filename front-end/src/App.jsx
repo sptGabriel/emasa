@@ -5,6 +5,7 @@ import { ThemeProvider } from 'emotion-theming';
 import GlobalStyle from './app/globals/global_css';
 import useAppTheme from './utils/useAppTheme';
 import { NavBar } from 'app/components/header/index';
+import Header from 'app/components/header/test';
 import useFontSize from 'utils/useFontSize';
 export default function App() {
   const { theme, setTheme } = useAppTheme();
@@ -13,13 +14,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <div className="App">
-        <NavBar
-          multiplyFont={fontSize}
-          setFont={setFontSize}
-          setTheme={setTheme}
-        />
-      </div>
+      <Header />
     </ThemeProvider>
   );
 }

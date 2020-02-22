@@ -14,6 +14,8 @@ import {
   WrapperLogin,
   LoginColumn,
   SignWrap,
+  LoginIconWrap,
+  DropDownWrap,
 } from './styles/Desktop';
 import LogoImg from 'assets/images/logo.png';
 import LogoImg2 from 'assets/images/emasa.png';
@@ -91,20 +93,21 @@ const ItemsTop = props => {
         </SearchContainer>
         <LoginColumn>
           <WrapperLogin>
-            <a>
-              <FontAwesomeIcon
-                className="adjust"
-                icon={faUserCircle}
-                size="2x"
-                fixedWidth
-                color="white"
-              />
-            </a>
-            <div>
+            <LoginIconWrap>
               <a>
-                <h3>Olá !</h3>
+                <FontAwesomeIcon
+                  className="adjust"
+                  icon={faUserCircle}
+                  size="2x"
+                  fixedWidth
+                  color="white"
+                />
+              </a>
+            </LoginIconWrap>
+            <DropDownWrap>
+              <a>
                 <p>
-                  Minha Conta
+                  MyAccount
                   <span>
                     <FontAwesomeIcon
                       className="adjust"
@@ -116,7 +119,7 @@ const ItemsTop = props => {
                   </span>
                 </p>
               </a>
-            </div>
+            </DropDownWrap>
           </WrapperLogin>
           <SignWrap>a</SignWrap>
         </LoginColumn>

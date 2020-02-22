@@ -7,7 +7,7 @@ export const flex = props => css`
 
 export const flexCenter = props => css`
   width: 100%;
-  display9: flex;
+  display: flex;
   justify-content: ${props.justify};
   align-items: ${props.align};
   flex-direction: ${props.flexdirection};
@@ -25,4 +25,10 @@ export const mxw80 = css`
   margin: 0 auto;
   max-width: 80rem !important;
   width: 90% !important;
+`;
+
+export const flexRowBet = props => css`
+  display: flex;
+  align-items: center;
+  justify-content: ${props.justify};
 `;

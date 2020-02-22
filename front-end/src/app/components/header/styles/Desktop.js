@@ -129,53 +129,60 @@ export const ImgWrap = styled.div`
 export const SignWrap = styled.div`
   background: green;
   position: absolute;
-  width: 100%;
+  width: 220px;
   height: 250px;
   top: 58px;
   :before {
     content: '';
+    display: block;
     position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 0;
-    height: 0;
-    border-top: 15px solid #fff;
-    transform: rotate();
+    right: 1rem;
+    top: -15px;
+    border-bottom: 15px solid #fff;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
   }
 `;
 export const LoginColumn = styled.div`
   position: relative;
-  width: 40%;
+  width: 220px;
   display: flex;
   flex-direction: column;
+  background: hotpink;
 `;
+export const DropDownWrap = styled.div``;
+export const LoginIconWrap = styled.div``;
 export const WrapperLogin = styled.div`
-  width: 100%;
+  height: 100%;
+  position: relative;
+  width: 220px;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  :hover {
-  }
-  svg {
-    margin-right: 10px;
-  }
-  div {
+
+  background: red;
+  ${DropDownWrap} {
+    height: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
+    position: relative;
+    background: hotpink;
+    a {
+      position: absolute;
+      background: black;
+      right: 1rem;
+      color: white;
+      font-family: Roboto;
+      font-size: 0.8em;
+    }
   }
-  h3 {
-    color: white;
-    font-family: Roboto;
-    margin-bottom: 5px;
+  ${LoginIconWrap} {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background: green;
   }
-  p {
-    color: white;
-    font-family: Roboto;
-    font-size: 0.8em;
+  :hover {
   }
 `;
 export const Accessibility = styled.nav`
