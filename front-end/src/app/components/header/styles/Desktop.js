@@ -1,290 +1,181 @@
 import styled from '@emotion/styled/macro';
-import { mxw80, flex, flexAlignCenter } from '../../../globals/flex';
+import { mxw80, flexCenter, flexRowBet } from '../../../globals/flex';
+// border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
-// box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 7px 0 rgba(0, 0, 0, 0.1),
-// 0 3px 1px -1px rgba(0, 0, 0, 0.2); 2a2d34
-
-const sizeCheck = (font, multiply) => {
-  switch (multiply) {
-    case 1:
-      return `font-size: ${font * multiply}px;`;
-    case 2:
-      return `font-size: ${font + multiply * 4}px;`;
-    case 3:
-      return `font-size: ${font + multiply * 4}px;`;
-    case 4:
-      return `font-size: ${font + multiply * 4}px;`;
-    default:
-      return `font-size: ${font}`;
-  }
-};
-
-export const Content = styled.div`
-  ${mxw80}
-  ${flex}
-`;
-
-export const Nav = styled.nav`
+export const Header = styled.header`
+  width: 100%;
   height: auto;
-  ${flexAlignCenter}
-  & > ul {
-    ${flexAlignCenter}
-    width:100%;
-    flex-wrap: wrap;
-    height: auto;
-    justify-content: center;
-  }
-  & > ul > li {
-    padding: 1em 0.5em 1.05em;
-  }
-  & > ul > li > a {
-    margin: 0 2px;
-    padding: 0 8px;
-    text-align: center;
-    cursor: pointer;
-    text-transform: uppercase;
-    ${props => sizeCheck(15, props.multiplyFont)};
-    color: ${props => props.theme.colors.nav};
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    box-sizing: initial;
-    font-family: Roboto, Arial, sans-serif;
-  }
 `;
-
-export const IconContainer = styled.div``;
-export const SearchContainer = styled.div``;
-export const MidContainer = styled.div`
-  width: 50%;
-  display: flex;
-  ${SearchContainer} {
-    width: 60%;
-    display: inline-flex;
-    align-items: center;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 0;
-    background: white;
-    box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.04);
-    transition: all 0.4s;
-    margin-right: 10px;
-    & > input {
-      background: transparent;
-      width: calc(100% - 50px);
-      height: 100%;
-      border: 0;
-      padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-      outline: none;
-      color: ${props => props.theme.colors.primary};
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      box-sizing: initial;
-      font-family: Roboto, Arial, sans-serif;
-      ::placeholder {
-        font-size: 16px;
-        color: #004ea8;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        box-sizing: initial;
-        font-family: Roboto, Arial, sans-serif;
-      }
-    }
-  }
-  ${IconContainer} {
-    ${flexAlignCenter}
-    width: 20px;
-    height: 100%;
-    & > svg {
-      font-size: 1em;
-      color: #0086ff;
-    }
-  }
+export const Container = styled.div`
+  ${mxw80}
 `;
-export const ImgWrap = styled.div`
-  width: 33.3333%;
-  display: flex;
-  align-items: center;
-  & > a {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    color: #000;
-    font-family: 'Yanone Kaffeesatz';
-    font-weight: 400;
-    letter-spacing: 2px;
-
-    font-size: 2em;
-  }
-  h3 {
+//top navbar
+export const TopNav = styled.div`
+  width: 100%;
+  background: #09295c;
+`;
+export const ContentTopNav = styled.div`
+  ${flexRowBet};
+  height: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+`;
+export const WrapAcessibility = styled.div`
+  ${flexRowBet};
+  width: 100%;
+  padding: 0.5rem 0;
+  line-height: 24px;
+  font-family: 'Poppins', sans-serif;
+  p {
+    position: relative;
+    display: inline-block;
+    pointer-events: none;
     color: white;
-    font-size: 1.5em;
-    text-transform: uppercase;
+    padding-right: 9px;
+    font-family: inherit;
   }
-  & > img {
-    width: 80px;
-    margin-right: 20px;
-  }
-`;
-export const SignWrap = styled.div`
-  background: green;
-  position: absolute;
-  width: 220px;
-  height: 250px;
-  top: 58px;
-  :before {
-    content: '';
-    display: block;
-    position: absolute;
-    right: 1rem;
-    top: -15px;
-    border-bottom: 15px solid #fff;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-  }
-`;
-export const LoginColumn = styled.div`
-  position: relative;
-  width: 220px;
-  display: flex;
-  flex-direction: column;
-  background: hotpink;
-`;
-export const DropDownWrap = styled.div``;
-export const LoginIconWrap = styled.div``;
-export const WrapperLogin = styled.div`
-  height: 100%;
-  position: relative;
-  width: 220px;
-  display: flex;
-  align-items: center;
-
-  background: red;
-  ${DropDownWrap} {
-    height: 100%;
-    width: 50%;
+  ul {
     display: flex;
-    flex-direction: column;
-    position: relative;
-    background: hotpink;
-    a {
-      position: absolute;
-      background: black;
-      right: 1rem;
-      color: white;
-      font-family: Roboto;
-      font-size: 0.8em;
-    }
-  }
-  ${LoginIconWrap} {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    background: green;
-  }
-  :hover {
-  }
-`;
-export const Accessibility = styled.nav`
-  width: 20%;
-  height: 100%;
-  & > ul {
-    ${flexAlignCenter}
-    width:100%;
+    width: 100%;
     flex-wrap: wrap;
     height: auto;
-    justify-content: flex-end;
   }
-  & > ul > li {
-    position: relative;
-    display: inline-block;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
-    line-height: 24px;
+  a {
+    font-family: inherit;
     color: #fff;
-    user-select: none;
-  }
-
-  & > ul > li:nth-of-type(2) {
-    ${props => {
-      if (props.multiplyFont === 1) {
-        return `
-        opacity: 0.5;
-        font-style: italic;
-      `;
-      } else {
-        return `
-        opacity: 1;
-        cursor:pointer;
-        pointer-events: auto;
-        font-style: normal;
-      `;
-      }
-    }}
-    font-size: 18px;
-    font-weight: 700;
-    padding: 0 9px;
-  }
-  & > ul > li:nth-of-type(3) {
-    ${props => {
-      if (props.multiplyFont === 4) {
-        return `
-        opacity: 0.5;
-        font-style: italic;
-      `;
-      } else {
-        return `
-        opacity: 1;
-        cursor:pointer;
-        pointer-events: auto;
-        font-style: normal;
-      `;
-      }
-    }}
-    font-size: 18px;
-    font-weight: 700;
-    font-size: 18px;
-    font-weight: 700;
-    padding: 0 9px;
-  }
-  & > ul > li > a {
-    font-family: 'Open Sans', sans-serif;
     font-size: 13px;
-    line-height: 24px;
-  }
-  & > ul > li > a > p {
-    position: relative;
-    display: inline-block;
     pointer-events: none;
     padding: 0 9px;
   }
 `;
+// finished
 
-export const HeaderTop = styled.div`
-  ${mxw80}
-  padding-bottom: 10px;
-  padding-top: 10px;
+// HeaderMid
+export const HeaderMid = styled.div`
+  width: 100%;
+  background: #09295c;
+`;
+export const ContentMid = styled.div`
+  ${flexRowBet};
+  padding: 2.8rem 0;
+`;
+export const LogoContainer = styled.div`
+  width: 300px;
+  img {
+    width: 100%;
+  }
+`;
+export const SearchContainer = styled.div`
+  ${flexRowBet};
+  width: calc(100% - 500px);
+  justify-content: center;
+`;
+export const IconContainer = styled.div`
+  background: #09295c;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1em 0;
+  border-radius: 50%;
+  padding: 10px 10px;
+  cursor: pointer;
+  :hover {
+    color: white;
+    background: #004fff;
+  }
+`;
+export const FlexInput = styled.div`
+  width: 60%;
+  padding: 0 5px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 30px;
+  height: 47px;
+  border: 1px solid #dcdcdc;
+  background: #fff;
+  box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.04);
+  transition: all 0.4s;
+  & > input {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #a9a9a9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: initial;
+    font-family: 'Poppins', sans-serif;
+  }
 `;
 
-export const ContainerTop = styled.div`
+export const PopUp = styled.div`
+  position: absolute;
+  transform: translateY(calc(100% + 1rem));
+  width: 200px;
+  background: white;
+  height: 200px;
+  display: ${props => (props.hover ? 'block' : 'none')};
+`;
+export const WrapAccount = styled.ul`
   position: relative;
-  width: 100%;
-  max-height: 100px;
-  background: ${props => props.theme.navbar.background.topbar};
+  ${flexRowBet};
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  li {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 200px;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #fff;
+    text-transform: capitalize;
+  }
+  span:nth-of-type(1) {
+    padding: 0 10px;
+  }
 `;
+//Finished
 
-export const ContainerNav = styled.div`
+// nav Main
+
+export const Nav = styled.nav`
   width: 100%;
-  background: ${props => props.theme.navbar.background.navmain};
   height: auto;
-  flex-wrap: wrap;
-  box-shadow: 0 0 5px rgba(18, 23, 39, 0.4);
+  background: #061938;
+  a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    letter-spacing: 1.2px;
+    display: block;
+    padding: 16px 20px;
+    font-weight: 600;
+    line-height: 24px;
+  }
 `;
 
-export const Container = styled.div`
+export const NavUl = styled.ul`
   width: 100%;
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+`;
+
+export const NavLi = styled.li`
+  color: #fff;
+  :hover {
+    background: #09295c;
+    transition-duration: 0.5s;
+    transition-property: background-color, color;
+  }
 `;

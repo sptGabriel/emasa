@@ -23,8 +23,8 @@ export const flexAlignCenter = css`
 export const mxw80 = css`
   height: 100%;
   margin: 0 auto;
-  max-width: 80rem !important;
-  width: 90% !important;
+  max-width: 95% !important;
+  width: 95% !important;
 `;
 
 export const flexRowBet = props => css`

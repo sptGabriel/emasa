@@ -85,7 +85,7 @@ const ItemsTop = props => {
             <FontAwesomeIcon
               className="searchIcon"
               icon={faSearch}
-              size="lg"
+              size="2x"
               fixedWidth
               color="white"
             />

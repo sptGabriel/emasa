@@ -4,8 +4,8 @@ import { jsx } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import GlobalStyle from './app/globals/global_css';
 import useAppTheme from './utils/useAppTheme';
-import { NavBar } from 'app/components/header/index';
-import Header from 'app/components/header/test';
+import DesktopHeader from 'app/components/header/Desktop';
+import MobileHeader from 'app/components/header/Mobile';
 import useFontSize from 'utils/useFontSize';
 export default function App() {
   const { theme, setTheme } = useAppTheme();
@@ -14,7 +14,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Header />
+      <MobileHeader />
     </ThemeProvider>
   );
 }
