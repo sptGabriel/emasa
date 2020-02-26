@@ -1,5 +1,5 @@
 import styled from '@emotion/styled/macro';
-import { mxw80, flex, flexAlignCenter } from '../../../globals/flex';
+import { mxw80, flex, flexAlignCenter } from '../../../globals/global_styles';
 
 // box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 7px 0 rgba(0, 0, 0, 0.1),
 // 0 3px 1px -1px rgba(0, 0, 0, 0.2); 2a2d34

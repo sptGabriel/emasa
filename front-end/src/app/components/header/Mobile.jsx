@@ -6,7 +6,9 @@ import {
   faUser,
   faAngleDown,
   faBars,
+  faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Header, Container } from './styles/Desktop';
 import {
   Nav,
@@ -15,14 +17,24 @@ import {
   LogoContent,
   RightContent,
   WrapAccount,
-  PopUp,
+  TopNav,
+  TopContent,
+  MobileContainer,
+  AcessibilityWrap,
+  SocialsWrap,
+  FaceIcon,
+  InstaIcon,
+  MobileNav,
+  AdjustIcon,
+  Account,
+  LogoWrap,
 } from './styles/Mobile';
 import Logo from 'assets/images/logomobile.svg';
-const NavMain = props => {
-  const [isHover, setisHover] = React.useState(false);
+
+const MainNav = props => {
   return (
-    <Nav>
-      <Container>
+    <MobileNav>
+      <MobileContainer>
         <NavContent justify={'space-between'}>
           <LeftContent>
             <button>
@@ -35,17 +47,74 @@ const NavMain = props => {
               />
             </button>
           </LeftContent>
+          <LogoWrap>
+            <img src={Logo} />
+          </LogoWrap>
           <RightContent>
-            <FontAwesomeIcon
-              className="adjust"
-              icon={faBars}
-              size="lg"
-              fixedWidth
-              color="white"
-            />
+            <Account>
+              <FontAwesomeIcon
+                className="adjust"
+                icon={faUserCircle}
+                size="lg"
+                fixedWidth
+                color="white"
+              />
+            </Account>
           </RightContent>
         </NavContent>
-      </Container>
+      </MobileContainer>
+    </MobileNav>
+  );
+};
+
+const TopMain = props => {
+  return (
+    <TopNav>
+      <MobileContainer>
+        <TopContent justify={'center'}>
+          <AcessibilityWrap>
+            <AdjustIcon>
+              <FontAwesomeIcon
+                className="adjust"
+                icon={faAdjust}
+                size="md"
+                fixedWidth
+                color="white"
+              />
+            </AdjustIcon>
+          </AcessibilityWrap>
+          <SocialsWrap>
+            <FaceIcon>
+              <FontAwesomeIcon
+                className="adjust"
+                icon={faFacebookF}
+                size="md"
+                fixedWidth
+                color="white"
+              />
+            </FaceIcon>
+            <InstaIcon>
+              <FontAwesomeIcon
+                className="adjust"
+                icon={faInstagram}
+                size="md"
+                fixedWidth
+                color="white"
+              />
+            </InstaIcon>
+          </SocialsWrap>
+        </TopContent>
+      </MobileContainer>
+    </TopNav>
+  );
+};
+const NavMain = props => {
+  const [isHover, setisHover] = React.useState(false);
+  return (
+    <Nav>
+      <MobileContainer>
+        <NavContent justify={'space-between'}></NavContent>
+      </MobileContainer>
     </Nav>
   );
 };
@@ -53,7 +122,8 @@ const NavMain = props => {
 const Main = props => {
   return (
     <Header>
-      <NavMain />
+      <TopMain />
+      <MainNav />
     </Header>
   );
 };

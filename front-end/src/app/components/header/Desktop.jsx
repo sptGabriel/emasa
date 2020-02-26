@@ -7,15 +7,19 @@ import {
   Nav,
   ContentTopNav,
   WrapAcessibility,
-  WrapAccount,
+  Right,
   PopUp,
   ContentMid,
-  LogoContainer,
-  SearchContainer,
+  Left,
+  Mid,
   FlexInput,
   IconContainer,
   NavUl,
   NavLi,
+  WrapIcons,
+  FaceIcon,
+  InstaIcon,
+  DropDownLogin,
 } from './styles/Desktop';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -24,12 +28,13 @@ import {
   faUser,
   faAngleDown,
 } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import Logo from 'assets/images/test3.svg';
 const NavTop = props => {
   return (
     <TopNav>
       <Container>
-        <ContentTopNav>
+        <ContentTopNav justify={'space-between'}>
           <WrapAcessibility justify={'flex-start'}>
             <p> Acessibilidade</p>
             <ul>
@@ -39,39 +44,35 @@ const NavTop = props => {
               <li>
                 <a>A+</a>
               </li>
-              <li>
-                <a>
-                  <FontAwesomeIcon
-                    className="adjust"
-                    icon={faAdjust}
-                    size="lg"
-                    fixedWidth
-                    color="white"
-                  />
-                </a>
-              </li>
+              <FontAwesomeIcon
+                className="adjust"
+                icon={faAdjust}
+                size="md"
+                fixedWidth
+                color="white"
+              />
             </ul>
           </WrapAcessibility>
-          {/* <WrapAccount justify={'flex-end'}>
-            <li
-              onMouseOver={() => setisHover(true)}
-              onMouseOut={() => setisHover(false)}
-            >
-              <a>
-                My Account
-                <span>
-                  <FontAwesomeIcon
-                    className="adjust"
-                    icon={faAngleDown}
-                    size="md"
-                    fixedWidth
-                    color="white"
-                  />
-                </span>
-              </a>
-            </li>
-            <PopUp hover={isHover}></PopUp>
-          </WrapAccount> */}
+          <WrapIcons>
+            <FaceIcon>
+              <FontAwesomeIcon
+                className="adjust"
+                icon={faFacebookF}
+                size="lg"
+                fixedWidth
+                color="white"
+              />
+            </FaceIcon>
+            <InstaIcon>
+              <FontAwesomeIcon
+                className="adjust"
+                icon={faInstagram}
+                size="lg"
+                fixedWidth
+                color="white"
+              />
+            </InstaIcon>
+          </WrapIcons>
         </ContentTopNav>
       </Container>
     </TopNav>
@@ -84,10 +85,10 @@ const InnerHeader = props => {
     <HeaderMid>
       <Container>
         <ContentMid justify={'space-between'}>
-          <LogoContainer>
+          <Left>
             <img src={Logo} />
-          </LogoContainer>
-          <SearchContainer>
+          </Left>
+          <Mid>
             <FlexInput>
               <input placeholder="Pesquisar"></input>
               <IconContainer>
@@ -100,36 +101,22 @@ const InnerHeader = props => {
                 />
               </IconContainer>
             </FlexInput>
-          </SearchContainer>
-          <WrapAccount justify={'flex-end'}>
-            <li
-              onMouseOver={() => setisHover(true)}
-              onMouseOut={() => setisHover(false)}
-            >
-              <a>
-                <span>
-                  <FontAwesomeIcon
-                    className="adjust"
-                    icon={faUser}
-                    size="lg"
-                    fixedWidth
-                    color="#fff"
-                  />
-                </span>
-                My Account
-                <span>
-                  <FontAwesomeIcon
-                    className="adjust"
-                    icon={faAngleDown}
-                    size="md"
-                    fixedWidth
-                    color="white"
-                  />
-                </span>
-              </a>
-            </li>
-            <PopUp hover={isHover}></PopUp>
-          </WrapAccount>
+          </Mid>
+          <Right>
+            <p onClick={() => setisHover(true)}>
+              Minha Conta
+              <span>
+                <FontAwesomeIcon
+                  className="adjust"
+                  icon={faAngleDown}
+                  size="lg"
+                  fixedWidth
+                  color="white"
+                />
+              </span>
+            </p>
+            <PopUp hover={isHover} />
+          </Right>
         </ContentMid>
       </Container>
     </HeaderMid>

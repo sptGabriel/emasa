@@ -1,5 +1,5 @@
 import styled from '@emotion/styled/macro';
-import { mxw80, flexCenter, flexRowBet } from '../../../globals/flex';
+import { mxw80, flexCenter, flexRowBet } from '../../../globals/global_styles';
 // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
 export const Header = styled.header`
@@ -12,7 +12,7 @@ export const Container = styled.div`
 //top navbar
 export const TopNav = styled.div`
   width: 100%;
-  background: #09295c;
+  background: #004fff;
 `;
 export const ContentTopNav = styled.div`
   ${flexRowBet};
@@ -30,55 +30,68 @@ export const WrapAcessibility = styled.div`
     display: inline-block;
     pointer-events: none;
     color: white;
-    padding-right: 9px;
+    font-size: 0.8em;
+    padding-right: 5px;
     font-family: inherit;
   }
   ul {
     display: flex;
     width: 100%;
+    align-items: center;
     flex-wrap: wrap;
     height: auto;
   }
   a {
+    display: flex;
+    align-items: center;
+    height: 100%;
     font-family: inherit;
+    font-style: italic;
     color: #fff;
-    font-size: 13px;
+    font-size: 1em;
     pointer-events: none;
-    padding: 0 9px;
+    padding: 0 5px;
   }
 `;
+export const WrapIcons = styled.div`
+  display: flex;
+`;
+export const FaceIcon = styled.a`
+  padding: 0 10px;
+`;
+export const InstaIcon = styled.a``;
 // finished
 
 // HeaderMid
 export const HeaderMid = styled.div`
   width: 100%;
-  background: #09295c;
+  background: #004fff;
 `;
 export const ContentMid = styled.div`
   ${flexRowBet};
   padding: 2.8rem 0;
 `;
-export const LogoContainer = styled.div`
-  width: 300px;
+export const Left = styled.div`
+  width: 20%;
   img {
     width: 100%;
   }
 `;
-export const SearchContainer = styled.div`
+export const Mid = styled.div`
   ${flexRowBet};
-  width: calc(100% - 500px);
+  width: 60%;
   justify-content: center;
 `;
 export const IconContainer = styled.div`
-  background: #09295c;
+  background: #004fff;
   display: flex;
   align-items: center;
-  border-radius: 50%;
-  padding: 10px 10px;
+  border-radius: 100%;
+  padding: 10px 8px;
   cursor: pointer;
   :hover {
     color: white;
-    background: #004fff;
+    filter: brightness(150%);
   }
 `;
 export const FlexInput = styled.div`
@@ -92,7 +105,7 @@ export const FlexInput = styled.div`
   background: #fff;
   box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.04);
   transition: all 0.4s;
-  & > input {
+  input {
     background: transparent;
     width: 100%;
     height: 100%;
@@ -111,55 +124,53 @@ export const FlexInput = styled.div`
 
 export const PopUp = styled.div`
   position: absolute;
-  transform: translateY(calc(100% + 1rem));
+  transform: translateY(30px);
   width: 200px;
-  background: white;
+  background: red;
   height: 200px;
   display: ${props => (props.hover ? 'block' : 'none')};
 `;
-export const WrapAccount = styled.ul`
+export const Right = styled.ul`
   position: relative;
-  ${flexRowBet};
+  width: 20%;
+  height: 100%;
+  padding: 10px 0;
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 1rem 0;
-  li {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    width: 200px;
-  }
-  a {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    color: white;
-    font-size: 1em;
+  align-items: flex-end;
+  p {
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    color: #fff;
-    text-transform: capitalize;
+    font-size: 0.8em;
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: block;
+    color: white;
+    font-weight: 600;
+    line-height: 24px;
+    cursor: pointer;
   }
-  span:nth-of-type(1) {
-    padding: 0 10px;
-  }
+`;
+export const DropDownLogin = styled.div`
+  max-width: 200px;
+  width: 200px;
+  height: 100%;
 `;
 //Finished
 
 // nav Main
-
+// or F79824 or  FDCA40
 export const Nav = styled.nav`
   width: 100%;
   height: auto;
-  background: #061938;
+  background: #00abe7;
   a {
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
+    font-size: 0.8em;
     text-decoration: none;
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
     display: block;
     padding: 16px 20px;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 24px;
   }
 `;
@@ -169,12 +180,13 @@ export const NavUl = styled.ul`
   display: flex;
   height: 100%;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export const NavLi = styled.li`
   color: #fff;
   :hover {
-    background: #09295c;
+    background: #004fff;
     transition-duration: 0.5s;
     transition-property: background-color, color;
   }

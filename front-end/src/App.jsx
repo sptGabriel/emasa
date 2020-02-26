@@ -7,6 +7,7 @@ import useAppTheme from './utils/useAppTheme';
 import DesktopHeader from 'app/components/header/Desktop';
 import MobileHeader from 'app/components/header/Mobile';
 import useFontSize from 'utils/useFontSize';
+import { Overlay } from 'app/globals/global_styles';
 export default function App() {
   const { theme, setTheme } = useAppTheme();
   const [fontSize, setFontSize] = useFontSize();
@@ -14,7 +15,8 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <MobileHeader />
+      <Overlay />
+      <DesktopHeader />
     </ThemeProvider>
   );
 }
