@@ -126,9 +126,47 @@ export const PopUp = styled.div`
   position: absolute;
   transform: translateY(30px);
   width: 200px;
-  background: red;
+  background: white;
   height: 200px;
-  display: ${props => (props.hover ? 'block' : 'none')};
+  visibility: ${props => (props.isOpen ? 'visible ' : 'hidden')};
+  opacity: ${props => (props.isOpen ? '1' : '0')};
+  border: 1px solid #00d9ff;
+  z-index: 100;
+  transition: all 0.2s ease;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  p {
+    font-size: 13px;
+    font-family: inherit;
+    padding-bottom: 20px;
+  }
+  div:nth-of-type(1) {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  div:nth-of-type(2) {
+    font-size: 13px;
+    font-family: inherit;
+    padding-top:10px;
+    button{
+      width:auto;
+      background:transparent;
+      color:#004ea8;
+      font-weight:600;
+      height:auto;
+    }
+    p {
+      background: red;
+      height
+    }
+  }
+  button {
+    background: #004fff;
+    width: 100%;
+    height: 40px;
+    color: white;
+    font-family: inherit;
+  }
 `;
 export const Right = styled.ul`
   position: relative;
@@ -138,14 +176,14 @@ export const Right = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  p {
+  h3 {
     font-family: 'Poppins', sans-serif;
     font-size: 0.8em;
     text-decoration: none;
     letter-spacing: 1px;
     display: block;
     color: white;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 24px;
     cursor: pointer;
   }
@@ -162,7 +200,7 @@ export const DropDownLogin = styled.div`
 export const Nav = styled.nav`
   width: 100%;
   height: auto;
-  background: #00abe7;
+  background: #33a1fd;
   a {
     font-family: 'Poppins', sans-serif;
     font-size: 0.8em;

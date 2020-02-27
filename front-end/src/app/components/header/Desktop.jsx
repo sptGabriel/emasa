@@ -30,6 +30,24 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import Logo from 'assets/images/test3.svg';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggle } from 'redux/slices/popupMenu';
+import { RootState } from 'redux/config/rootReducer';
+
+const DropDownPopUp = props => {
+  return (
+    <PopUp {...props}>
+      <p>Você é um funcionário?</p>
+      <div>
+        <button>Entrar</button>
+      </div>
+      <div>
+        Esqueci meu <button>e-mail</button> ou a <button>senha</button>
+      </div>
+    </PopUp>
+  );
+};
+
 const NavTop = props => {
   return (
     <TopNav>
@@ -47,7 +65,7 @@ const NavTop = props => {
               <FontAwesomeIcon
                 className="adjust"
                 icon={faAdjust}
-                size="md"
+                size="xs"
                 fixedWidth
                 color="white"
               />
@@ -81,6 +99,8 @@ const NavTop = props => {
 
 const InnerHeader = props => {
   const [isHover, setisHover] = React.useState(false);
+  const dispatch = useDispatch();
+  const { popUpIsOpen } = useSelector(RootState => RootState.togglePopUp);
   return (
     <HeaderMid>
       <Container>
@@ -95,7 +115,7 @@ const InnerHeader = props => {
                 <FontAwesomeIcon
                   className="searchIcon"
                   icon={faSearch}
-                  size="md"
+                  size="xs"
                   fixedWidth
                   color="white"
                 />
@@ -103,19 +123,19 @@ const InnerHeader = props => {
             </FlexInput>
           </Mid>
           <Right>
-            <p onClick={() => setisHover(true)}>
+            <h3 onClick={() => dispatch(toggle())}>
               Minha Conta
               <span>
                 <FontAwesomeIcon
                   className="adjust"
                   icon={faAngleDown}
-                  size="lg"
+                  size="xs"
                   fixedWidth
                   color="white"
                 />
               </span>
-            </p>
-            <PopUp hover={isHover} />
+            </h3>
+            <DropDownPopUp isOpen={popUpIsOpen} />
           </Right>
         </ContentMid>
       </Container>
