@@ -23,7 +23,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Overlay onClick={() => dispatch(toggle())} pop={popUpIsOpen} />
-      <DesktopHeader />
+      <MobileHeader />
     </ThemeProvider>
   );
 }

@@ -15,8 +15,9 @@ export const Nav = styled.div`
 /* TopNavBar */
 export const TopNav = styled.div`
   width: 100%;
-  background: #09295c;
+  background: #004fff;
   padding: 5px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 `;
 
 export const TopContent = styled.div`
@@ -65,6 +66,7 @@ export const MobileNav = styled.div`
   width: 100%;
   background: #004fff;
   padding: 5px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 `;
 export const NavContent = styled.div`
   ${flexRowBet}
@@ -105,3 +107,54 @@ export const LogoWrap = styled.div`
   }
 `;
 /* MainNav */
+
+/* SearchBox */
+export const SearchWrap = styled.div`
+  width: 100%;
+  background: #004fff;
+  padding: 10px 10px;
+`;
+
+export const SearchContent = styled.div`
+  ${flexRowBet}
+  height: 100%;
+`;
+export const IconContainer = styled.div`
+  background: #004fff;
+  display: flex;
+  align-items: center;
+  border-radius: 100%;
+  padding: 10px 8px;
+  cursor: pointer;
+  :hover {
+    color: white;
+    filter: brightness(150%);
+  }
+`;
+export const FlexInput = styled.div`
+  width: 100%;
+  padding: 0 5px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 30px;
+  height: 40px;
+  border: 1px solid #dcdcdc;
+  background: #fff;
+  box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.04);
+  transition: all 0.4s;
+  input {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #a9a9a9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: initial;
+    font-family: 'Poppins', sans-serif;
+  }
+`;

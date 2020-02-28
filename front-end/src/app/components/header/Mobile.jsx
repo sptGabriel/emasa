@@ -28,9 +28,33 @@ import {
   AdjustIcon,
   Account,
   LogoWrap,
+  SearchWrap,
+  SearchContent,
+  FlexInput,
+  IconContainer,
 } from './styles/Mobile';
 import Logo from 'assets/images/logomobile.svg';
-
+import { SearchContainer } from './styles/backUpDesk';
+const Search = props => {
+  return (
+    <SearchWrap>
+      <SearchContent justify={'center'}>
+        <FlexInput>
+          <input placeholder="Pesquisar"></input>
+          <IconContainer>
+            <FontAwesomeIcon
+              className="searchIcon"
+              icon={faSearch}
+              size="xs"
+              fixedWidth
+              color="white"
+            />
+          </IconContainer>
+        </FlexInput>
+      </SearchContent>
+    </SearchWrap>
+  );
+};
 const MainNav = props => {
   return (
     <MobileNav>
@@ -124,6 +148,7 @@ const Main = props => {
     <Header>
       <TopMain />
       <MainNav />
+      <Search />
     </Header>
   );
 };
