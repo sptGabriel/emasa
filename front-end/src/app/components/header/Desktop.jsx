@@ -65,7 +65,7 @@ const NavTop = props => {
               <FontAwesomeIcon
                 className="adjust"
                 icon={faAdjust}
-                size="xs"
+                size="1x"
                 fixedWidth
                 color="white"
               />

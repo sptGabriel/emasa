@@ -83,7 +83,7 @@ export const Mid = styled.div`
   justify-content: center;
 `;
 export const IconContainer = styled.div`
-  background: #004fff;
+  background: #10377c;
   display: flex;
   align-items: center;
   border-radius: 100%;
@@ -91,7 +91,7 @@ export const IconContainer = styled.div`
   cursor: pointer;
   :hover {
     color: white;
-    filter: brightness(150%);
+    background: #004fff;
   }
 `;
 export const FlexInput = styled.div`
