@@ -147,17 +147,17 @@ export const PopUp = styled.div`
   div:nth-of-type(2) {
     font-size: 13px;
     font-family: inherit;
-    padding-top:10px;
-    button{
-      width:auto;
-      background:transparent;
-      color:#004ea8;
-      font-weight:600;
-      height:auto;
-    }
-    p {
-      background: red;
-      height
+    padding-top: 10px;
+    button {
+      width: auto;
+      background: transparent;
+      color: #004ea8;
+      font-weight: 600;
+      height: auto;
+      outline: none;
+      :hover {
+        color: #004fff;
+      }
     }
   }
   button {
@@ -200,7 +200,7 @@ export const DropDownLogin = styled.div`
 export const Nav = styled.nav`
   width: 100%;
   height: auto;
-  background: #33a1fd;
+  background: #10377c;
   a {
     font-family: 'Poppins', sans-serif;
     font-size: 0.8em;

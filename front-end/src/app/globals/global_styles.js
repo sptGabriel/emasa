@@ -50,3 +50,18 @@ export const Overlay = styled.div`
   z-index: 99;
   transition: all 0.2s ease;
 `;
+
+export const GlobalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+`;
+export const FooterWrapper = styled.div`
+  margin-top: auto;
+  max-height: 40px;
+  height: 100%;
+  flex: none;
+  background: red;
+`;

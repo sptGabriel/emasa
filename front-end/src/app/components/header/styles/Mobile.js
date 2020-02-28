@@ -61,26 +61,112 @@ export const InstaIcon = styled.a`
 `;
 /* TopNavBar */
 
+/* SideBar */
+export const SideBar = styled.div`
+  position: absolute;
+  background: white;
+  width: 70vw;
+  top: 0;
+  bottom: 0;
+  left: ${props => (props.IsOpen ? '0' : '-70vw')};
+  z-index: 99;
+  transition: all 0.2s ease;
+`;
+
+export const SideBarHeader = styled.div`
+  width: 100%;
+  height: 50px;
+  background: #004fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    height: 50px;
+  }
+`;
+
+export const SideBarBody = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  ul {
+    width: 100%;
+  }
+  li {
+    border-bottom: 1px solid #eee;
+    font-family: sans-serif;
+    font-size: 0.8em;
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: block;
+    padding: 14px 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+`;
+
+/* SideBar */
+
 /* MainNav */
 export const MobileNav = styled.div`
   width: 100%;
   background: #004fff;
   padding: 5px 0;
+  position: relative;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 `;
 export const NavContent = styled.div`
   ${flexRowBet}
   height: 100%;
 `;
+
+export const StyledBurger = styled.button`
+  position: absolute;
+  left: ${props => (props.open ? '70vw' : '0')};
+  top: ${props => (props.open ? '-50px' : '')};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 100;
+  transition: all 0.2s ease;
+  &:focus {
+    outline: none;
+  }
+
+  div {
+    width: 1.6rem;
+    height: 0.25rem;
+    background: ${({ open }) => (open ? '#EFFFFA' : '#EFFFFA')};
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+
+    :nth-of-type(1) {
+      transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
+    }
+
+    :nth-of-type(2) {
+      opacity: ${({ open }) => (open ? '0' : '1')};
+      transform: ${({ open }) => (open ? 'translateX(20px)' : 'translateX(0)')};
+    }
+
+    :nth-of-type(3) {
+      transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
+    }
+  }
+`;
 export const LeftContent = styled.div`
   display: flex;
   align-items: center;
+  position: relative;
 
-  button {
-    background: transparent;
-    border: none;
-    outline: none;
-  }
   svg {
     width: auto !important;
   }

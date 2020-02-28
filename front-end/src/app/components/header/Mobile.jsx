@@ -32,9 +32,16 @@ import {
   SearchContent,
   FlexInput,
   IconContainer,
+  SideBar,
+  StyledBurger,
+  SideBarHeader,
+  SideBarBody,
 } from './styles/Mobile';
 import Logo from 'assets/images/logomobile.svg';
-import { SearchContainer } from './styles/backUpDesk';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleSide } from 'redux/slices/sideBar';
+import { RootState } from 'redux/config/rootReducer';
+
 const Search = props => {
   return (
     <SearchWrap>
@@ -55,21 +62,43 @@ const Search = props => {
     </SearchWrap>
   );
 };
+
+const SideNavBar = props => {
+  return (
+    <SideBar {...props}>
+      <SideBarHeader>
+        <img src={Logo} />
+      </SideBarHeader>
+      <SideBarBody>
+        <ul>
+          <li>Anuário</li>
+          <li>Informativo</li>
+          <li>2 Via</li>
+          <li>Transferência</li>
+          <li>Licitação</li>
+          <li>WebMail</li>
+          <li>Contato</li>
+        </ul>
+      </SideBarBody>
+    </SideBar>
+  );
+};
+
 const MainNav = props => {
+  const dispatch = useDispatch();
   return (
     <MobileNav>
       <MobileContainer>
         <NavContent justify={'space-between'}>
-          <LeftContent>
-            <button>
-              <FontAwesomeIcon
-                className="adjust"
-                icon={faBars}
-                size="lg"
-                fixedWidth
-                color="white"
-              />
-            </button>
+          <LeftContent isOpen={props.sideisOpen}>
+            <StyledBurger
+              open={props.sideisOpen}
+              onClick={() => dispatch(toggleSide())}
+            >
+              <div />
+              <div />
+              <div />
+            </StyledBurger>
           </LeftContent>
           <LogoWrap>
             <img src={Logo} />
@@ -101,7 +130,7 @@ const TopMain = props => {
               <FontAwesomeIcon
                 className="adjust"
                 icon={faAdjust}
-                size="md"
+                size="1x"
                 fixedWidth
                 color="white"
               />
@@ -112,7 +141,7 @@ const TopMain = props => {
               <FontAwesomeIcon
                 className="adjust"
                 icon={faFacebookF}
-                size="md"
+                size="1x"
                 fixedWidth
                 color="white"
               />
@@ -121,7 +150,7 @@ const TopMain = props => {
               <FontAwesomeIcon
                 className="adjust"
                 icon={faInstagram}
-                size="md"
+                size="1x"
                 fixedWidth
                 color="white"
               />
@@ -144,10 +173,12 @@ const NavMain = props => {
 };
 
 const Main = props => {
+  const { sideIsOpen } = useSelector(RootState => RootState.toggleSide);
   return (
     <Header>
+      <SideNavBar IsOpen={sideIsOpen} />
       <TopMain />
-      <MainNav />
+      <MainNav sideisOpen={sideIsOpen} />
       <Search />
     </Header>
   );

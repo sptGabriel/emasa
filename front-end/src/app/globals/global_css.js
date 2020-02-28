@@ -9,6 +9,9 @@ export default function GlobalStyle(props) {
       styles={css`
         @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
         @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+        body > #emasa > div {
+          height: 100vh;
+        }
         * {
           padding: 0;
           margin: 0;
