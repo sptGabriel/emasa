@@ -22,12 +22,38 @@ const MainRoutes = () => {
         pop={popUpIsOpen ? popUpIsOpen : sideIsOpen}
       />
       <Routes>
-        <Route path={['/']} element={<Header />} />
+        <Route path="/" element={<Header />} />
       </Routes>
       <Content>
         <Routes>
-          <Route path="/" element={<> home </>}>
-            <Route path="about" element={<>about</>} />
+          <Route
+            path="/"
+            element={
+              <>
+                <div
+                  style={{ background: 'red', width: '100%', height: '400px' }}
+                >
+                  a
+                </div>
+              </>
+            }
+          >
+            <Route
+              path="about"
+              element={
+                <>
+                  <div
+                    style={{
+                      background: 'blue',
+                      width: '100%',
+                      height: '400px',
+                    }}
+                  >
+                    b
+                  </div>
+                </>
+              }
+            />
           </Route>
         </Routes>
       </Content>
