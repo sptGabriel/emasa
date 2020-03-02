@@ -59,8 +59,11 @@ export const GlobalContainer = styled.div`
   width: 100%;
   max-width: 100%;
 `;
-export const FooterWrapper = styled.div`
-  margin-top: auto;
+export const Content = styled.div`
+  flex: 1 0 auto;
+  width: 100%;
+`;
+export const Footer = styled.footer`
   max-height: 20px;
   height: 100%;
   flex: none;

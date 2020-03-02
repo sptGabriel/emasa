@@ -30,7 +30,7 @@ import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import Logo from 'assets/images/test3.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from 'redux/slices/popupMenu';
-
+import { useNavigate } from 'react-router-dom';
 const DropDownPopUp = props => {
   return (
     <PopUp {...props}>
@@ -139,6 +139,7 @@ const InnerHeader = props => {
   );
 };
 const NavMain = props => {
+  let navigate = useNavigate();
   return (
     <Nav>
       <Container>
