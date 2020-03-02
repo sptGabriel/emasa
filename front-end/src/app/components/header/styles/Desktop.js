@@ -1,7 +1,7 @@
 import styled from '@emotion/styled/macro';
-import { mxw80, flexCenter, flexRowBet } from '../../../globals/global_styles';
+import { mxw80, flexRowBet } from '../../../globals/global_styles';
 // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
+import { shade } from 'polished';
 export const Header = styled.header`
   width: 100%;
   height: auto;
@@ -83,7 +83,7 @@ export const Mid = styled.div`
   justify-content: center;
 `;
 export const IconContainer = styled.div`
-  background: #10377c;
+  background: #004fff;
   display: flex;
   align-items: center;
   border-radius: 100%;
@@ -91,7 +91,7 @@ export const IconContainer = styled.div`
   cursor: pointer;
   :hover {
     color: white;
-    background: #004fff;
+    background: #10377c;
   }
 `;
 export const FlexInput = styled.div`
@@ -200,7 +200,7 @@ export const DropDownLogin = styled.div`
 export const Nav = styled.nav`
   width: 100%;
   height: auto;
-  background: #10377c;
+  background: ${shade(0.15, '#004fff')};
   a {
     font-family: 'Poppins', sans-serif;
     font-size: 0.8em;

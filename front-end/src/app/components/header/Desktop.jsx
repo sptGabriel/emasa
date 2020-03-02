@@ -19,20 +19,17 @@ import {
   WrapIcons,
   FaceIcon,
   InstaIcon,
-  DropDownLogin,
 } from './styles/Desktop';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faSearch,
   faAdjust,
-  faUser,
   faAngleDown,
 } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import Logo from 'assets/images/test3.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from 'redux/slices/popupMenu';
-import { RootState } from 'redux/config/rootReducer';
 
 const DropDownPopUp = props => {
   return (
@@ -42,7 +39,7 @@ const DropDownPopUp = props => {
         <button>Entrar</button>
       </div>
       <div>
-        Esqueci meu <button>e-mail</button> ou a <button>senha</button>
+        Esqueci meu <button>e-mail</button> ou a <button>senha</button> .
       </div>
     </PopUp>
   );
@@ -57,10 +54,10 @@ const NavTop = props => {
             <p> Acessibilidade</p>
             <ul>
               <li>
-                <a>A-</a>
+                <a href="#">A-</a>
               </li>
               <li>
-                <a>A+</a>
+                <a href="#">A+</a>
               </li>
               <FontAwesomeIcon
                 className="adjust"
@@ -98,7 +95,6 @@ const NavTop = props => {
 };
 
 const InnerHeader = props => {
-  const [isHover, setisHover] = React.useState(false);
   const dispatch = useDispatch();
   const { popUpIsOpen } = useSelector(RootState => RootState.togglePopUp);
   return (
@@ -148,31 +144,31 @@ const NavMain = props => {
       <Container>
         <NavUl>
           <NavLi>
-            <a>Emasa</a>
+            <a href="#">Emasa</a>
           </NavLi>
           <NavLi>
-            <a>Quem Somos</a>
+            <a href="#">Quem Somos</a>
           </NavLi>
           <NavLi>
-            <a>Informativos</a>
+            <a href="#">Informativos</a>
           </NavLi>
           <NavLi>
-            <a>Transparência</a>
+            <a href="#">Transparência</a>
           </NavLi>
           <NavLi>
-            <a>Quem Somos</a>
+            <a href="#">Quem Somos</a>
           </NavLi>
           <NavLi>
-            <a>Informativos</a>
+            <a href="#">Informativos</a>
           </NavLi>
           <NavLi>
-            <a>Transparência</a>
+            <a href="#">Transparência</a>
           </NavLi>
           <NavLi>
-            <a>Informativos</a>
+            <a href="#">Informativos</a>
           </NavLi>
           <NavLi>
-            <a>Informativos</a>
+            <a href="#">Informativos</a>
           </NavLi>
         </NavUl>
       </Container>

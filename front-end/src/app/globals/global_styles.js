@@ -1,5 +1,6 @@
 import { css } from '@emotion/core';
 import styled from '@emotion/styled/macro';
+import { shade } from 'polished';
 export const flex = props => css`
   display: flex;
   flex-direction: ${props.flexdirection};
@@ -60,8 +61,8 @@ export const GlobalContainer = styled.div`
 `;
 export const FooterWrapper = styled.div`
   margin-top: auto;
-  max-height: 40px;
+  max-height: 20px;
   height: 100%;
   flex: none;
-  background: red;
+  background: ${shade(0.15, '#004fff')};
 `;

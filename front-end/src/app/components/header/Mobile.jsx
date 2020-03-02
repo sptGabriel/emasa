@@ -3,20 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faSearch,
   faAdjust,
-  faUser,
-  faAngleDown,
-  faBars,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { Header, Container } from './styles/Desktop';
+import { Header } from './styles/Desktop';
 import {
-  Nav,
   NavContent,
   LeftContent,
-  LogoContent,
   RightContent,
-  WrapAccount,
   TopNav,
   TopContent,
   MobileContainer,
@@ -40,7 +34,6 @@ import {
 import Logo from 'assets/images/logomobile.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleSide } from 'redux/slices/sideBar';
-import { RootState } from 'redux/config/rootReducer';
 
 const Search = props => {
   return (
@@ -159,16 +152,6 @@ const TopMain = props => {
         </TopContent>
       </MobileContainer>
     </TopNav>
-  );
-};
-const NavMain = props => {
-  const [isHover, setisHover] = React.useState(false);
-  return (
-    <Nav>
-      <MobileContainer>
-        <NavContent justify={'space-between'}></NavContent>
-      </MobileContainer>
-    </Nav>
   );
 };
 

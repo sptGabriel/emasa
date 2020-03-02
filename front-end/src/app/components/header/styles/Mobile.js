@@ -1,5 +1,5 @@
 import styled from '@emotion/styled/macro';
-import { flexRowBet, padding15 } from '../../../globals/global_styles';
+import { flexRowBet } from '../../../globals/global_styles';
 
 export const MobileContainer = styled.div`
   height: 100%;
@@ -93,7 +93,7 @@ export const SideBarBody = styled.div`
     width: 100%;
   }
   li {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     font-family: sans-serif;
     font-size: 0.8em;
     text-decoration: none;

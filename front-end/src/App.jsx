@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { useEffect } from 'react';
-import { jsx, Global } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import GlobalStyle from './app/globals/global_css';
 import useAppTheme from './utils/useAppTheme';
