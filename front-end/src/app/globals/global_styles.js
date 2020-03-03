@@ -33,6 +33,14 @@ export const padding15 = css`
   padding-right: 10px;
 `;
 
+export const py64 = css`
+  padding-top: 64px;
+  padding-bottom: 64px;
+`;
+export const py128 = css`
+  padding-top: 128px;
+  padding-bottom: 128px;
+`;
 export const flexRowBet = props => css`
   display: flex;
   align-items: center;

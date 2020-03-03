@@ -30,7 +30,7 @@ import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import Logo from 'assets/images/test3.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from 'redux/slices/popupMenu';
-
+import { Link } from 'react-router-dom';
 const DropDownPopUp = props => {
   return (
     <PopUp {...props}>
@@ -144,31 +144,31 @@ const NavMain = props => {
       <Container>
         <NavUl>
           <NavLi>
-            <a href="#">Emasa</a>
+            <Link to="/">One</Link>
           </NavLi>
           <NavLi>
-            <a href="#">Quem Somos</a>
+            <Link to="../about">Two</Link>
           </NavLi>
           <NavLi>
-            <a href="#">Informativos</a>
+            <Link to="../dashboard">Three</Link>
           </NavLi>
           <NavLi>
-            <a href="#">Transparência</a>
+            <Link to="../dashboard/about">Four</Link>
           </NavLi>
           <NavLi>
-            <a href="#">Quem Somos</a>
+            <Link to="../dashboard/test">Five</Link>
           </NavLi>
           <NavLi>
-            <a href="#">Informativos</a>
+            <Link to="/about">Home</Link>
           </NavLi>
           <NavLi>
-            <a href="#">Transparência</a>
+            <Link to="/about">Home</Link>
           </NavLi>
           <NavLi>
-            <a href="#">Informativos</a>
+            <Link to="/about">Home</Link>
           </NavLi>
           <NavLi>
-            <a href="#">Informativos</a>
+            <Link to="/about">Home</Link>
           </NavLi>
         </NavUl>
       </Container>
