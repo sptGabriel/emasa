@@ -22,7 +22,32 @@ const HeaderKeyFrame = keyframes`
 	}
 `;
 export const CarouselWrap = styled.div`
-  width: 100%;
+  padding-top: 30px;
+  width: 90% !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-height: 50vh;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  & .slider_left,
+  .slider_right {
+    max-height: 50vh;
+    padding: 0 20px;
+    max-width: 25%;
+    background: hotpink;
+    & .slick-slide {
+      height: 25% !important;
+      div:nth-of-type(1) {
+        height: 100%;
+      }
+    }
+  }
+  & .slider_center {
+    max-height: 50vh;
+    background: red;
+    max-width: 50%;
+  }
   & .slick-active {
     button {
       ::before {
@@ -30,6 +55,10 @@ export const CarouselWrap = styled.div`
         font-size: 0.6rem;
       }
     }
+  }
+  & .slick-list,
+  .slick-track {
+    height: 100% !important;
   }
   & .slick-dots {
     bottom: 0;
@@ -42,19 +71,25 @@ export const CarouselWrap = styled.div`
       }
     }
   }
+  & .testing2,
+  .testing3 {
+    height: 100% !important;
+    background: red;
+  }
   & .testing {
+    width: 50%;
+    height: 50vh;
     display: flex !important;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 400px;
     background: url(${img});
     background-size: cover;
     background-position: center;
     -webkit-box-shadow: inset -200px -200px 5px 500px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: inset -200px -200px 5px 500px rgba(0, 0, 0, 0.2);
     box-shadow: inset -200px -200px 5px 500px rgba(0, 0, 0, 0.2);
-    ${py64}
+    ${py128}
     h3 {
       max-width: 35rem;
       width: 90% !important;
