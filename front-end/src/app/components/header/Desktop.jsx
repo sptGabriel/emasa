@@ -7,10 +7,10 @@ import {
   Nav,
   ContentTopNav,
   WrapAcessibility,
-  Right,
+  MyAccount,
   PopUp,
   ContentMid,
-  Left,
+  WrapLogo,
   Mid,
   FlexInput,
   IconContainer,
@@ -19,6 +19,7 @@ import {
   WrapIcons,
   FaceIcon,
   InstaIcon,
+  NavBetween,
 } from './styles/Desktop';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -46,6 +47,8 @@ const DropDownPopUp = props => {
 };
 
 const NavTop = props => {
+  const dispatch = useDispatch();
+  const { popUpIsOpen } = useSelector(RootState => RootState.togglePopUp);
   return (
     <TopNav>
       <Container>
@@ -68,6 +71,21 @@ const NavTop = props => {
               />
             </ul>
           </WrapAcessibility>
+          <MyAccount>
+            <h3 onClick={() => dispatch(toggle())}>
+              Minha Conta
+              <span>
+                <FontAwesomeIcon
+                  className="adjust"
+                  icon={faAngleDown}
+                  size="xs"
+                  fixedWidth
+                  color="white"
+                />
+              </span>
+            </h3>
+            <DropDownPopUp isOpen={popUpIsOpen} />
+          </MyAccount>
           <WrapIcons>
             <FaceIcon>
               <FontAwesomeIcon
@@ -101,38 +119,14 @@ const InnerHeader = props => {
     <HeaderMid>
       <Container>
         <ContentMid justify={'space-between'}>
-          <Left>
+          <WrapLogo>
             <img src={Logo} />
-          </Left>
+          </WrapLogo>
           <Mid>
             <FlexInput>
               <input placeholder="Pesquisar"></input>
-              <IconContainer>
-                <FontAwesomeIcon
-                  className="searchIcon"
-                  icon={faSearch}
-                  size="xs"
-                  fixedWidth
-                  color="white"
-                />
-              </IconContainer>
             </FlexInput>
           </Mid>
-          <Right>
-            <h3 onClick={() => dispatch(toggle())}>
-              Minha Conta
-              <span>
-                <FontAwesomeIcon
-                  className="adjust"
-                  icon={faAngleDown}
-                  size="xs"
-                  fixedWidth
-                  color="white"
-                />
-              </span>
-            </h3>
-            <DropDownPopUp isOpen={popUpIsOpen} />
-          </Right>
         </ContentMid>
       </Container>
     </HeaderMid>
@@ -142,35 +136,50 @@ const NavMain = props => {
   return (
     <Nav>
       <Container>
-        <NavUl>
-          <NavLi>
-            <Link to="/">One</Link>
-          </NavLi>
-          <NavLi>
-            <Link to="../about">Two</Link>
-          </NavLi>
-          <NavLi>
-            <Link to="../dashboard">Three</Link>
-          </NavLi>
-          <NavLi>
-            <Link to="../dashboard/about">Four</Link>
-          </NavLi>
-          <NavLi>
-            <Link to="../dashboard/test">Five</Link>
-          </NavLi>
-          <NavLi>
-            <Link to="/about">Home</Link>
-          </NavLi>
-          <NavLi>
-            <Link to="/about">Home</Link>
-          </NavLi>
-          <NavLi>
-            <Link to="/about">Home</Link>
-          </NavLi>
-          <NavLi>
-            <Link to="/about">Home</Link>
-          </NavLi>
-        </NavUl>
+        <NavBetween>
+          <WrapLogo>
+            <img src={Logo} />
+          </WrapLogo>
+          <NavUl>
+            <NavLi>
+              <Link to="/">One</Link>
+            </NavLi>
+            <NavLi>
+              <Link to="../about">Two</Link>
+            </NavLi>
+            <NavLi>
+              <Link to="../dashboard">Three</Link>
+            </NavLi>
+            <NavLi>
+              <Link to="../dashboard/about">Four</Link>
+            </NavLi>
+            <NavLi>
+              <Link to="../dashboard/test">Five</Link>
+            </NavLi>
+            <NavLi>
+              <Link to="/about">Home</Link>
+            </NavLi>
+            <NavLi>
+              <Link to="/about">Home</Link>
+            </NavLi>
+            <NavLi>
+              <Link to="/about">Home</Link>
+            </NavLi>
+            <NavLi>
+              <Link to="/about">Home</Link>
+            </NavLi>
+            <NavLi>
+              <FontAwesomeIcon
+                className="searchIcon"
+                rotation={90}
+                icon={faSearch}
+                size="1x"
+                fixedWidth
+                color="rgba(0, 0, 0, 0.08);"
+              />
+            </NavLi>
+          </NavUl>
+        </NavBetween>
       </Container>
     </Nav>
   );
@@ -179,7 +188,6 @@ const Main = props => {
   return (
     <Header>
       <NavTop />
-      <InnerHeader />
       <NavMain />
     </Header>
   );

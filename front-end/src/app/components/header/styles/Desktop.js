@@ -17,7 +17,31 @@ export const TopNav = styled.div`
 export const ContentTopNav = styled.div`
   ${flexRowBet};
   height: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+`;
+export const MyAccount = styled.ul`
+  position: relative;
+  width: 20%;
+  height: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8em;
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: block;
+    color: white;
+    font-weight: 400;
+    line-height: 24px;
+    cursor: pointer;
+  }
+`;
+export const DropDownLogin = styled.div`
+  max-width: 200px;
+  width: 200px;
+  height: 100%;
 `;
 export const WrapAcessibility = styled.div`
   ${flexRowBet};
@@ -69,14 +93,9 @@ export const HeaderMid = styled.div`
 `;
 export const ContentMid = styled.div`
   ${flexRowBet};
-  padding: 2.8rem 0;
+  padding: 1.5em 0;
 `;
-export const Left = styled.div`
-  width: 20%;
-  img {
-    width: 100%;
-  }
-`;
+
 export const Mid = styled.div`
   ${flexRowBet};
   width: 60%;
@@ -168,31 +187,7 @@ export const PopUp = styled.div`
     font-family: inherit;
   }
 `;
-export const Right = styled.ul`
-  position: relative;
-  width: 20%;
-  height: 100%;
-  padding: 10px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  h3 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.8em;
-    text-decoration: none;
-    letter-spacing: 1px;
-    display: block;
-    color: white;
-    font-weight: 400;
-    line-height: 24px;
-    cursor: pointer;
-  }
-`;
-export const DropDownLogin = styled.div`
-  max-width: 200px;
-  width: 200px;
-  height: 100%;
-`;
+
 //Finished
 
 // nav Main
@@ -200,32 +195,44 @@ export const DropDownLogin = styled.div`
 export const Nav = styled.nav`
   width: 100%;
   height: auto;
-  background: ${shade(0.15, '#004fff')};
+  background: ${shade(0, '#fff')};
+`;
+export const NavBetween = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
+export const NavUl = styled.ul`
+  width: 70%;
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+export const NavLi = styled.li`
   a {
     font-family: 'Poppins', sans-serif;
     font-size: 0.8em;
     text-decoration: none;
     letter-spacing: 1px;
     display: block;
+    color: rgba(0, 0, 0, 0.6);
     padding: 16px 20px;
     font-weight: 400;
     line-height: 24px;
+    :hover {
+      color: #cdcdcd;
+      transition-duration: 0.5s;
+      transition-property: background-color, color;
+    }
   }
 `;
-
-export const NavUl = styled.ul`
-  width: 100%;
-  display: flex;
-  height: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-export const NavLi = styled.li`
-  color: #fff;
-  :hover {
-    background: #004fff;
-    transition-duration: 0.5s;
-    transition-property: background-color, color;
+export const WrapLogo = styled.div`
+  width: 20%;
+  img {
+    height: 40px;
   }
 `;
