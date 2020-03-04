@@ -101,45 +101,6 @@ export const Mid = styled.div`
   width: 60%;
   justify-content: center;
 `;
-export const IconContainer = styled.div`
-  background: #004fff;
-  display: flex;
-  align-items: center;
-  border-radius: 100%;
-  padding: 10px 8px;
-  cursor: pointer;
-  :hover {
-    color: white;
-    background: #10377c;
-  }
-`;
-export const FlexInput = styled.div`
-  width: 60%;
-  padding: 0 5px;
-  display: inline-flex;
-  align-items: center;
-  border-radius: 30px;
-  height: 47px;
-  border: 1px solid #dcdcdc;
-  background: #fff;
-  box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.04);
-  transition: all 0.4s;
-  input {
-    background: transparent;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    padding: 0.5rem 1.2rem 0.5rem 1.2rem;
-    outline: none;
-    font-size: 14px;
-    font-weight: 400;
-    color: #a9a9a9;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    box-sizing: initial;
-    font-family: 'Poppins', sans-serif;
-  }
-`;
 
 export const PopUp = styled.div`
   position: absolute;
@@ -196,6 +157,7 @@ export const Nav = styled.nav`
   width: 100%;
   height: auto;
   background: ${shade(0, '#fff')};
+  padding: 10px 0;
 `;
 export const NavBetween = styled.div`
   display: flex;
@@ -210,6 +172,9 @@ export const NavUl = styled.ul`
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
+  svg {
+    cursor: pointer;
+  }
 `;
 
 export const NavLi = styled.li`
@@ -220,6 +185,7 @@ export const NavLi = styled.li`
     letter-spacing: 1px;
     display: block;
     color: rgba(0, 0, 0, 0.6);
+    font-weight: bold;
     padding: 16px 20px;
     font-weight: 400;
     line-height: 24px;
@@ -234,5 +200,52 @@ export const WrapLogo = styled.div`
   width: 20%;
   img {
     height: 40px;
+  }
+`;
+
+export const SearchWrapper = styled.div`
+  width: 70%;
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  background: red;
+`;
+
+export const FlexInput = styled.div`
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  background: #fff;
+  transition: all 0.4s;
+  input {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 0.5rem 0.8rem 0.5rem 1.2rem;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #a9a9a9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: initial;
+    font-family: 'Poppins', sans-serif;
+  }
+`;
+
+export const IconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  border-radius: 100%;
+  padding: 10px 0;
+  width: 30px;
+  cursor: pointer;
+  :hover {
+    color: white;
+    background: #10377c;
   }
 `;

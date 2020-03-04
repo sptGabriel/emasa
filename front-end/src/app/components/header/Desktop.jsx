@@ -20,6 +20,7 @@ import {
   FaceIcon,
   InstaIcon,
   NavBetween,
+  SearchWrapper,
 } from './styles/Desktop';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -32,6 +33,7 @@ import Logo from 'assets/images/test3.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from 'redux/slices/popupMenu';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 const DropDownPopUp = props => {
   return (
     <PopUp {...props}>
@@ -125,6 +127,15 @@ const InnerHeader = props => {
           <Mid>
             <FlexInput>
               <input placeholder="Pesquisar"></input>
+              <IconContainer>
+                <FontAwesomeIcon
+                  className="searchIcon"
+                  icon={faSearch}
+                  size="xs"
+                  fixedWidth
+                  color="black"
+                />
+              </IconContainer>
             </FlexInput>
           </Mid>
         </ContentMid>
@@ -133,14 +144,15 @@ const InnerHeader = props => {
   );
 };
 const NavMain = props => {
+  const [test, setText] = useState(false);
   return (
     <Nav>
       <Container>
-        <NavBetween>
+        <NavBetween test={test}>
           <WrapLogo>
             <img src={Logo} />
           </WrapLogo>
-          <NavUl>
+          {/* <NavUl>
             <NavLi>
               <Link to="/">One</Link>
             </NavLi>
@@ -170,6 +182,7 @@ const NavMain = props => {
             </NavLi>
             <NavLi>
               <FontAwesomeIcon
+                onClick={() => setText(!test)}
                 className="searchIcon"
                 rotation={90}
                 icon={faSearch}
@@ -178,7 +191,21 @@ const NavMain = props => {
                 color="rgba(0, 0, 0, 0.08);"
               />
             </NavLi>
-          </NavUl>
+          </NavUl> */}
+          <SearchWrapper>
+            <FlexInput>
+              <input placeholder="Pesquisar"></input>
+              <IconContainer>
+                <FontAwesomeIcon
+                  className="searchIcon"
+                  icon={faSearch}
+                  size="xs"
+                  fixedWidth
+                  color="black"
+                />
+              </IconContainer>
+            </FlexInput>
+          </SearchWrapper>
         </NavBetween>
       </Container>
     </Nav>
