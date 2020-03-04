@@ -69,7 +69,7 @@ export const HeaderMid = styled.div`
 `;
 export const ContentMid = styled.div`
   ${flexRowBet};
-  padding: 2.8rem 0;
+  padding: 1.5rem 0;
 `;
 export const Left = styled.div`
   width: 20%;
