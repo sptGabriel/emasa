@@ -65,11 +65,11 @@ export const InstaIcon = styled.a``;
 // HeaderMid
 export const HeaderMid = styled.div`
   width: 100%;
-  background: #004fff;
+  background: #fff;
 `;
 export const ContentMid = styled.div`
   ${flexRowBet};
-  padding: 2.8rem 0;
+  padding: 1.5rem 0;
 `;
 export const Left = styled.div`
   width: 20%;
@@ -182,7 +182,7 @@ export const Right = styled.ul`
     text-decoration: none;
     letter-spacing: 1px;
     display: block;
-    color: white;
+    color: #000;
     font-weight: 400;
     line-height: 24px;
     cursor: pointer;
@@ -200,7 +200,7 @@ export const DropDownLogin = styled.div`
 export const Nav = styled.nav`
   width: 100%;
   height: auto;
-  background: ${shade(0.15, '#004fff')};
+  background: ${shade(0, '#fff')};
   a {
     font-family: 'Poppins', sans-serif;
     font-size: 0.8em;
@@ -210,6 +210,7 @@ export const Nav = styled.nav`
     padding: 16px 20px;
     font-weight: 400;
     line-height: 24px;
+    color: black;
   }
 `;
 
@@ -223,8 +224,9 @@ export const NavUl = styled.ul`
 
 export const NavLi = styled.li`
   color: #fff;
-  :hover {
+  a:hover {
     background: #004fff;
+    color: white;
     transition-duration: 0.5s;
     transition-property: background-color, color;
   }
