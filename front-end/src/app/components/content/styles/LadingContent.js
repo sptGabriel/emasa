@@ -9,6 +9,8 @@ export const Content = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  max-width: 80rem;
+  margin: 0 auto;
 `;
 const HeaderKeyFrame = keyframes`
 	0% {
@@ -23,28 +25,29 @@ const HeaderKeyFrame = keyframes`
 `;
 export const CarouselWrap = styled.div`
   padding-top: 30px;
-  width: 90% !important;
+  width: 100% !important;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  max-height: 50vh;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  & .slider_right {
+    padding-left: 20px;
+  }
+  & .slider_left {
+    padding-right: 20px;
+  }
   & .slider_left,
   .slider_right {
-    max-height: 50vh;
-    padding: 0 20px;
-    max-width: 25%;
-    background: hotpink;
+    width: 25%;
     & .slick-slide {
-      height: 25% !important;
+      height: 33.33% !important;
       div:nth-of-type(1) {
         height: 100%;
       }
     }
+    & .slick-track {
+    }
   }
   & .slider_center {
-    max-height: 50vh;
     background: red;
     max-width: 50%;
   }
@@ -78,7 +81,7 @@ export const CarouselWrap = styled.div`
   }
   & .testing {
     width: 50%;
-    height: 50vh;
+
     display: flex !important;
     justify-content: center;
     align-items: center;

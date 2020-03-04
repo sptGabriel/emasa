@@ -99,6 +99,9 @@ const CarouselHeader = props => {
         </div>
         <div className="testing3">a</div>
         <div className="testing3">a</div>
+        <div className="testing3">a</div>
+        <div className="testing3">a</div>
+        <div className="testing3">a</div>
       </Slider>
     </CarouselWrap>
   );
