@@ -65,7 +65,7 @@ export const InstaIcon = styled.a``;
 // HeaderMid
 export const HeaderMid = styled.div`
   width: 100%;
-  background: #004fff;
+  background: #fff;
 `;
 export const ContentMid = styled.div`
   ${flexRowBet};
@@ -182,7 +182,7 @@ export const Right = styled.ul`
     text-decoration: none;
     letter-spacing: 1px;
     display: block;
-    color: white;
+    color: black;
     font-weight: 400;
     line-height: 24px;
     cursor: pointer;
@@ -200,17 +200,7 @@ export const DropDownLogin = styled.div`
 export const Nav = styled.nav`
   width: 100%;
   height: auto;
-  background: ${shade(0.15, '#004fff')};
-  a {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.8em;
-    text-decoration: none;
-    letter-spacing: 1px;
-    display: block;
-    padding: 16px 20px;
-    font-weight: 400;
-    line-height: 24px;
-  }
+  background: ${shade(0, '#fff')};
 `;
 
 export const NavUl = styled.ul`
@@ -223,9 +213,21 @@ export const NavUl = styled.ul`
 
 export const NavLi = styled.li`
   color: #fff;
-  :hover {
-    background: #004fff;
-    transition-duration: 0.5s;
-    transition-property: background-color, color;
+  a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8em;
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: block;
+    color: black;
+    padding: 16px 20px;
+    font-weight: 400;
+    line-height: 24px;
+    :hover {
+      background: #004fff;
+      color: white;
+      transition-duration: 0.5s;
+      transition-property: background-color, color;
+    }
   }
 `;

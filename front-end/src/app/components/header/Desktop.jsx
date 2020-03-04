@@ -127,7 +127,7 @@ const InnerHeader = props => {
                   icon={faAngleDown}
                   size="xs"
                   fixedWidth
-                  color="white"
+                  color="#004fff"
                 />
               </span>
             </h3>
