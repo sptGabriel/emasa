@@ -4,6 +4,15 @@ import { mxw80, flexRowBet } from '../../../globals/global_styles';
 // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 import { shade } from 'polished';
 
+const HeightNav = keyframes`
+from { 
+  height:80px;
+ }
+to   { 
+  height:50px;
+}
+`;
+
 const KeySearch = keyframes`
 from { 
   z-index:2;
@@ -263,6 +272,7 @@ export const NavUl = styled.ul`
   }}
   svg {
     cursor: pointer;
+    margin-left: 10px;
   }
   a {
     font-family: 'Poppins', sans-serif;
@@ -270,14 +280,33 @@ export const NavUl = styled.ul`
     font-weight: bold;
     text-decoration: none;
     letter-spacing: 1px;
-    display: block;
+    display: inline-block;
+    position: relative;
     color: rgba(0, 0, 0, 0.6);
-    padding: 16px 20px;
+    padding: 0px 15px;
     line-height: 24px;
+    ::after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 2px;
+      left: calc(50% - 15px);
+      position: absolute;
+      background: #004fff;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      width: 0;
+    }
     :hover {
       color: #cdcdcd;
       transition-duration: 0.5s;
       transition-property: background-color, color;
+    }
+    :hover:after {
+      width: 100%;
+      left: 0;
+      transition-duration: 0.5s;
+      transition-property: width;
     }
   }
 `;
