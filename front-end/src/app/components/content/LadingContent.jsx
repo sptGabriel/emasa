@@ -15,6 +15,8 @@ const CarouselHeader = props => {
   var settings = {
     dots: true,
     arrows: false,
+    autoplay: true,
+
     draggable: false,
     infinite: true,
     slidesToShow: 1,
@@ -42,9 +44,12 @@ const CarouselHeader = props => {
 };
 const LadingContent = props => {
   return (
-    <Content>
+    <>
       <CarouselHeader />
-    </Content>
+      <div stlye={{ background: 'red', width: '100%', height: '400px' }}>
+        fsadasfsdfsdfsdfsd
+      </div>
+    </>
   );
 };
 

@@ -12,6 +12,7 @@ export const Content = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  height: 100%;
 `;
 const HeaderKeyFrame = keyframes`
 	0% {
@@ -26,8 +27,6 @@ const HeaderKeyFrame = keyframes`
 `;
 export const CarouselWrap = styled.div`
   width: 100%;
-  max-height:30vh;
-  height:30vh;
   & .slick-active {
     button {
       ::before {
