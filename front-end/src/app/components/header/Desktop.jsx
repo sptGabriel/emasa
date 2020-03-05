@@ -29,6 +29,7 @@ import {
   faAngleDown,
 } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import Logo from 'assets/images/test3.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from 'redux/slices/popupMenu';
@@ -144,15 +145,35 @@ const InnerHeader = props => {
   );
 };
 const NavMain = props => {
-  const [test, setText] = useState(false);
+  const [test, setText] = useState(true);
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  const handleTest = () => {
+    if (searchOpen) {
+      setText(false);
+    }
+    setText(!test);
+    setTimeout(function() {
+      return setSearchOpen(true);
+    }, 500);
+  };
+  const handleSearch = () => {
+    if (test) {
+      searchOpen(false);
+    }
+    setSearchOpen(false);
+    setTimeout(function() {
+      return setText(true);
+    }, 500);
+  };
   return (
     <Nav>
       <Container>
-        <NavBetween test={test}>
+        <NavBetween test={test} searchOpen={searchOpen}>
           <WrapLogo>
             <img src={Logo} />
           </WrapLogo>
-          {/* <NavUl>
+          <NavUl test={test} searchOpen={searchOpen}>
             <NavLi>
               <Link to="/">One</Link>
             </NavLi>
@@ -182,7 +203,7 @@ const NavMain = props => {
             </NavLi>
             <NavLi>
               <FontAwesomeIcon
-                onClick={() => setText(!test)}
+                onClick={handleTest}
                 className="searchIcon"
                 rotation={90}
                 icon={faSearch}
@@ -191,14 +212,15 @@ const NavMain = props => {
                 color="rgba(0, 0, 0, 0.08);"
               />
             </NavLi>
-          </NavUl> */}
-          <SearchWrapper>
+          </NavUl>
+          <SearchWrapper test={test} searchOpen={searchOpen}>
             <FlexInput>
               <input placeholder="Pesquisar"></input>
               <IconContainer>
                 <FontAwesomeIcon
+                  onClick={handleSearch}
                   className="searchIcon"
-                  icon={faSearch}
+                  icon={faTimes}
                   size="xs"
                   fixedWidth
                   color="black"

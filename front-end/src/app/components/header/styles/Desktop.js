@@ -1,7 +1,32 @@
 import styled from '@emotion/styled/macro';
+import { keyframes, css } from '@emotion/core';
 import { mxw80, flexRowBet } from '../../../globals/global_styles';
 // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 import { shade } from 'polished';
+
+const KeySearch = keyframes`
+from { visibility: visible; transform: translateY(0); opacity: 1; }
+to   { 
+  visibility: hidden; 
+  transform: translateY(20px); 
+  opacity: 0; display:none;
+}
+`;
+const KeySearch2 = keyframes`
+from { 
+  visibility:hidden;
+  transform: translateY(-20px); 
+  opacity: 0;
+  width:70%;
+}
+to   { 
+  width:70%;
+  visibility:visible;
+  transform: translateY(0px); 
+  opacity: 1; 
+  display:flex;
+}
+`;
 export const Header = styled.header`
   width: 100%;
   height: auto;
@@ -155,19 +180,34 @@ export const PopUp = styled.div`
 // or F79824 or  FDCA40
 export const Nav = styled.nav`
   width: 100%;
-  height: auto;
+  height: 80px;
   background: ${shade(0, '#fff')};
-  padding: 10px 0;
 `;
 export const NavBetween = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
   width: 100%;
 `;
 export const NavUl = styled.ul`
-  width: 70%;
   display: flex;
+  ${props =>
+    !props.test &&
+    css`
+      animation: ${KeySearch} 0.5s;
+      -webkit-animation-fill-mode: forwards;
+      -moz-animation-fill-mode: forwards;
+      -ms-animation-fill-mode: forwards;
+      -o-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+    `}
+  ${props =>
+    props.searchOpen &&
+    css`
+      display: none !important;
+    `}
+  width: 70%;
   height: 100%;
   flex-wrap: wrap;
   align-items: center;
@@ -181,13 +221,12 @@ export const NavLi = styled.li`
   a {
     font-family: 'Poppins', sans-serif;
     font-size: 0.8em;
+    font-weight: bold;
     text-decoration: none;
     letter-spacing: 1px;
     display: block;
     color: rgba(0, 0, 0, 0.6);
-    font-weight: bold;
     padding: 16px 20px;
-    font-weight: 400;
     line-height: 24px;
     :hover {
       color: #cdcdcd;
@@ -204,8 +243,18 @@ export const WrapLogo = styled.div`
 `;
 
 export const SearchWrapper = styled.div`
-  width: 70%;
-  display: flex;
+  ${props =>
+    !props.test &&
+    css`
+      animation: ${KeySearch2} 0.5s;
+      -webkit-animation-fill-mode: forwards;
+      -moz-animation-fill-mode: forwards;
+      -ms-animation-fill-mode: forwards;
+      -o-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+    `}
+  visibility:hidden;
+  width: 0;
   height: 100%;
   flex-wrap: wrap;
   align-items: center;
@@ -240,12 +289,10 @@ export const FlexInput = styled.div`
 export const IconContainer = styled.div`
   display: flex;
   align-items: center;
-  border-radius: 100%;
   padding: 10px 0;
   width: 30px;
   cursor: pointer;
   :hover {
     color: white;
-    background: #10377c;
   }
 `;
