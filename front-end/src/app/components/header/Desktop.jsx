@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Header,
   TopNav,
@@ -12,15 +12,13 @@ import {
   ContentMid,
   WrapLogo,
   Mid,
-  FlexInput,
-  IconContainer,
   NavUl,
-  NavLi,
   WrapIcons,
   FaceIcon,
   InstaIcon,
   NavBetween,
   SearchWrapper,
+  NavGrid,
 } from './styles/Desktop';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -115,119 +113,73 @@ const NavTop = props => {
   );
 };
 
-const InnerHeader = props => {
-  const dispatch = useDispatch();
-  const { popUpIsOpen } = useSelector(RootState => RootState.togglePopUp);
-  return (
-    <HeaderMid>
-      <Container>
-        <ContentMid justify={'space-between'}>
-          <WrapLogo>
-            <img src={Logo} />
-          </WrapLogo>
-          <Mid>
-            <FlexInput>
-              <input placeholder="Pesquisar"></input>
-              <IconContainer>
-                <FontAwesomeIcon
-                  className="searchIcon"
-                  icon={faSearch}
-                  size="xs"
-                  fixedWidth
-                  color="black"
-                />
-              </IconContainer>
-            </FlexInput>
-          </Mid>
-        </ContentMid>
-      </Container>
-    </HeaderMid>
-  );
-};
 const NavMain = props => {
-  const [test, setText] = useState(true);
-  const [searchOpen, setSearchOpen] = useState(false);
-
-  const handleTest = () => {
-    if (searchOpen) {
-      setText(false);
-    }
-    setText(!test);
-    setTimeout(function() {
-      return setSearchOpen(true);
-    }, 500);
-  };
-  const handleSearch = () => {
-    if (test) {
-      searchOpen(false);
-    }
-    setSearchOpen(false);
-    setTimeout(function() {
-      return setText(true);
-    }, 500);
-  };
+  const [isOpenBox, setOpenBox] = useState(null);
+  console.log(isOpenBox);
   return (
     <Nav>
       <Container>
-        <NavBetween test={test} searchOpen={searchOpen}>
+        <NavBetween>
           <WrapLogo>
             <img src={Logo} />
           </WrapLogo>
-          <NavUl test={test} searchOpen={searchOpen}>
-            <NavLi>
-              <Link to="/">One</Link>
-            </NavLi>
-            <NavLi>
-              <Link to="../about">Two</Link>
-            </NavLi>
-            <NavLi>
-              <Link to="../dashboard">Three</Link>
-            </NavLi>
-            <NavLi>
-              <Link to="../dashboard/about">Four</Link>
-            </NavLi>
-            <NavLi>
-              <Link to="../dashboard/test">Five</Link>
-            </NavLi>
-            <NavLi>
-              <Link to="/about">Home</Link>
-            </NavLi>
-            <NavLi>
-              <Link to="/about">Home</Link>
-            </NavLi>
-            <NavLi>
-              <Link to="/about">Home</Link>
-            </NavLi>
-            <NavLi>
-              <Link to="/about">Home</Link>
-            </NavLi>
-            <NavLi>
-              <FontAwesomeIcon
-                onClick={handleTest}
-                className="searchIcon"
-                rotation={90}
-                icon={faSearch}
-                size="1x"
-                fixedWidth
-                color="rgba(0, 0, 0, 0.08);"
-              />
-            </NavLi>
-          </NavUl>
-          <SearchWrapper test={test} searchOpen={searchOpen}>
-            <FlexInput>
-              <input placeholder="Pesquisar"></input>
-              <IconContainer>
+          <NavGrid>
+            <NavUl isOpen={isOpenBox}>
+              <li>
+                <Link to="/">One</Link>
+              </li>
+              <li>
+                <Link to="../about">Two</Link>
+              </li>
+              <li>
+                <Link to="../dashboard">Three</Link>
+              </li>
+              <li>
+                <Link to="../dashboard/about">Four</Link>
+              </li>
+              <li>
+                <Link to="../dashboard/test">Five</Link>
+              </li>
+              <li>
+                <Link to="/about">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">Home</Link>
+              </li>
+              <li>
                 <FontAwesomeIcon
-                  onClick={handleSearch}
+                  onClick={() => setOpenBox(!isOpenBox)}
                   className="searchIcon"
-                  icon={faTimes}
-                  size="xs"
+                  rotation={90}
+                  icon={faSearch}
+                  size="1x"
                   fixedWidth
-                  color="black"
+                  color="rgba(0, 0, 0, 0.08);"
                 />
-              </IconContainer>
-            </FlexInput>
-          </SearchWrapper>
+              </li>
+            </NavUl>
+            <SearchWrapper isOpen={isOpenBox}>
+              <div className="FlexInput">
+                <input placeholder="Pesquisar"></input>
+                <div className="IconContainer">
+                  <FontAwesomeIcon
+                    onClick={() => setOpenBox(!isOpenBox)}
+                    className="searchIcon"
+                    icon={faTimes}
+                    size="xs"
+                    fixedWidth
+                    color="black"
+                  />
+                </div>
+              </div>
+            </SearchWrapper>
+          </NavGrid>
         </NavBetween>
       </Container>
     </Nav>

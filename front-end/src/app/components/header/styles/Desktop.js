@@ -5,26 +5,60 @@ import { mxw80, flexRowBet } from '../../../globals/global_styles';
 import { shade } from 'polished';
 
 const KeySearch = keyframes`
-from { visibility: visible; transform: translateY(0); opacity: 1; }
+from { 
+  z-index:2;
+  visibility: visible; 
+  transform: translateY(0); 
+  opacity: 1;
+ }
 to   { 
+  z-index:1;
   visibility: hidden; 
   transform: translateY(20px); 
   opacity: 0; display:none;
 }
 `;
 const KeySearch2 = keyframes`
+from {
+  z-index:1;
+  visibility: hidden; 
+  transform: translateY(20px); 
+  opacity: 0; display:none;
+
+ }
+to   { 
+    z-index:2;
+  visibility: visible; 
+  transform: translateY(0); 
+  opacity: 1;
+}
+`;
+const KeySearch3 = keyframes`
 from { 
   visibility:hidden;
   transform: translateY(-20px); 
   opacity: 0;
-  width:70%;
+  z-index:1;
 }
 to   { 
-  width:70%;
   visibility:visible;
   transform: translateY(0px); 
   opacity: 1; 
-  display:flex;
+  z-index:2;
+}
+`;
+const KeySearch4 = keyframes`
+from { 
+  visibility:visible;
+  transform: translateY(0px); 
+  opacity: 1; 
+  z-index:2;
+}
+to   { 
+  visibility:hidden;
+  transform: translateY(-20px); 
+  opacity: 0;
+  z-index:1;
 }
 `;
 export const Header = styled.header`
@@ -190,34 +224,46 @@ export const NavBetween = styled.div`
   height: 100%;
   width: 100%;
 `;
-export const NavUl = styled.ul`
-  display: flex;
-  ${props =>
-    !props.test &&
-    css`
-      animation: ${KeySearch} 0.5s;
-      -webkit-animation-fill-mode: forwards;
-      -moz-animation-fill-mode: forwards;
-      -ms-animation-fill-mode: forwards;
-      -o-animation-fill-mode: forwards;
-      animation-fill-mode: forwards;
-    `}
-  ${props =>
-    props.searchOpen &&
-    css`
-      display: none !important;
-    `}
+export const NavGrid = styled.div`
+  display: grid;
   width: 70%;
+  height: 100%;
+`;
+export const NavUl = styled.ul`
+  z-index: 2;
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  width: 100%;
   height: 100%;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
+  ${props => {
+    if (props.isOpen == true) {
+      return css`
+        animation: ${KeySearch} 0.5s;
+        -webkit-animation-fill-mode: forwards;
+        -moz-animation-fill-mode: forwards;
+        -ms-animation-fill-mode: forwards;
+        -o-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+      `;
+    }
+    if (props.isOpen == false) {
+      return css`
+        animation: ${KeySearch2} 0.5s;
+        -webkit-animation-fill-mode: forwards;
+        -moz-animation-fill-mode: forwards;
+        -ms-animation-fill-mode: forwards;
+        -o-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+      `;
+    }
+  }}
   svg {
     cursor: pointer;
   }
-`;
-
-export const NavLi = styled.li`
   a {
     font-family: 'Poppins', sans-serif;
     font-size: 0.8em;
@@ -235,64 +281,78 @@ export const NavLi = styled.li`
     }
   }
 `;
+
 export const WrapLogo = styled.div`
-  width: 20%;
+  width: 30%;
   img {
     height: 40px;
   }
 `;
 
 export const SearchWrapper = styled.div`
-  ${props =>
-    !props.test &&
-    css`
-      animation: ${KeySearch2} 0.5s;
-      -webkit-animation-fill-mode: forwards;
-      -moz-animation-fill-mode: forwards;
-      -ms-animation-fill-mode: forwards;
-      -o-animation-fill-mode: forwards;
-      animation-fill-mode: forwards;
-    `}
-  visibility:hidden;
-  width: 0;
+  grid-column: 1;
+  grid-row: 1;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1;
+  display: flex;
+  width: 100%;
   height: 100%;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  background: red;
-`;
-
-export const FlexInput = styled.div`
-  width: 100%;
-  display: inline-flex;
-  align-items: center;
-  height: 100%;
-  background: #fff;
-  transition: all 0.4s;
-  input {
-    background: transparent;
+  ${props => {
+    if (props.isOpen == true) {
+      return css`
+        animation: ${KeySearch3} 0.5s;
+        -webkit-animation-fill-mode: forwards;
+        -moz-animation-fill-mode: forwards;
+        -ms-animation-fill-mode: forwards;
+        -o-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+      `;
+    }
+    if (props.isOpen == false) {
+      return css`
+        animation: ${KeySearch4} 0.5s;
+        -webkit-animation-fill-mode: forwards;
+        -moz-animation-fill-mode: forwards;
+        -ms-animation-fill-mode: forwards;
+        -o-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+      `;
+    }
+  }}
+  & .FlexInput {
     width: 100%;
+    display: inline-flex;
+    align-items: center;
     height: 100%;
-    border: 0;
-    padding: 0.5rem 0.8rem 0.5rem 1.2rem;
-    outline: none;
-    font-size: 14px;
-    font-weight: 400;
-    color: #a9a9a9;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    box-sizing: initial;
-    font-family: 'Poppins', sans-serif;
+    background: transparent;
+    transition: all 0.4s;
+    input {
+      background: transparent;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0.5rem 0.8rem 0.5rem 1.2rem;
+      outline: none;
+      font-size: 14px;
+      font-weight: 400;
+      color: #a9a9a9;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      box-sizing: initial;
+      font-family: 'Poppins', sans-serif;
+    }
   }
-`;
-
-export const IconContainer = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-  width: 30px;
-  cursor: pointer;
-  :hover {
-    color: white;
+  & .IconContainer {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    width: 30px;
+    cursor: pointer;
+    :hover {
+      color: white;
+    }
   }
 `;
