@@ -1,13 +1,21 @@
 import React from 'react';
-import { Content, CarouselWrap } from './styles/LadingContent';
+import {
+  Content,
+  CarouselWrap,
+  SlideBg,
+  SlideDescription,
+} from './styles/LadingContent';
 import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
+import test from 'assets/images/regulacao.png';
+import test2 from 'assets/images/sustentabilidade.png';
+import test3 from 'assets/images/qualidade.png';
 const CarouselHeader = props => {
   var settings = {
     dots: true,
     arrows: false,
-    lazyLoad: true,
+    draggable: false,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -15,23 +23,19 @@ const CarouselHeader = props => {
   return (
     <CarouselWrap>
       <Slider {...settings}>
-        <div className="testing">
-          <h3>Rede adutora foi recuperada no bairro Nova Ferradas</h3>
-          <p>
-            <span>
-              <FontAwesomeIcon
-                className=""
-                icon={faClock}
-                size="1x"
-                fixedWidth
-                color="#fff"
-              />
-            </span>
-            2 de março de 2020
-          </p>
-        </div>
-        <div className="testing">a</div>
-        <div className="testing">a</div>
+        <SlideBg>
+          <SlideDescription>
+            <p>
+              ASSUMIMOS UM
+              <strong> COMPROMISSO</strong>
+              <strong> SOCIO AMBIENTAL </strong>
+              COM TODAS AS COMUNIDADES ONDE ESTAMOS PRESENTES.
+            </p>
+            <button>Veja Mais</button>
+          </SlideDescription>
+        </SlideBg>
+        <SlideBg>a</SlideBg>
+        <SlideBg>a</SlideBg>
       </Slider>
     </CarouselWrap>
   );

@@ -2,6 +2,9 @@ import styled from '@emotion/styled/macro';
 import { keyframes } from '@emotion/core';
 import { py64, py128, mxw80 } from 'app/globals/global_styles';
 import img from 'assets/images/redeEsgotoNews.jpg';
+import test from 'assets/images/regulacao.png';
+import test2 from 'assets/images/sustentabilidade.png';
+import test3 from 'assets/images/qualidade.png';
 export const Container = styled.div`
   ${mxw80}
 `;
@@ -23,6 +26,8 @@ const HeaderKeyFrame = keyframes`
 `;
 export const CarouselWrap = styled.div`
   width: 100%;
+  max-height:30vh;
+  height:30vh;
   & .slick-active {
     button {
       ::before {
@@ -43,58 +48,57 @@ export const CarouselWrap = styled.div`
     }
   }
   & .testing {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 400px;
-    background: url(${img});
+    height:400px;
+    background-repeat: no-repeat;
+    background-position: top;
     background-size: cover;
-    background-position: center;
-    -webkit-box-shadow: inset -200px -200px 5px 500px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: inset -200px -200px 5px 500px rgba(0, 0, 0, 0.2);
-    box-shadow: inset -200px -200px 5px 500px rgba(0, 0, 0, 0.2);
-    ${py64}
-    h3 {
-      max-width: 35rem;
-      width: 90% !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      font-size: 2rem !important;
-      color: white;
-      text-align: center;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      text-shadow: 2px 2px 2px #000000;
+    background-image: url(${test2});
     }
-    & .text-title {
-      border-radius: 5px;
-      font-family: inherit;
-      font-size: 0.8rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      padding: 3px 7px;
-      max-width: 150px;
-      line-height: 13px;
-      pointer-events: auto;
-      background-position: top center;
-      background: linear-gradient(-45deg, #009ffd, #2a2a72);
-      animation: ${HeaderKeyFrame} 5s ease infinite;
-      background-size: 150% 100%;
-      color: #fff;
+  }
+`;
+
+export const SlideBg = styled.div`
+  height: 400px;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  background-image: url(${test2});
+  ${py64}
+  p {
+    max-width: 400px;
+    font-size: 1.4rem !important;
+    color: #0086ff;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+`;
+export const SlideDescription = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  margin: 0 auto;
+  max-width: 80rem !important;
+  width: 80rem !important;
+  p {
+    max-width: 400px;
+    font-size: 1.4rem !important;
+    color: #0086ff;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+    strong {
+      color: #004ea8;
     }
-    p {
-      max-width: 40rem;
-      width: 90% !important;
-      font-size: 1rem !important;
-      color: white;
-      text-align: center;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 400;
-      text-shadow: 1px 1px 1px #000000;
-      span {
-        margin-right: 10px;
-      }
-    }
+  }
+  button {
+    max-width: 200px;
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 1rem !important;
+    color: #fff;
+    background: #0043d8;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
   }
 `;
