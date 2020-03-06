@@ -1,9 +1,11 @@
 import React from 'react';
 import {
   Content,
+  Container,
   CarouselWrap,
   SlideBg,
   SlideDescription,
+  DigitalServices,
 } from './styles/LadingContent';
 import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +13,44 @@ import { faClock } from '@fortawesome/free-regular-svg-icons';
 import test from 'assets/images/regulacao.png';
 import test2 from 'assets/images/sustentabilidade.png';
 import test3 from 'assets/images/qualidade.png';
+
+const News = props => {
+  return (
+    <div
+      style={{
+        background: 'red',
+        paddingTop: '64px',
+        paddingBottom: '64px',
+        width: '100%',
+      }}
+    >
+      a
+    </div>
+  );
+};
+
+const Services = props => {
+  var settings = {
+    dots: true,
+    arrows: false,
+    autoplay: true,
+
+    draggable: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+  return (
+    <Container>
+      <DigitalServices>
+        <Slider {...settings}>
+          <div>a</div>
+        </Slider>
+      </DigitalServices>
+    </Container>
+  );
+};
+
 const CarouselHeader = props => {
   var settings = {
     dots: true,
@@ -46,9 +86,8 @@ const LadingContent = props => {
   return (
     <>
       <CarouselHeader />
-      <div stlye={{ background: 'red', width: '100%', height: '400px' }}>
-        fsadasfsdfsdfsdfsd
-      </div>
+      <Services />
+      <News />
     </>
   );
 };

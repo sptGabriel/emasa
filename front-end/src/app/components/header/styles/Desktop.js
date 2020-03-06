@@ -73,6 +73,9 @@ to   {
 export const Header = styled.header`
   width: 100%;
   height: auto;
+  position: relative;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15) !important;
+  z-index: 2;
 `;
 export const Container = styled.div`
   ${mxw80}

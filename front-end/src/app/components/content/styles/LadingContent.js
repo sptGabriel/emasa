@@ -7,6 +7,8 @@ import test2 from 'assets/images/sustentabilidade.png';
 import test3 from 'assets/images/qualidade.png';
 export const Container = styled.div`
   ${mxw80}
+  position:relative;
+  height: auto;
 `;
 export const Content = styled.div`
   width: 100%;
@@ -36,7 +38,7 @@ export const CarouselWrap = styled.div`
     }
   }
   & .slick-dots {
-    bottom: 0;
+    bottom: 15%;
     li {
       button {
         color: white !important;
@@ -102,3 +104,15 @@ export const SlideDescription = styled.div`
     font-family: 'Poppins', sans-serif;
   }
 `;
+
+export const DigitalServices = styled.div`
+  background: white;
+  width: 100%;
+  padding: 35px 0;
+  position: relative;
+  transform: translateY(-35%);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175) !important;
+  border-radius: 0.25rem !important;
+`;
+
+export const RowServices = styled.div``;
