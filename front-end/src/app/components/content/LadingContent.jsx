@@ -6,45 +6,170 @@ import {
   SlideBg,
   SlideDescription,
   DigitalServices,
+  NewsSection,
 } from './styles/LadingContent';
 import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock } from '@fortawesome/free-regular-svg-icons';
-import test from 'assets/images/regulacao.png';
-import test2 from 'assets/images/sustentabilidade.png';
-import test3 from 'assets/images/qualidade.png';
-
+import { faNewspaper, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import segunda from 'assets/images/2via.png';
 const News = props => {
+  var settings = {
+    dots: false,
+    arrows: false,
+    autoplay: false,
+    draggable: false,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+  };
   return (
-    <div
-      style={{
-        background: 'red',
-        paddingTop: '64px',
-        paddingBottom: '64px',
-        width: '100%',
-      }}
-    >
-      a
-    </div>
+    <Container>
+      <NewsSection>
+        <div className="news_emasa">
+          <FontAwesomeIcon
+            className="adjust"
+            icon={faNewspaper}
+            size="1x"
+            fixedWidth
+            color="#004ea8"
+          />
+          <h3>ÚLTIMAS NOTÍCIAS</h3>
+        </div>
+        <div className="news_slider">
+          <Slider {...settings}>
+            <div className="slider_card">
+              <div className="card_bg"></div>
+
+              <div className="card_content">
+                <div className="card_category">
+                  <p>Emasa Em Ação</p>
+                </div>
+              </div>
+            </div>
+            <div className="slider_card">
+              <div className="card_bg"></div>
+
+              <div className="card_content">
+                <div className="card_category">
+                  <p>Emasa Em Ação</p>
+                </div>
+              </div>
+            </div>
+            <div className="slider_card">
+              <div className="card_bg"></div>
+
+              <div className="card_content">
+                <div className="card_category">
+                  <p>Emasa Em Ação</p>
+                </div>
+              </div>
+            </div>
+            <div className="slider_card">
+              <div className="card_bg"></div>
+
+              <div className="card_content">
+                <div className="card_category">
+                  <p>Emasa Em Ação</p>
+                </div>
+              </div>
+            </div>
+            <div className="slider_card">
+              <div className="card_bg"></div>
+
+              <div className="card_content">
+                <div className="card_category">
+                  <p>Emasa Em Ação</p>
+                </div>
+              </div>
+            </div>
+            <div className="slider_card">
+              <div className="card_bg"></div>
+
+              <div className="card_content">
+                <div className="card_category">
+                  <p>Emasa Em Ação</p>
+                </div>
+              </div>
+            </div>
+          </Slider>
+        </div>
+        <div className="more_news">
+          <p>Ver Mais</p>
+          <FontAwesomeIcon
+            className="adjust"
+            icon={faAngleRight}
+            size="1x"
+            fixedWidth
+            color="#004fff"
+          />
+        </div>
+      </NewsSection>
+    </Container>
   );
 };
 
 const Services = props => {
   var settings = {
-    dots: true,
+    dots: false,
     arrows: false,
     autoplay: true,
-
     draggable: false,
     infinite: true,
-    slidesToShow: 1,
+    slidesToShow: 5,
     slidesToScroll: 1,
   };
   return (
     <Container>
-      <DigitalServices>
+      <DigitalServices background={segunda}>
         <Slider {...settings}>
-          <div>a</div>
+          <div className="slider_digital">
+            <div className="card_services">
+              <div className="digitalservices_bg">
+                <img src={segunda} />
+              </div>
+              <h3>Segunda Via de Conta</h3>
+            </div>
+          </div>
+          <div className="slider_digital">
+            <div className="card_services">
+              <div className="digitalservices_bg">
+                <img src={segunda} />
+              </div>
+              <h3>Segunda Via de Conta</h3>
+            </div>
+          </div>
+          <div className="slider_digital">
+            <div className="card_services">
+              <div className="digitalservices_bg">
+                <img src={segunda} />
+              </div>
+              <h3>Segunda Via de Conta</h3>
+            </div>
+          </div>
+          <div className="slider_digital">
+            <div className="card_services">
+              <div className="digitalservices_bg">
+                <img src={segunda} />
+              </div>
+              <h3>Segunda Via de Conta</h3>
+            </div>
+          </div>
+          <div className="slider_digital">
+            <div className="card_services">
+              <div className="digitalservices_bg">
+                <img src={segunda} />
+              </div>
+              <h3>Segunda Via de Conta</h3>
+            </div>
+          </div>
+          <div className="slider_digital">
+            <div className="card_services">
+              <div className="digitalservices_bg">
+                <img src={segunda} />
+              </div>
+              <h3>Segunda Via de Conta</h3>
+            </div>
+          </div>
         </Slider>
       </DigitalServices>
     </Container>
@@ -56,7 +181,6 @@ const CarouselHeader = props => {
     dots: true,
     arrows: false,
     autoplay: true,
-
     draggable: false,
     infinite: true,
     slidesToShow: 1,

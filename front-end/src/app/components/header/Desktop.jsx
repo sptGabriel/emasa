@@ -2,16 +2,13 @@ import React, { useEffect } from 'react';
 import {
   Header,
   TopNav,
-  HeaderMid,
   Container,
   Nav,
   ContentTopNav,
   WrapAcessibility,
   MyAccount,
   PopUp,
-  ContentMid,
   WrapLogo,
-  Mid,
   NavUl,
   WrapIcons,
   FaceIcon,
@@ -115,7 +112,6 @@ const NavTop = props => {
 
 const NavMain = props => {
   const [isOpenBox, setOpenBox] = useState(null);
-  console.log(isOpenBox);
   return (
     <Nav>
       <Container>

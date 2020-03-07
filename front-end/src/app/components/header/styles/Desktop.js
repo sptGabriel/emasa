@@ -4,15 +4,6 @@ import { mxw80, flexRowBet } from '../../../globals/global_styles';
 // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 import { shade } from 'polished';
 
-const HeightNav = keyframes`
-from { 
-  height:80px;
- }
-to   { 
-  height:50px;
-}
-`;
-
 const KeySearch = keyframes`
 from { 
   z-index:2;
@@ -73,9 +64,6 @@ to   {
 export const Header = styled.header`
   width: 100%;
   height: auto;
-  position: relative;
-  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15) !important;
-  z-index: 2;
 `;
 export const Container = styled.div`
   ${mxw80}
@@ -175,7 +163,7 @@ export const Mid = styled.div`
 
 export const PopUp = styled.div`
   position: absolute;
-  transform: translateY(30px);
+  transform: translateY(34px);
   width: 200px;
   background: white;
   height: 200px;
@@ -228,6 +216,9 @@ export const Nav = styled.nav`
   width: 100%;
   height: 80px;
   background: ${shade(0, '#fff')};
+  position: relative;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.08) !important;
+  z-index: 2;
 `;
 export const NavBetween = styled.div`
   display: flex;
@@ -252,7 +243,7 @@ export const NavUl = styled.ul`
   align-items: center;
   justify-content: flex-end;
   ${props => {
-    if (props.isOpen == true) {
+    if (props.isOpen === true) {
       return css`
         animation: ${KeySearch} 0.5s;
         -webkit-animation-fill-mode: forwards;
@@ -262,7 +253,7 @@ export const NavUl = styled.ul`
         animation-fill-mode: forwards;
       `;
     }
-    if (props.isOpen == false) {
+    if (props.isOpen === false) {
       return css`
         animation: ${KeySearch2} 0.5s;
         -webkit-animation-fill-mode: forwards;
@@ -333,7 +324,7 @@ export const SearchWrapper = styled.div`
   align-items: center;
   justify-content: flex-end;
   ${props => {
-    if (props.isOpen == true) {
+    if (props.isOpen === true) {
       return css`
         animation: ${KeySearch3} 0.5s;
         -webkit-animation-fill-mode: forwards;
@@ -343,7 +334,7 @@ export const SearchWrapper = styled.div`
         animation-fill-mode: forwards;
       `;
     }
-    if (props.isOpen == false) {
+    if (props.isOpen === false) {
       return css`
         animation: ${KeySearch4} 0.5s;
         -webkit-animation-fill-mode: forwards;

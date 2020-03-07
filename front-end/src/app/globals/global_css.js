@@ -21,6 +21,10 @@ export default function GlobalStyle(props) {
         *::after {
           box-sizing: border-box;
         }
+        *:focus {
+          outline: 0;
+          outline: none;
+        }
         a {
           text-decoration: none;
           color: inherit;
