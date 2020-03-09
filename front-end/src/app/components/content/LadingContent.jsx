@@ -10,26 +10,45 @@ import {
   GallerySection,
   FirstWrap,
   SliderGallery,
+  BiddingProcess,
 } from './styles/LadingContent';
 import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faNewspaper, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import {
+  faNewspaper,
+  faAngleRight,
+  faGavel,
+} from '@fortawesome/free-solid-svg-icons';
 import { faImages } from '@fortawesome/free-regular-svg-icons';
 import segunda from 'assets/images/2via.png';
 import img1 from 'assets/images/img1.png';
 import img2 from 'assets/images/img2.png';
 import img3 from 'assets/images/img3.png';
+
+const Bidding = props => {
+  return (
+    <Container>
+      <BiddingProcess>
+        <div className="title">
+          <FontAwesomeIcon
+            className="adjust"
+            icon={faGavel}
+            size="2x"
+            fixedWidth
+            color="#004EA8"
+          />
+          <h3>Licitações</h3>
+        </div>
+      </BiddingProcess>
+    </Container>
+  );
+};
+
 const GalleryPictures = props => {
   return (
     <GallerySection>
       <Container>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            paddingBottom: '20px',
-          }}
-        >
+        <div className="title">
           <FontAwesomeIcon
             className="adjust"
             icon={faImages}
@@ -307,7 +326,7 @@ const LadingContent = props => {
       <Services />
       <News />
       <GalleryPictures />
-      <div style={{ width: '100%', height: '400px' }}>ae</div>
+      <Bidding />
     </>
   );
 };

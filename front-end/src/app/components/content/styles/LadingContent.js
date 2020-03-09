@@ -237,6 +237,11 @@ export const GallerySection = styled.div`
   position: relative;
   padding: 128px 0;
   clip-path: polygon(0 0, 100% 2vw, 100% calc(100% - 2vw), 0 100%);
+  & .title{
+    display: flex,
+    align-items: center;
+    padding-bottom: 20px;
+  }
   h3 {
     padding-left: 10px;
     font-family: 'Poppins', sans-serif;
@@ -277,5 +282,28 @@ export const GallerySection = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+`;
+/* Gallery Section */
+
+/* Licitação Section */
+export const BiddingProcess = styled.div`
+  width: 100%;
+  padding: 64px 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  & .title{
+    display: flex,
+    align-items: center;
+    padding-bottom: 20px;
+  }
+  h3 {
+    padding-left: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    outline: none;
+    color: #004fff;
   }
 `;
