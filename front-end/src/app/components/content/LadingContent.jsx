@@ -7,11 +7,105 @@ import {
   SlideDescription,
   DigitalServices,
   NewsSection,
+  GallerySection,
+  FirstWrap,
+  SliderGallery,
 } from './styles/LadingContent';
 import Slider from 'react-slick';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faNewspaper, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faImages } from '@fortawesome/free-regular-svg-icons';
 import segunda from 'assets/images/2via.png';
+import img1 from 'assets/images/img1.png';
+import img2 from 'assets/images/img2.png';
+import img3 from 'assets/images/img3.png';
+const GalleryPictures = props => {
+  return (
+    <GallerySection>
+      <Container>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            paddingBottom: '20px',
+          }}
+        >
+          <FontAwesomeIcon
+            className="adjust"
+            icon={faImages}
+            size="2x"
+            fixedWidth
+            color="#fff"
+          />
+          <h3>Galeria de Fotos</h3>
+        </div>
+        <div className="grid_gallery">
+          <div class="gallery_item">
+            <div className="bg">
+              <img src="https://tomribeiro.blog.br/assets/2018/03/650x375_centro-de-tratamento-da-embasa-em-itabuna_1649597.jpg"></img>
+            </div>
+          </div>
+          <div class="gallery_item">
+            <div className="bg">
+              <img src="https://lh3.googleusercontent.com/proxy/ilwyEYX_5iNzbkVr9qGAffFNgNgWEJme0eQUFC0uqR0hbHRI2e0LGlZNUbbglRtJjwvY7JjXPgOVqRnp1OfiAbt0pAqdcBnEqU6Lx-ds3-9W03UnnH0f6NpfZ8RSxBfbtY5KD8FbOvLs3N6VozPPSQX3fQTpg8nk2B8s0R4HY95I_JI"></img>
+            </div>
+          </div>
+          <div class="gallery_item">
+            <div className="bg">
+              <img src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"></img>
+            </div>
+          </div>
+          <div class="gallery_item">
+            <div className="bg">
+              <img src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"></img>
+            </div>
+          </div>
+          <div class="gallery_item">
+            <div className="bg">
+              <img src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"></img>
+            </div>
+          </div>
+          <div class="gallery_item">
+            <div className="bg">
+              <img src="https://lh3.googleusercontent.com/proxy/ilwyEYX_5iNzbkVr9qGAffFNgNgWEJme0eQUFC0uqR0hbHRI2e0LGlZNUbbglRtJjwvY7JjXPgOVqRnp1OfiAbt0pAqdcBnEqU6Lx-ds3-9W03UnnH0f6NpfZ8RSxBfbtY5KD8FbOvLs3N6VozPPSQX3fQTpg8nk2B8s0R4HY95I_JI"></img>
+            </div>
+          </div>
+          <div class="gallery_item">
+            <div className="bg">
+              <img src="https://lh3.googleusercontent.com/proxy/ilwyEYX_5iNzbkVr9qGAffFNgNgWEJme0eQUFC0uqR0hbHRI2e0LGlZNUbbglRtJjwvY7JjXPgOVqRnp1OfiAbt0pAqdcBnEqU6Lx-ds3-9W03UnnH0f6NpfZ8RSxBfbtY5KD8FbOvLs3N6VozPPSQX3fQTpg8nk2B8s0R4HY95I_JI"></img>
+            </div>
+          </div>
+          <div class="gallery_item">
+            <div className="bg">
+              <img src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"></img>
+            </div>
+          </div>
+          <div class="gallery_item">
+            <div className="bg">
+              <img src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"></img>
+            </div>
+          </div>
+          <div class="gallery_item">
+            <div class="description">
+              <p>ESTAÇÃO DE TRATAMENTO - ETA</p>
+            </div>
+          </div>
+          <div class="gallery_item">
+            <div class="description">
+              <p>ESTAÇÃO DE TRATAMENTO DE ESGOTO - ETE</p>
+            </div>
+          </div>
+          <div class="gallery_item">
+            <div class="description">
+              <p>ESTAÇÃO DE TRATAMENTO DE ESGOTO - ETE</p>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </GallerySection>
+  );
+};
+
 const News = props => {
   var settings = {
     dots: false,
@@ -180,7 +274,7 @@ const CarouselHeader = props => {
   var settings = {
     dots: true,
     arrows: false,
-    autoplay: true,
+    autoplay: false,
     draggable: false,
     infinite: true,
     slidesToShow: 1,
@@ -212,6 +306,8 @@ const LadingContent = props => {
       <CarouselHeader />
       <Services />
       <News />
+      <GalleryPictures />
+      <div style={{ width: '100%', height: '400px' }}>ae</div>
     </>
   );
 };
