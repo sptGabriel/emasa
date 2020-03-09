@@ -32,7 +32,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 const DropDownPopUp = props => {
   return (
-    <PopUp {...props}>
+    <PopUp id="popup" {...props}>
       <p>Você é um funcionário?</p>
       <div>
         <button>Entrar</button>

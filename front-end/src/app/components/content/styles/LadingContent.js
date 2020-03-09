@@ -178,6 +178,7 @@ export const NewsSection = styled.div`
     }
   }
   & .news_slider {
+    padding-bottom:20px;
     & .slider_card {
       position: relative;
       border-right: 15px solid #fff;
@@ -292,10 +293,85 @@ export const BiddingProcess = styled.div`
   padding: 64px 0;
   display: flex;
   flex-direction: column;
+  align-items:center;
   position: relative;
+  & .allbidding{
+    margin-top:20px;
+    max-width:200px;
+    padding:10px 10px;
+    display:flex !important;
+    justify-content:center;
+    background:#004FFF;
+    color:white;
+    font-family: 'Poppins', sans-serif;
+  }
+  & .moreinfos{
+    background:red;
+    
+    button{
+      width:100px;
+      display:flex !important;
+      justify-content:center;
+      background:#004FFF;
+      padding:10px 0px;
+      color:white;
+      font-family: 'Poppins', sans-serif;
+    }
+    p {
+      font-size:12px;
+      display:flex !important;
+      margin:0 !important;
+    }
+  }
+  & .description{
+    padding:20px 40px;
+    width:auto;
+    display:flex;
+    h3{
+      max-width:50%;
+      text-align:left;
+      color:#004EA8;
+      font-size:18px;
+    }
+    p{
+      max-width:70%;
+      text-align:left;
+      color:#004EA8;
+      font-size:18px;
+    }
+  }
+  & .date{
+    display:flex;
+    flex-direction:column;
+    background:#004FFF;
+    padding:10px 40px;
+    h3{
+      font-size:30px;
+      font-weight:700;
+      color:white;
+    }
+    p{
+      color:white;
+    }
+  }
+  & .row_item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 0;
+    :hover{
+      background: #F6FBFD;
+    }
+  }
+  & .row{
+    display: flex;
+    flex-direction: column;
+    border-left:4px solid #004EA8;
+  }
   & .title{
     display: flex,
-    align-items: center;
+    align-items: flex-start;
+    align-self: flex-start;
     padding-bottom: 20px;
   }
   h3 {
@@ -307,3 +383,58 @@ export const BiddingProcess = styled.div`
     color: #004fff;
   }
 `;
+/* Licitação Section */
+
+/* TeamPreview Section */
+export const TeamEmasa = styled.div`
+  padding: 128px 0;
+  -webkit-clip-path: polygon(0 0, 100% 2vw, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 2vw, 100% 100%, 0 100%);
+  background: #E1ECF4;
+  & .slick-slide > div {
+    padding: 0 0.5rem;
+  }
+  & .title{
+    display: flex,
+    align-items: flex-start;
+    align-self: flex-start;
+    padding-bottom: 20px;
+  }
+  h3 {
+    padding-left: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    outline: none;
+    color: #004fff;
+  }
+`;
+export const TeamCard = styled.div`
+  padding: 10px 0;
+  & .bg {
+    padding: 100px 50px;
+    background-image: url(${({ bg }) => bg});
+    background-size: cover;
+    background-position: center;
+  }
+  & .name {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    outline: none;
+    color: #004fff;
+  }
+  & .office {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    color: #004fff;
+  }
+  & .description {
+    padding: 15px 0;
+  }
+`;
+/* TeamPreview Section */

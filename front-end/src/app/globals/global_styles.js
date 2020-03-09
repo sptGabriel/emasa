@@ -72,8 +72,7 @@ export const Content = styled.div`
   width: 100%;
 `;
 export const Footer = styled.footer`
-  max-height: 20px;
-  height: 100%;
+  height: auto;
   flex: none;
-  background: ${shade(0.15, '#004fff')};
+  background: ${shade(0.6, '#004fff')};
 `;
