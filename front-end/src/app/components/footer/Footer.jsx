@@ -1,6 +1,13 @@
 import React from 'react';
-import {} from './styles/footer;';
+import { FooterTop, FooterBottom } from './styles/footer';
 import { Footer } from 'app/globals/global_styles';
-const Footer = props => {
-  return <Footer></Footer>;
+const FooterMain = props => {
+  return (
+    <Footer>
+      <FooterTop>a</FooterTop>
+      <FooterBottom>b</FooterBottom>
+    </Footer>
+  );
 };
+
+export default FooterMain;

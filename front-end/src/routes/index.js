@@ -1,8 +1,9 @@
 import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import Header from 'app/components/header/index';
-import { GlobalContainer, Content, Footer } from 'app/globals/global_styles';
+import { GlobalContainer, Content } from 'app/globals/global_styles';
 import { Overlay } from 'app/globals/global_styles';
+import Footer from 'app/components/footer/Footer';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from 'redux/slices/popupMenu';
 import { toggleSide } from 'redux/slices/sideBar';
