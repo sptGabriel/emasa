@@ -23,7 +23,11 @@ import {
   faAdjust,
   faAngleDown,
 } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import {
+  faFacebookF,
+  faFacebookSquare,
+  faInstagram,
+} from '@fortawesome/free-brands-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import Logo from 'assets/images/test3.svg';
 import { useSelector, useDispatch } from 'react-redux';
@@ -88,7 +92,7 @@ const NavTop = props => {
             <FaceIcon>
               <FontAwesomeIcon
                 className="adjust"
-                icon={faFacebookF}
+                icon={faFacebookSquare}
                 size="lg"
                 fixedWidth
                 color="white"
@@ -112,6 +116,7 @@ const NavTop = props => {
 
 const NavMain = props => {
   const [isOpenBox, setOpenBox] = useState(null);
+  const [displayMenu, setDisplayMenu] = useState(false);
   return (
     <Nav>
       <Container>
@@ -121,7 +126,7 @@ const NavMain = props => {
           </WrapLogo>
           <NavGrid>
             <NavUl isOpen={isOpenBox}>
-              <li>
+              <li onClick={() => setDisplayMenu(!displayMenu)}>
                 <Link to="/">One</Link>
               </li>
               <li>

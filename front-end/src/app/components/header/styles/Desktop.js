@@ -71,7 +71,7 @@ export const Container = styled.div`
 //top navbar
 export const TopNav = styled.div`
   width: 100%;
-  background: #004fff;
+  background: #004ea8;
 `;
 export const ContentTopNav = styled.div`
   ${flexRowBet};
