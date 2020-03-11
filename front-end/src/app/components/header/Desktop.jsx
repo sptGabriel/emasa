@@ -4,6 +4,7 @@ import {
   TopNav,
   Container,
   Nav,
+  NavLi,
   ContentTopNav,
   WrapAcessibility,
   MyAccount,
@@ -116,7 +117,15 @@ const NavTop = props => {
 
 const NavMain = props => {
   const [isOpenBox, setOpenBox] = useState(null);
-  const [displayMenu, setDisplayMenu] = useState(false);
+  const [dropDownItems, setDropDownItem] = useState({
+    dropdown_home: false,
+    dropdown_about: false,
+  });
+  const updateDropDownItem = (dropDownItem, value) => {
+    let existingValues = JSON.parse(JSON.stringify(dropDownItems));
+    existingValues[dropDownItem] = value;
+    setDropDownItem(existingValues);
+  };
   return (
     <Nav>
       <Container>
@@ -126,12 +135,50 @@ const NavMain = props => {
           </WrapLogo>
           <NavGrid>
             <NavUl isOpen={isOpenBox}>
-              <li onClick={() => setDisplayMenu(!displayMenu)}>
+              <NavLi
+                onClick={() => {
+                  updateDropDownItem(
+                    'dropdown_home',
+                    !dropDownItems.dropdown_home,
+                  );
+                }}
+              >
                 <Link to="/">One</Link>
-              </li>
-              <li>
+                {dropDownItems.dropdown_home ? (
+                  <ul>
+                    <li>
+                      <a className="active" href="#Create Page">
+                        Create Page
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#Manage Pages">Manage Pages</a>
+                    </li>
+                  </ul>
+                ) : null}
+              </NavLi>
+              <NavLi
+                onClick={() => {
+                  updateDropDownItem(
+                    'dropdown_about',
+                    !dropDownItems.dropdown_about,
+                  );
+                }}
+              >
                 <Link to="../about">Two</Link>
-              </li>
+                {dropDownItems.dropdown_about ? (
+                  <ul>
+                    <li>
+                      <a className="active" href="#Create Page">
+                        Create Page
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#Manage Pages">Manage Pages</a>
+                    </li>
+                  </ul>
+                ) : null}
+              </NavLi>
               <li>
                 <Link to="../dashboard">Three</Link>
               </li>

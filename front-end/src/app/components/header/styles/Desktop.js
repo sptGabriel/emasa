@@ -304,7 +304,39 @@ export const NavUl = styled.ul`
     }
   }
 `;
+export const NavLi = styled.li`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    top: calc(100% + 29px);
+    right: auto !important;
+    background-color: white;
+    font-weight: bold;
+    position: absolute;
 
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  ul > li > a {
+    color: #000;
+    text-decoration: none;
+  }
+  ul > li {
+    padding: 8px 16px;
+    border-bottom: 1px solid #e5e5e5;
+    :hover {
+      background-color: #e5e5e5;
+      color: white;
+    }
+  }
+  ul > li:last-child {
+    border-bottom: none;
+  }
+`;
 export const WrapLogo = styled.div`
   width: 30%;
   img {
