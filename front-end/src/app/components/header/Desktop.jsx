@@ -115,6 +115,84 @@ const NavTop = props => {
   );
 };
 
+const MenuItmes = props => {
+  return (
+    <>
+      <NavLi></NavLi>
+    </>
+  );
+};
+
+const DropDown = props => {
+  const { items } = props;
+  console.log(props.visibleMenu);
+  return <>a</>;
+};
+
+const MenuItem = props => {
+  const { name, redirectTo, dropdown } = props.options;
+  return (
+    <NavLi>
+      <Link to={redirectTo}>{name}</Link>
+      {dropdown && dropdown !== null ? <DropDown {...props} /> : ''}
+    </NavLi>
+  );
+};
+
+const MenuBar = props => {
+  const MenuTags = [
+    {
+      name: 'home',
+      redirectTo: '/',
+      dropdown: {
+        items: ['one', 'two', 'three'],
+      },
+    },
+    {
+      name: 'about',
+      redirectTo: '../about',
+      dropdown: {
+        items: ['one', 'two', 'three'],
+      },
+    },
+    { name: 'not dropdown', redirectTo: '../dashboard' },
+    { name: 'not dropdown', redirectTo: '../dashboard/about' },
+  ];
+  const [visibleMenu, setVisibleMenu] = useState(
+      MenuTags.reduce((r, e) => ((r[e.name] = false), r), {}),
+    ),
+    onUpdateVisibility = item => {
+      const visibleMenuCopy = { ...visibleMenu };
+      Object.keys(visibleMenuCopy).forEach(
+        key => (visibleMenuCopy[key] = key == item),
+      );
+      setVisibleMenu(visibleMenuCopy);
+    };
+  console.log(visibleMenu);
+  return (
+    <NavUl isOpen={props.isOpen}>
+      {MenuTags.map(item => (
+        <MenuItem
+          options={item}
+          visibleMenu={visibleMenu}
+          onClick={() => onUpdateVisibility(item)}
+        />
+      ))}
+      <li>
+        <FontAwesomeIcon
+          onClick={() => props.setOpenBox(!props.isOpen)}
+          className="searchIcon"
+          rotation={90}
+          icon={faSearch}
+          size="1x"
+          fixedWidth
+          color="rgba(0, 0, 0, 0.08);"
+        />
+      </li>
+    </NavUl>
+  );
+};
+
 const NavMain = props => {
   const [isOpenBox, setOpenBox] = useState(null);
   const [dropDownItems, setDropDownItem] = useState({
@@ -134,8 +212,8 @@ const NavMain = props => {
             <img src={Logo} />
           </WrapLogo>
           <NavGrid>
-            <NavUl isOpen={isOpenBox}>
-              <NavLi
+            <MenuBar isOpen={isOpenBox} setOpenBox={setOpenBox} />
+            {/* <NavLi
                 onClick={() => {
                   updateDropDownItem(
                     'dropdown_home',
@@ -211,7 +289,7 @@ const NavMain = props => {
                   color="rgba(0, 0, 0, 0.08);"
                 />
               </li>
-            </NavUl>
+            </NavUl> */}
             <SearchWrapper isOpen={isOpenBox}>
               <div className="FlexInput">
                 <input placeholder="Pesquisar"></input>
