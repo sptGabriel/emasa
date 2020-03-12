@@ -11,7 +11,7 @@ import Routes from 'routes/index';
 
 export default function App() {
   const { theme, setTheme } = useAppTheme();
-  const [fontSize, setFontSize] = useFontSize();
+  // const [fontSize, setFontSize] = useFontSize();
   useEffect(() => {});
   return (
     <Router>

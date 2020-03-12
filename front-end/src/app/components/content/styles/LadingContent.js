@@ -1,10 +1,9 @@
 import styled from '@emotion/styled/macro';
-import { keyframes } from '@emotion/core';
-import { py64, py128, mxw80 } from 'app/globals/global_styles';
+// import { keyframes } from '@emotion/core';
+import { py64, mxw80 } from 'app/globals/global_styles';
 import img from 'assets/images/redeEsgotoNews.jpg';
 import test from 'assets/images/regulacao.png';
 import test2 from 'assets/images/sustentabilidade.png';
-import test3 from 'assets/images/qualidade.png';
 export const Container = styled.div`
   ${mxw80}
   position:relative;
@@ -15,17 +14,6 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-`;
-const HeaderKeyFrame = keyframes`
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
 `;
 
 /* Header Carousel Section */
@@ -209,7 +197,7 @@ export const NewsSection = styled.div`
         background: #fff;
         height: 150px;
         padding: 0px 0px;
-        transform: translateX(10px) translateY(-20px);
+        transform: translateX(5px) translateY(-20px);
         box-shadow: 0 2px 2px rgba(0,0,0,0.19), 0 2px 2px rgba(0,0,0,0.23);
         -webkit-transition: all 0.3s ease-in-out;
         -moz-transition: all 0.3s ease-in-out;
@@ -271,7 +259,7 @@ export const GallerySection = styled.div`
     color: white;
     border-left: 2px solid #fff;
   }
-  & .gallery_item:nth-last-child(-n + 3) {
+  & .gallery_item:nth-last-of-type(-n + 3) {
     grid-column: span 2;
   }
   & .gallery_item:nth-of-type(1),

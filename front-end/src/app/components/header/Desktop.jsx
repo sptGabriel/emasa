@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   Header,
   TopNav,
@@ -25,7 +25,6 @@ import {
   faAngleDown,
 } from '@fortawesome/free-solid-svg-icons';
 import {
-  faFacebookF,
   faFacebookSquare,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
@@ -60,10 +59,10 @@ const NavTop = props => {
             <p> Acessibilidade</p>
             <ul>
               <li>
-                <a href="#">A-</a>
+                <button>A</button>
               </li>
               <li>
-                <a href="#">A+</a>
+                <button>A+</button>
               </li>
               <FontAwesomeIcon
                 className="adjust"
@@ -115,26 +114,19 @@ const NavTop = props => {
   );
 };
 
-const MenuItmes = props => {
-  return (
-    <>
-      <NavLi></NavLi>
-    </>
-  );
-};
-
-const DropDown = props => {
-  const { items } = props;
-  console.log(props.visibleMenu);
-  return <>a</>;
-};
-
-const MenuItem = props => {
-  const { name, redirectTo, dropdown } = props.options;
+const MenuItem = ({ tag, visibleMenu }) => {
+  const { name, link, dropdownItems } = tag;
+  console.log(dropdownItems, 'tag');
   return (
     <NavLi>
-      <Link to={redirectTo}>{name}</Link>
-      {dropdown && dropdown !== null ? <DropDown {...props} /> : ''}
+      <Link to={link}>{name}</Link>
+      {visibleMenu[name] &&
+        dropdownItems &&
+        dropdownItems.map(item => (
+          <ul>
+            <li>{item}</li>
+          </ul>
+        ))}
     </NavLi>
   );
 };
@@ -143,20 +135,22 @@ const MenuBar = props => {
   const MenuTags = [
     {
       name: 'home',
-      redirectTo: '/',
-      dropdown: {
-        items: ['one', 'two', 'three'],
+      link: '/',
+      dropdownItems: {
+        names: ['one', 'two', 'three'],
+        link: ['/aa', '/b'],
       },
     },
     {
       name: 'about',
-      redirectTo: '../about',
-      dropdown: {
-        items: ['one', 'two', 'three'],
+      link: '../abovisibleMenuut',
+      dropdownItems: {
+        names: ['one', 'two', 'three'],
+        link: ['/aa', '/b'],
       },
     },
-    { name: 'not dropdown', redirectTo: '../dashboard' },
-    { name: 'not dropdown', redirectTo: '../dashboard/about' },
+    { name: 'not dropdown', link: '../dashboard' },
+    { name: 'not dropdown', link: '../dashboard/about' },
   ];
   const [visibleMenu, setVisibleMenu] = useState(
       MenuTags.reduce((r, e) => ((r[e.name] = false), r), {}),
@@ -164,7 +158,7 @@ const MenuBar = props => {
     onUpdateVisibility = item => {
       const visibleMenuCopy = { ...visibleMenu };
       Object.keys(visibleMenuCopy).forEach(
-        key => (visibleMenuCopy[key] = key == item),
+        key => (visibleMenuCopy[key] = key === item),
       );
       setVisibleMenu(visibleMenuCopy);
     };
@@ -173,7 +167,7 @@ const MenuBar = props => {
     <NavUl isOpen={props.isOpen}>
       {MenuTags.map(item => (
         <MenuItem
-          options={item}
+          tag={item}
           visibleMenu={visibleMenu}
           onClick={() => onUpdateVisibility(item)}
         />
@@ -195,21 +189,21 @@ const MenuBar = props => {
 
 const NavMain = props => {
   const [isOpenBox, setOpenBox] = useState(null);
-  const [dropDownItems, setDropDownItem] = useState({
-    dropdown_home: false,
-    dropdown_about: false,
-  });
-  const updateDropDownItem = (dropDownItem, value) => {
-    let existingValues = JSON.parse(JSON.stringify(dropDownItems));
-    existingValues[dropDownItem] = value;
-    setDropDownItem(existingValues);
-  };
+  // const [dropDownItems, setDropDownItem] = useState({
+  //   dropdown_home: false,
+  //   dropdown_about: false,
+  // });
+  // const updateDropDownItem = (dropDownItem, value) => {
+  //   let existingValues = JSON.parse(JSON.stringify(dropDownItems));
+  //   existingValues[dropDownItem] = value;
+  //   setDropDownItem(existingValues);
+  // };
   return (
     <Nav>
       <Container>
         <NavBetween>
           <WrapLogo>
-            <img src={Logo} />
+            <img src={Logo} alt="Logo Emasa" />
           </WrapLogo>
           <NavGrid>
             <MenuBar isOpen={isOpenBox} setOpenBox={setOpenBox} />

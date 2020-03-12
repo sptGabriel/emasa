@@ -1,5 +1,5 @@
 import React from 'react';
-import { FooterTop, FooterBottom, Container, Content } from './styles/footer';
+import { FooterTop, Container, Content } from './styles/footer';
 import { Footer } from 'app/globals/global_styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -8,7 +8,6 @@ import {
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
 import CallIcon from 'assets/images/callicon.png';
-import Logo from 'assets/images/test3.svg';
 const FooterMain = props => {
   return (
     <Footer>
@@ -56,7 +55,7 @@ const FooterMain = props => {
             </div>
             <div className="support">
               <div className="iconBg">
-                <img src={CallIcon} />
+                <img src={CallIcon} alt="Call Center Img" />
               </div>
               <div className="ouvidoria">
                 <h3>Ouvidoria</h3>

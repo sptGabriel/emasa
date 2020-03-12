@@ -124,7 +124,7 @@ export const WrapAcessibility = styled.div`
     flex-wrap: wrap;
     height: auto;
   }
-  a {
+  button {
     display: flex;
     align-items: center;
     height: 100%;

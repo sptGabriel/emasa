@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Content,
   Container,
   CarouselWrap,
   SlideBg,
@@ -8,8 +7,6 @@ import {
   DigitalServices,
   NewsSection,
   GallerySection,
-  FirstWrap,
-  SliderGallery,
   BiddingProcess,
   TeamEmasa,
   TeamCard,
@@ -185,47 +182,74 @@ const GalleryPictures = props => {
         <div className="grid_gallery">
           <div className="gallery_item">
             <div className="bg">
-              <img src="https://tomribeiro.blog.br/assets/2018/03/650x375_centro-de-tratamento-da-embasa-em-itabuna_1649597.jpg"></img>
+              <img
+                src="https://tomribeiro.blog.br/assets/2018/03/650x375_centro-de-tratamento-da-embasa-em-itabuna_1649597.jpg"
+                alt="Eta"
+              />
             </div>
           </div>
           <div className="gallery_item">
             <div className="bg">
-              <img src="https://tomribeiro.blog.br/assets/2018/03/650x375_centro-de-tratamento-da-embasa-em-itabuna_1649597.jpg"></img>
+              <img
+                src="https://tomribeiro.blog.br/assets/2018/03/650x375_centro-de-tratamento-da-embasa-em-itabuna_1649597.jpg"
+                alt="Sede Administrativa"
+              />
             </div>
           </div>
           <div className="gallery_item">
             <div className="bg">
-              <img src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"></img>
+              <img
+                src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"
+                alt="EO Emasa"
+              />
             </div>
           </div>
           <div className="gallery_item">
             <div className="bg">
-              <img src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"></img>
+              <img
+                src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"
+                alt="img_01"
+              />
             </div>
           </div>
           <div className="gallery_item">
             <div className="bg">
-              <img src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"></img>
+              <img
+                src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"
+                alt="img_01"
+              />
             </div>
           </div>
           <div className="gallery_item">
             <div className="bg">
-              <img src="https://tomribeiro.blog.br/assets/2018/03/650x375_centro-de-tratamento-da-embasa-em-itabuna_1649597.jpg"></img>
+              <img
+                src="https://tomribeiro.blog.br/assets/2018/03/650x375_centro-de-tratamento-da-embasa-em-itabuna_1649597.jpg"
+                alt="img_01"
+              />
             </div>
           </div>
           <div className="gallery_item">
             <div className="bg">
-              <img src="https://tomribeiro.blog.br/assets/2018/03/650x375_centro-de-tratamento-da-embasa-em-itabuna_1649597.jpg"></img>
+              <img
+                src="https://tomribeiro.blog.br/assets/2018/03/650x375_centro-de-tratamento-da-embasa-em-itabuna_1649597.jpg"
+                alt="img_01"
+              />
             </div>
           </div>
           <div className="gallery_item">
             <div className="bg">
-              <img src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"></img>
+              <img
+                src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"
+                alt="img_01"
+              />
             </div>
           </div>
           <div className="gallery_item">
             <div className="bg">
-              <img src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"></img>
+              <img
+                src="https://www.emasaitabuna.com.br/wp-content/uploads/2018/10/emasa-EO.jpg"
+                alt="img_01"
+              />
             </div>
           </div>
           <div className="gallery_item">
@@ -362,7 +386,7 @@ const Services = props => {
           <div className="slider_digital">
             <div className="card_services">
               <div className="digitalservices_bg">
-                <img src={segunda} />
+                <img src={segunda} alt="Serviços Emasa" />
               </div>
               <h3>Segunda Via de Conta</h3>
             </div>
@@ -370,7 +394,7 @@ const Services = props => {
           <div className="slider_digital">
             <div className="card_services">
               <div className="digitalservices_bg">
-                <img src={segunda} />
+                <img src={segunda} alt="Serviços Emasa" />
               </div>
               <h3>Segunda Via de Conta</h3>
             </div>
@@ -378,7 +402,7 @@ const Services = props => {
           <div className="slider_digital">
             <div className="card_services">
               <div className="digitalservices_bg">
-                <img src={segunda} />
+                <img src={segunda} alt="Serviços Emasa" />
               </div>
               <h3>Segunda Via de Conta</h3>
             </div>
@@ -386,7 +410,7 @@ const Services = props => {
           <div className="slider_digital">
             <div className="card_services">
               <div className="digitalservices_bg">
-                <img src={segunda} />
+                <img src={segunda} alt="Serviços Emasa" />
               </div>
               <h3>Segunda Via de Conta</h3>
             </div>
@@ -394,7 +418,7 @@ const Services = props => {
           <div className="slider_digital">
             <div className="card_services">
               <div className="digitalservices_bg">
-                <img src={segunda} />
+                <img src={segunda} alt="Serviços Emasa" />
               </div>
               <h3>Segunda Via de Conta</h3>
             </div>
@@ -402,7 +426,7 @@ const Services = props => {
           <div className="slider_digital">
             <div className="card_services">
               <div className="digitalservices_bg">
-                <img src={segunda} />
+                <img src={segunda} alt="Serviços Emasa" />
               </div>
               <h3>Segunda Via de Conta</h3>
             </div>
