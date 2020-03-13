@@ -4,6 +4,27 @@ import { mxw80, flexRowBet } from '../../../globals/global_styles';
 // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 import { shade } from 'polished';
 
+const DropDownHeight = keyframes`
+from { 
+  height:0;
+  opacity:0;
+}
+to   { 
+  height:auto;
+  opacity:1;
+}
+`;
+
+const DropDownItemKey = keyframes`
+from { 
+
+  opacity:0;
+}
+to   { 
+  opacity:1;
+}
+`;
+
 const KeySearch = keyframes`
 from { 
   z-index:2;
@@ -209,6 +230,34 @@ export const PopUp = styled.div`
 `;
 
 //Finished
+//dropdown
+export const DropDown = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  top: calc(100% + 29px);
+  right: auto !important;
+  background-color: white;
+  font-weight: bold;
+  position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+`;
+export const DropDownItem = styled.li`
+  padding: 8px 16px;
+  border-bottom: 1px solid #e5e5e5;
+  :hover {
+    background-color: #e5e5e5;
+    color: white;
+  }
+  :last-nth-of-type {
+    border-bottom: none;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+`;
 
 // nav Main
 // or F79824 or  FDCA40
@@ -308,34 +357,6 @@ export const NavLi = styled.li`
   position: relative;
   display: flex;
   justify-content: center;
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    top: calc(100% + 29px);
-    right: auto !important;
-    background-color: white;
-    font-weight: bold;
-    position: absolute;
-
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-  ul > li > a {
-    color: #000;
-    text-decoration: none;
-  }
-  ul > li {
-    padding: 8px 16px;
-    border-bottom: 1px solid #e5e5e5;
-    :hover {
-      background-color: #e5e5e5;
-      color: white;
-    }
-  }
-  ul > li:last-child {
-    border-bottom: none;
-  }
 `;
 export const WrapLogo = styled.div`
   width: 30%;

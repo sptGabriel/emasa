@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Header,
   TopNav,
@@ -17,6 +17,8 @@ import {
   NavBetween,
   SearchWrapper,
   NavGrid,
+  DropDown,
+  DropDownItem,
 } from './styles/Desktop';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -33,7 +35,7 @@ import Logo from 'assets/images/test3.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from 'redux/slices/popupMenu';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import OnOutsiceClick from 'react-outclick';
 const DropDownPopUp = props => {
   return (
     <PopUp id="popup" {...props}>
@@ -114,19 +116,31 @@ const NavTop = props => {
   );
 };
 
-const MenuItem = ({ tag, visibleMenu }) => {
+const MenuItem = ({ tag, visibleMenu, setVisible, index }) => {
   const { name, link, dropdownItems } = tag;
-  console.log(dropdownItems, 'tag');
+  const handleClick = index => {
+    if (visibleMenu === index) return setVisible('none');
+    return setVisible(index);
+  };
+  const click = () => {
+    return setVisible('none');
+  };
+
   return (
-    <NavLi>
-      <Link to={link}>{name}</Link>
-      {visibleMenu[name] &&
-        dropdownItems &&
-        dropdownItems.map(item => (
-          <ul>
-            <li>{item}</li>
-          </ul>
-        ))}
+    <NavLi onClick={() => handleClick(index)}>
+      <a>{name}</a>
+      {visibleMenu && dropdownItems ? (
+        <DropDown>
+          {dropdownItems.map(item => (
+            <DropDownItem key={item.name}>
+              <a href={item.link}>{item.name}</a>
+            </DropDownItem>
+          ))}
+          <OnOutsiceClick onOutsideClick={click} />
+        </DropDown>
+      ) : (
+        ''
+      )}
     </NavLi>
   );
 };
@@ -136,40 +150,32 @@ const MenuBar = props => {
     {
       name: 'home',
       link: '/',
-      dropdownItems: {
-        names: ['one', 'two', 'three'],
-        link: ['/aa', '/b'],
-      },
+      dropdownItems: [
+        { name: 'one', link: '/aa' },
+        { name: 'two', link: '/b/' },
+      ],
     },
     {
       name: 'about',
       link: '../abovisibleMenuut',
-      dropdownItems: {
-        names: ['one', 'two', 'three'],
-        link: ['/aa', '/b'],
-      },
+      dropdownItems: [
+        { name: 'one', link: '/aa' },
+        { name: 'two', link: '/b/' },
+      ],
     },
     { name: 'not dropdown', link: '../dashboard' },
     { name: 'not dropdown', link: '../dashboard/about' },
   ];
-  const [visibleMenu, setVisibleMenu] = useState(
-      MenuTags.reduce((r, e) => ((r[e.name] = false), r), {}),
-    ),
-    onUpdateVisibility = item => {
-      const visibleMenuCopy = { ...visibleMenu };
-      Object.keys(visibleMenuCopy).forEach(
-        key => (visibleMenuCopy[key] = key === item),
-      );
-      setVisibleMenu(visibleMenuCopy);
-    };
-  console.log(visibleMenu);
+  const [visible, setVisible] = useState('none');
   return (
     <NavUl isOpen={props.isOpen}>
-      {MenuTags.map(item => (
+      {MenuTags.map((item, index) => (
         <MenuItem
+          key={index}
+          index={index}
           tag={item}
-          visibleMenu={visibleMenu}
-          onClick={() => onUpdateVisibility(item)}
+          setVisible={setVisible}
+          visibleMenu={visible === index ? true : false}
         />
       ))}
       <li>

@@ -14,7 +14,6 @@ const Layout = () => {
   const dispatch = useDispatch();
   const { popUpIsOpen } = useSelector(RootState => RootState.togglePopUp);
   const { sideIsOpen } = useSelector(RootState => RootState.toggleSide);
-  console.log(popUpIsOpen);
   return (
     <GlobalContainer>
       <Overlay

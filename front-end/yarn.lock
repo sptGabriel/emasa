@@ -9737,6 +9737,11 @@ react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
 
+react-outclick@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-outclick/-/react-outclick-0.0.2.tgz#ace7c0279374d3c77f8320f5fb91af4d3d998cf9"
+  integrity sha512-sqqdidI3aIIcyRfm8ZmnOO0i8BSWujn5s8hc5pU25DFCXzNhSMyLyK+CveMj/EKP5/iiFfTp3Hiz00iXyMNRAA==
+
 react-redux@^7.2.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.0.tgz#f970f62192b3981642fec46fd0db18a074fe879d"
