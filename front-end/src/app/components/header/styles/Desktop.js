@@ -235,16 +235,28 @@ export const DropDown = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
-  top: calc(100% + 29px);
+  top: 100%;
   right: auto !important;
   background-color: white;
-  font-weight: bold;
+  font-weight: 400;
   position: absolute;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-top: 2px solid #0043d8;
   z-index: 1;
+  :before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 10px solid #0043d8;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
 `;
 export const DropDownItem = styled.li`
-  padding: 8px 16px;
+  padding: 8px 30px;
   border-bottom: 1px solid #e5e5e5;
   :hover {
     background-color: #e5e5e5;
@@ -254,8 +266,21 @@ export const DropDownItem = styled.li`
     border-bottom: none;
   }
   a {
-    color: #000;
+    width: auto;
+    white-space: nowrap;
+    flex-direction: row;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
     text-decoration: none;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.6);
+    :hover {
+      color: #cdcdcd;
+      transition-duration: 0.5s;
+      transition-property: background-color, color;
+    }
   }
 `;
 
@@ -289,7 +314,6 @@ export const NavUl = styled.ul`
   width: 100%;
   height: 100%;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: flex-end;
   ${props => {
     if (props.isOpen === true) {
@@ -317,7 +341,14 @@ export const NavUl = styled.ul`
     cursor: pointer;
     margin-left: 10px;
   }
-  a {
+`;
+export const NavLi = styled.li`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  & .active {
     font-family: 'Poppins', sans-serif;
     font-size: 0.8em;
     font-weight: bold;
@@ -326,7 +357,37 @@ export const NavUl = styled.ul`
     display: inline-block;
     position: relative;
     color: rgba(0, 0, 0, 0.6);
-    padding: 0px 15px;
+    padding: 0px 12px;
+    line-height: 24px;
+    color:#004EA8;
+    ::after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: 0;
+      content: '';
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+      height: 2px;
+      position: absolute;
+      background: #004fff;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      width: 50%;
+    }
+    :hover{
+      color: #004fff;
+    }
+    }
+  }
+  & .notactive {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: inline-block;
+    position: relative;
+    color: rgba(0, 0, 0, 0.6);
+    padding: 0px 12px;
     line-height: 24px;
     ::after {
       background: none repeat scroll 0 0 transparent;
@@ -334,7 +395,8 @@ export const NavUl = styled.ul`
       content: '';
       display: block;
       height: 2px;
-      left: calc(50% - 15px);
+      left: 50%;
+      transform: translateX(-50%);
       position: absolute;
       background: #004fff;
       transition: width 0.3s ease 0s, left 0.3s ease 0s;
@@ -346,17 +408,12 @@ export const NavUl = styled.ul`
       transition-property: background-color, color;
     }
     :hover:after {
-      width: 100%;
-      left: 0;
+      width: 50%;
+      left: 50%;
       transition-duration: 0.5s;
       transition-property: width;
     }
   }
-`;
-export const NavLi = styled.li`
-  position: relative;
-  display: flex;
-  justify-content: center;
 `;
 export const WrapLogo = styled.div`
   width: 30%;

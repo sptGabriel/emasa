@@ -294,8 +294,6 @@ export const BiddingProcess = styled.div`
     font-family: 'Poppins', sans-serif;
   }
   & .moreinfos{
-    background:red;
-    
     button{
       width:100px;
       display:flex !important;

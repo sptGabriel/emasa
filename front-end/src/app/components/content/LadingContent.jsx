@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Container,
   CarouselWrap,
@@ -22,6 +22,13 @@ import {
 import { faImages } from '@fortawesome/free-regular-svg-icons';
 import segunda from 'assets/images/2via.png';
 import avatar from 'assets/images/avatar.jpg';
+import Modal from 'react-modal';
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from 'body-scroll-lock';
+
 const TeamPreview = props => {
   var settings = {
     dots: false,
@@ -87,6 +94,40 @@ const TeamPreview = props => {
   );
 };
 const Bidding = props => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const openModal = () => {
+    setIsOpen(true);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const targetRef = useRef();
+  const targetElement = null;
+
+  useEffect(() => (targetElement = targetRef.current), [targetElement]);
+
+  showTargetElement = () => {
+    disableBodyScroll(targetElement);
+  };
+
+  hideTargetElement = () => {
+    enableBodyScroll(targetElement);
+  };
+
+  const customStyles = {
+    content: {
+      top: '44%',
+      left: '50%',
+      width: '65vw',
+      height: '60vh',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      boxShadow: '0px 0px 33px 4px rgba(0, 0, 0, 0.125)',
+    },
+  };
   return (
     <Container>
       <BiddingProcess>
@@ -134,9 +175,19 @@ const Bidding = props => {
               </p>
             </div>
             <div className="moreinfos">
-              <button>
-                <p>SAIBA MAIS</p>
+              <button onClick={openModal}>
+                <p>SAIBA MAISS</p>
               </button>
+              <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={customStyles}
+                contentLabel="Example Modal"
+                shouldFocusAfterRender={false}
+              >
+                <button onClick={closeModal}>close</button>
+                Modal
+              </Modal>
             </div>
           </div>
           <div className="row_item">

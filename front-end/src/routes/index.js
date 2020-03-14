@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import Header from 'app/components/header/index';
 import { GlobalContainer, Content } from 'app/globals/global_styles';
-import { Overlay } from 'app/globals/global_styles';
+import { Overlay, BlurEffect } from 'app/globals/global_styles';
 import Footer from 'app/components/footer/Footer';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from 'redux/slices/popupMenu';
@@ -15,13 +15,14 @@ const Layout = () => {
   const { popUpIsOpen } = useSelector(RootState => RootState.togglePopUp);
   const { sideIsOpen } = useSelector(RootState => RootState.toggleSide);
   return (
-    <GlobalContainer>
+    <GlobalContainer pop={popUpIsOpen ? popUpIsOpen : sideIsOpen}>
       <Overlay
         onClick={() =>
           popUpIsOpen ? dispatch(toggle()) : dispatch(toggleSide())
         }
         pop={popUpIsOpen ? popUpIsOpen : sideIsOpen}
       />
+      {/* <BlurEffect pop={popUpIsOpen} /> */}
       <GlobalStyle pop={popUpIsOpen} />
       <Header />
       <Content>{Outlet() ? <Outlet /> : <LadingContent />}</Content>

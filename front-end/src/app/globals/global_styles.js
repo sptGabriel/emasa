@@ -46,6 +46,18 @@ export const flexRowBet = props => css`
   align-items: center;
   justify-content: ${props.justify};
 `;
+export const BlurEffect = styled.div`
+  visibility: ${props => (props.pop ? 'visible ' : 'hidden')};
+  opacity: ${props => (props.pop ? '0.5' : '0')};
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: red;
+  filter: blur(10px);
+  z-index: -1;
+`;
 
 export const Overlay = styled.div`
   visibility: ${props => (props.pop ? 'visible ' : 'hidden')};
@@ -63,6 +75,7 @@ export const Overlay = styled.div`
 export const GlobalContainer = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   min-height: 100vh;
   width: 100%;
   max-width: 100%;
