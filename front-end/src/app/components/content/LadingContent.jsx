@@ -103,17 +103,17 @@ const Bidding = props => {
   };
 
   const targetRef = useRef();
-  const targetElement = null;
 
-  useEffect(() => (targetElement = targetRef.current), [targetElement]);
-
-  showTargetElement = () => {
-    disableBodyScroll(targetElement);
-  };
-
-  hideTargetElement = () => {
-    enableBodyScroll(targetElement);
-  };
+  useEffect(() => {
+    if (modalIsOpen === true) {
+      disableBodyScroll(targetRef);
+    } else {
+      enableBodyScroll(targetRef);
+    }
+    return () => {
+      clearAllBodyScrollLocks();
+    };
+  }, [modalIsOpen]);
 
   const customStyles = {
     content: {
@@ -176,9 +176,10 @@ const Bidding = props => {
             </div>
             <div className="moreinfos">
               <button onClick={openModal}>
-                <p>SAIBA MAISS</p>
+                <p>SAIBA MAIS</p>
               </button>
               <Modal
+                ref={targetRef}
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 style={customStyles}

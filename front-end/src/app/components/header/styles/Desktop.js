@@ -353,6 +353,7 @@ export const NavLi = styled.li`
     font-size: 0.8em;
     font-weight: bold;
     text-decoration: none;
+    text-transform:uppercase; 
     letter-spacing: 1px;
     display: inline-block;
     position: relative;
@@ -383,6 +384,7 @@ export const NavLi = styled.li`
     font-size: 0.8em;
     font-weight: bold;
     text-decoration: none;
+    text-transform:uppercase; 
     letter-spacing: 1px;
     display: inline-block;
     position: relative;
