@@ -59,3 +59,10 @@ services:
       PGADMIN_DEFAULT_EMAIL: emasa@emasa.com
       PGADMIN_DEFAULT_PASSWORD: admin
 
+
+  web:
+    image: web_server_emasa
+    depends_on:
+      - postgres
+    ports:
+      - "4000:4000"

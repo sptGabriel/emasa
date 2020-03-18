@@ -19,15 +19,19 @@ __decorate([
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], User.prototype, "firstName", void 0);
+], User.prototype, "name", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], User.prototype, "lastName", void 0);
+], User.prototype, "email", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Number)
 ], User.prototype, "age", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", typeorm_1.Timestamp)
+], User.prototype, "register_at", void 0);
 User = __decorate([
     typeorm_1.Entity()
 ], User);

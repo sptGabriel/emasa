@@ -19,12 +19,13 @@ exports.resolvers = {
     },
     Mutation: {
         addUser: (_, args) => __awaiter(void 0, void 0, void 0, function* () {
-            const { firstName, lastName, age } = args;
+            const { name, email, age, register_at } = args;
             try {
                 const user = User_1.User.create({
-                    firstName,
-                    lastName,
-                    age
+                    name,
+                    email,
+                    age,
+                    register_at
                 });
                 yield user.save();
                 return true;

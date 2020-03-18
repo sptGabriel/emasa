@@ -16,6 +16,7 @@ require("reflect-metadata");
 const typeorm_1 = require("typeorm");
 const express_1 = __importDefault(require("express"));
 const apollo_server_express_1 = require("apollo-server-express");
+const cors_1 = __importDefault(require("cors"));
 const typeDefs_1 = require("./typeDefs");
 const resolvers_1 = require("./resolvers");
 const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
@@ -24,21 +25,12 @@ const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
         resolvers: resolvers_1.resolvers,
         context: ({ req, res }) => ({ req, res })
     });
-    let retries = 5;
-    while (retries) {
-        try {
-            yield typeorm_1.createConnection();
-            break;
-        }
-        catch (err) {
-            console.log(err);
-            retries -= 1;
-            console.log(`retries left: ${retries}`);
-            yield new Promise(res => setTimeout(res, 5000));
-        }
-    }
+    yield typeorm_1.createConnection();
     const app = express_1.default();
-    server.applyMiddleware({ app });
+    app.use(cors_1.default());
+    server.applyMiddleware({
+        app
+    });
     app.listen({ port: 4000 }, () => console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`));
 });
 startServer();

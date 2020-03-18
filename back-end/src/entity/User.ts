@@ -6,11 +6,14 @@ export class User extends BaseEntity {
   id: number;
 
   @Column()
-  firstName: string;
+  name: string;
 
   @Column()
-  lastName: string;
+  email: string;
 
   @Column()
   age: number;
+
+  @Column()
+  register_at: Timestamp;
 }
