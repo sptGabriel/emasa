@@ -1,9 +1,9 @@
 {
   "type": "postgres",
-  "host": "db",
+  "host": "emasa-postgres",
   "port": 5432,
   "username": "postgres",
-  "password": "postgres",
+  "password": "emasa@",
   "database": "emasa",
   "synchronize": true,
   "logging": false,

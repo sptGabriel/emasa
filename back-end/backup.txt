@@ -1,0 +1,61 @@
+version: "3.7"
+services:
+  emasa-postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: emasa@
+      POSTGRES_USER: postgres
+      POSTGRES_DB: emasa
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres-compose-network
+  web:
+    image: emasa-web
+    depends_on:
+      - emasa-postgres
+    ports:
+      - "4000:4000"
+    networks:
+      - postgres-compose-network
+  teste-pgadmin-compose:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "emasa@hotmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "emasa"
+    ports:
+      - "16543:80"
+    depends_on:
+      - emasa-postgres
+    networks:
+      - postgres-compose-network
+
+networks:
+  postgres-compose-network:
+    driver: bridge
+
+
+
+
+version: "3.7"
+services:
+  postgres:
+    image: postgres:12
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: emasa
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - 5050:80x
+    environment:
+      PGADMIN_DEFAULT_EMAIL: emasa@emasa.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+
