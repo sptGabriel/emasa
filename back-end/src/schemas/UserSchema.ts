@@ -11,8 +11,8 @@ export const typeDef = gql`
   extend type Mutation {
     addUser(
       name: String!
-      email: String
-      age: Int
+      email: String!
+      age: Int!
       register_at: TimeStamp!
     ): Boolean!
   }
@@ -21,7 +21,10 @@ export const typeDef = gql`
     name: String!
     email: String!
     age: Int!
+    login: String!
+    password: String!
     register_at: TimeStamp!
+    updated_at: TimeStamp!
   }
 `;
 

@@ -15,5 +15,14 @@ export class User extends BaseEntity {
   age: number;
 
   @Column()
-  register_at: Timestamp;
+  login: string;
+
+  @Column()
+  password: string;
+
+  @Column("timestamp")
+  register_at: Date;
+
+  @Column("timestamp")
+  updated_at: Date;
 }
