@@ -18,13 +18,10 @@ export const typeDef = gql`
   }
   type User {
     id: Int!
-    name: String!
-    email: String!
-    age: Int!
     login: String!
     password: String!
-    register_at: TimeStamp!
-    updated_at: TimeStamp!
+    created: date
+    updated: date
   }
 `;
 
@@ -39,13 +36,11 @@ export const resolvers = {
   },
   Mutation: {
     addUser: async (_: any, args: any) => {
-      const { name, email, age, register_at } = args;
+      const { login, password } = args;
       try {
         const user = User.create({
-          name,
-          email,
-          age,
-          register_at
+          login,
+          password
         });
 
         await user.save();
