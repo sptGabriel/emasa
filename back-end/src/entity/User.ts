@@ -7,28 +7,22 @@ import {
   BaseEntity
 } from "typeorm";
 
-import { ObjectType, Field, ID, Root } from "type-graphql";
+import { ObjectType, Field, Int } from "type-graphql";
 
 @ObjectType()
 @Entity()
 export class User extends BaseEntity {
-  @Field(() => ID)
+  @Field(() => Int)
   @PrimaryGeneratedColumn()
   id: number;
 
   @Field()
-  @Column()
+  @Column("text")
   login: string;
 
-  @Field()
-  @Column()
+  @Column("text")
   password: string;
 
-  @Field()
-  @CreateDateColumn()
-  created: Date;
-
-  @Field()
-  @UpdateDateColumn()
-  updated: Date;
+  @Column("int", { default: 0 })
+  tokenVersion: number;
 }
